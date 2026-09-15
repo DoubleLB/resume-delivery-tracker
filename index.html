@@ -492,7 +492,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
 
 /* ============ Toast ============ */
 .toast-message{
-  position:fixed;right:26px;bottom:26px;z-index:100;
+  position:fixed;left:50%;top:50%;z-index:100;
   padding:13px 20px;
   border-radius:12px;
   background:#0f2a1e;
@@ -500,12 +500,16 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
   font-size:14px;font-weight:700;
   box-shadow:0 16px 40px rgba(15,42,30,.35);
   border:1px solid rgba(74,222,128,.35);
-  opacity:0;transform:translateY(14px);
+  opacity:0;transform:translate(-50%,-45%) scale(.96);
   pointer-events:none;
   transition:opacity .22s ease,transform .22s ease;
 }
-.toast-message.show{opacity:1;transform:none;}
+.toast-message.show{opacity:1;transform:translate(-50%,-50%) scale(1);}
 .toast-message::before{content:"✓  ";color:#4ade80;font-weight:800;}
+.toast-message.is-error{background:#fff1f2;color:#9f1239;border-color:#fda4af;box-shadow:0 16px 40px rgba(159,18,57,.22);}
+.toast-message.is-error::before{content:"✕  ";color:#be123c;}
+.toast-message.is-info{background:#eff6ff;color:#1d4ed8;border-color:#93c5fd;box-shadow:0 16px 40px rgba(29,78,216,.2);}
+.toast-message.is-info::before{content:"i  ";color:#1d4ed8;}
 
 .muted{color:var(--faint);font-size:13px;}
 
@@ -700,7 +704,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
 
   <details class="github-sync-card" id="githubSyncCard">
     <summary>GitHub 自动同步 <span class="github-sync-status" id="githubSyncStatus">未配置</span></summary>
-    <p class="github-sync-help">GitHub 的 <code>data.json</code> 是唯一数据源。未配置令牌时仅可查看和导出；配置具备写入权限的令牌后才能新增、修改、导入并同步。令牌仅保存在当前浏览器中，不会写进网页或上传到仓库。</p>
+    <p class="github-sync-help">退出后重新登录时会从 GitHub 的 <code>data.json</code> 读取最新记录；本机修改只保存在当前浏览器，点击“立即同步”才会合并并上传。令牌仅保存在当前浏览器中，不会写进网页或上传到仓库。</p>
     <div class="github-sync-grid">
       <div class="form-item">
         <label for="githubRepo">GitHub 仓库</label>
@@ -716,7 +720,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
       </div>
     </div>
     <div class="github-sync-actions">
-      <button class="btn-github-save" id="saveGithubConfig" type="button">保存配置并同步</button>
+      <button class="btn-github-save" id="saveGithubConfig" type="button">保存令牌配置</button>
       <button class="btn-github-sync" id="syncGithubNow" type="button">立即同步</button>
     </div>
   </details>
@@ -865,23 +869,20 @@ const ACCOUNTS_KEY = "resume_delivery_accounts";
 const CURRENT_USER_KEY = "resume_delivery_current_user";
 const GITHUB_CONFIG_KEY = "resume_delivery_github_config";
 const GITHUB_DELETED_KEY = "resume_delivery_deleted_records";
-const REMOTE_BASELINE_KEY = "resume_delivery_remote_baseline";
 const DEFAULT_GITHUB_REPO = "DoubleLB/resume-delivery-tracker";
-const GITHUB_REFRESH_INTERVAL_MS = 15000;
-const REMOTE_BASELINE_VERSION = "github-source-of-truth-20260916";
 let editId = null;
 let tableEditId = null;
 let toastTimer = null;
-let githubSyncTimer = null;
 let githubSyncRunning = false;
 let githubSyncQueued = false;
 let githubChangesPending = false;
 let applyingRemoteData = false;
 let authMode = 'login';
 
-function showToast(message){
+function showToast(message, type = 'success'){
     const toast = document.getElementById('toastMessage');
     toast.textContent = message;
+    toast.className = `toast-message is-${type}`;
     toast.classList.add('show');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
@@ -922,7 +923,7 @@ function saveList(arr, {skipGithubSync = false, replaceAll = false} = {}){
     localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
     if(!skipGithubSync && !applyingRemoteData){
         githubChangesPending = true;
-        scheduleGithubSync();
+        setGithubSyncStatus('本机修改待同步', 'working');
     }
 }
 
@@ -939,7 +940,7 @@ function saveAccounts(accounts, {markForSync = false} = {}){
     localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
     if(markForSync && !applyingRemoteData){
         githubChangesPending = true;
-        scheduleGithubSync();
+        setGithubSyncStatus('本机修改待同步', 'working');
     }
 }
 
@@ -983,18 +984,10 @@ function getGithubConfig(){
     }
 }
 
-function needsRemoteBaseline(){
-    return localStorage.getItem(REMOTE_BASELINE_KEY) !== REMOTE_BASELINE_VERSION;
-}
-
-function markRemoteBaseline(){
-    localStorage.setItem(REMOTE_BASELINE_KEY, REMOTE_BASELINE_VERSION);
-}
-
 function ensureGithubWriteAccess(){
     if(getGithubConfig().token) return true;
     setGithubSyncStatus('只读模式：请配置令牌后编辑', 'error');
-    showToast('未配置 GitHub 令牌：当前仅可查看和导出，不能修改或同步。');
+    showToast('E_GH_TOKEN_REQUIRED：请先配置 GitHub 写入令牌。', 'error');
     return false;
 }
 
@@ -1146,8 +1139,13 @@ async function fetchGithubFile(config){
     };
     const headers = config.token ? {...publicHeaders, Authorization: `Bearer ${config.token}`} : publicHeaders;
     const readRawPublicFile = async () => {
-        const rawResponse = await fetch(rawUrl, {cache: 'no-store'});
-        if(!rawResponse.ok) throw new Error(`读取失败（${rawResponse.status}）`);
+        let rawResponse;
+        try{
+            rawResponse = await fetch(rawUrl, {cache: 'no-store'});
+        }catch(error){
+            throw new Error('E_GH_NETWORK：无法连接 GitHub 数据文件');
+        }
+        if(!rawResponse.ok) throw new Error(`E_GH_READ_${rawResponse.status}：无法读取 GitHub 数据文件`);
         return {sha: null, payload: parseRemotePayload(await rawResponse.text()), canWrite: false};
     };
     // 无令牌的设备直接读取公开 Raw 文件，避免消耗 GitHub 匿名 API 配额。
@@ -1172,126 +1170,95 @@ async function fetchGithubFile(config){
 }
 
 async function writeGithubFile(config, payload, sha){
-    const response = await fetch(`https://api.github.com/repos/${config.repo}/contents/data.json`, {
-        method: 'PUT',
-        headers: {
-            'Accept': 'application/vnd.github+json',
-            'Authorization': `Bearer ${config.token}`,
-            'Content-Type': 'application/json',
-            'X-GitHub-Api-Version': '2022-11-28'
-        },
-        body: JSON.stringify({
-            message: `同步投递记录 ${new Date().toLocaleString('zh-CN', {hour12: false})}`,
-            content: toBase64(serialisePayload(payload)),
-            branch: config.branch,
-            ...(sha ? {sha} : {})
-        })
-    });
+    let response;
+    try{
+        response = await fetch(`https://api.github.com/repos/${config.repo}/contents/data.json`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/vnd.github+json',
+                'Authorization': `Bearer ${config.token}`,
+                'Content-Type': 'application/json',
+                'X-GitHub-Api-Version': '2022-11-28'
+            },
+            body: JSON.stringify({
+                message: `同步投递记录 ${new Date().toLocaleString('zh-CN', {hour12: false})}`,
+                content: toBase64(serialisePayload(payload)),
+                branch: config.branch,
+                ...(sha ? {sha} : {})
+            })
+        });
+    }catch(error){
+        throw new Error('E_GH_NETWORK：无法连接 GitHub，未执行写入');
+    }
     if(response.status === 409 || response.status === 422) return false;
-    if(!response.ok) throw new Error(`保存失败（${response.status}）`);
+    if(!response.ok) throw new Error(`E_GH_WRITE_${response.status}：GitHub 拒绝写入 data.json`);
     return true;
+}
+
+async function loadGithubDataForLogin(){
+    const config = getGithubConfig();
+    if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(config.repo)){
+        throw new Error('E_GH_CONFIG_INVALID：仓库格式应为 用户名/仓库名');
+    }
+    const remote = await fetchGithubFile(config);
+    applyRemotePayload(remote.payload);
+    setGithubSyncStatus(remote.canWrite ? '已载入 GitHub 数据' : '只读：已载入 GitHub 数据', 'ready');
+    return remote;
 }
 
 async function syncWithGithub({showResult = false} = {}){
     const config = getGithubConfig();
     if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(config.repo)){
-        setGithubSyncStatus('仓库格式错误', 'error');
-        if(showResult) showToast('仓库格式应为：用户名/仓库名');
-        return;
+        const message = 'E_GH_CONFIG_INVALID：仓库格式应为 用户名/仓库名';
+        setGithubSyncStatus(message, 'error');
+        if(showResult) showToast(message, 'error');
+        return false;
+    }
+    if(!config.token){
+        const message = 'E_GH_TOKEN_REQUIRED：请配置 GitHub 写入令牌后再同步';
+        setGithubSyncStatus(message, 'error');
+        if(showResult) showToast(message, 'error');
+        return false;
     }
     if(githubSyncRunning){
         githubSyncQueued = true;
-        return;
+        return false;
     }
     githubSyncRunning = true;
     setGithubSyncStatus('正在同步…', 'working');
     try{
-        if(!config.token){
-            const remote = await fetchGithubFile(config);
-            applyRemotePayload(remote.payload);
-            markRemoteBaseline();
-            render();
-            setGithubSyncStatus('只读模式：已载入 GitHub 数据', 'ready');
-            if(showResult) showToast('已载入 GitHub 数据；配置令牌后才能编辑和同步');
-            return;
-        }
         const hadPendingChanges = githubChangesPending;
-        let wroteMergedChanges = false;
         let synced = false;
         for(let attempt = 0; attempt < 3 && !synced; attempt++){
             const remote = await fetchGithubFile(config);
-            // 发布“GitHub 为唯一数据源”的版本后，先统一清除各浏览器的旧缓存差异。
-            if(needsRemoteBaseline()){
-                applyRemotePayload(remote.payload);
-                markRemoteBaseline();
-                render();
-                if(!remote.canWrite){
-                    setGithubSyncStatus('只读模式：令牌无效，已载入 GitHub 数据', 'ready');
-                    if(showResult) showToast('令牌无效：已只读载入 GitHub 数据');
-                    return;
-                }
-                synced = true;
-                break;
+            if(!remote.canWrite){
+                throw new Error('E_GH_TOKEN_INVALID：令牌无效或没有 data.json 写入权限');
             }
             const merged = mergeRecords(remote.payload, getStoredList(), getDeletedRecords(), getAccounts());
-            applyingRemoteData = true;
-            saveList(merged.records, {skipGithubSync: true, replaceAll: true});
-            saveDeletedRecords(merged.deletedRecords);
-            saveAccounts(merged.accounts);
-            applyingRemoteData = false;
-            if(!remote.canWrite){
-                applyRemotePayload(remote.payload);
-                render();
-                setGithubSyncStatus('只读模式：令牌无效，已载入 GitHub 数据', 'ready');
-                if(showResult) showToast('令牌无效：已只读载入 GitHub 数据');
-                return;
-            }
-            // 没有待同步内容且合并结果与远端相同，只拉取数据，不创建无意义提交。
-            const shouldWrite = githubChangesPending || payloadFingerprint(merged) !== payloadFingerprint(remote.payload);
-            if(!shouldWrite){
-                synced = true;
-                break;
-            }
             const written = await writeGithubFile(config, merged, remote.sha);
             if(written){
                 synced = true;
-                wroteMergedChanges = true;
+                applyRemotePayload(merged);
                 githubChangesPending = false;
             }
         }
-        if(!synced) throw new Error('检测到多设备同时保存，请稍后重试');
+        if(!synced) throw new Error('E_GH_CONFLICT：检测到多设备同时保存，请再次点击立即同步');
         render();
-        setGithubSyncStatus(hadPendingChanges || wroteMergedChanges ? '已同步' : '已检查最新数据', 'ready');
-        if(showResult) showToast(hadPendingChanges || wroteMergedChanges ? '已同步至 GitHub' : '已载入最新数据');
+        setGithubSyncStatus('已同步至 GitHub', 'ready');
+        if(showResult) showToast(hadPendingChanges ? '同步完成：本机修改已上传 GitHub' : '同步完成：已合并 GitHub 最新数据');
+        return true;
     }catch(error){
         applyingRemoteData = false;
-        setGithubSyncStatus(error.message || '同步失败', 'error');
-        if(showResult) showToast(error.message || 'GitHub 同步失败');
+        const message = error.message || 'E_GH_UNKNOWN：GitHub 同步失败';
+        setGithubSyncStatus(message, 'error');
+        if(showResult) showToast(message, 'error');
+        return false;
     }finally{
         githubSyncRunning = false;
         if(githubSyncQueued){
             githubSyncQueued = false;
-            scheduleGithubSync();
         }
     }
-}
-
-function scheduleGithubSync(delay = 900){
-    clearTimeout(githubSyncTimer);
-    githubSyncTimer = setTimeout(() => syncWithGithub(), delay);
-}
-
-function startGithubAutoRefresh(){
-    const refreshIfLoggedIn = () => {
-        if(getCurrentUser()) scheduleGithubSync(180);
-    };
-    window.addEventListener('focus', refreshIfLoggedIn);
-    document.addEventListener('visibilitychange', () => {
-        if(!document.hidden) refreshIfLoggedIn();
-    });
-    setInterval(() => {
-        if(!document.hidden) refreshIfLoggedIn();
-    }, GITHUB_REFRESH_INTERVAL_MS);
 }
 
 function getToday(){
@@ -1661,7 +1628,7 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
     const remark = document.getElementById('remark').value.trim();
 
     if(!company){
-        alert("请填写公司名称");
+        showToast('E_FORM_COMPANY_REQUIRED：请填写公司名称。', 'error');
         return;
     }
     const list = getList();
@@ -1683,7 +1650,7 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
     saveList(list);
     clearForm();
     render();
-    showToast(isEditing ? "投递记录已更新" : "投递记录已添加");
+    showToast(isEditing ? '记录已更新，点击“立即同步”后才会上传。' : '记录已添加，点击“立即同步”后才会上传。', 'info');
 })
 
 document.getElementById('resetForm').addEventListener('click',clearForm);
@@ -1718,7 +1685,7 @@ document.getElementById('fileInput').addEventListener('change',(e)=>{
         try{
             const importData = JSON.parse(ev.target.result);
             if(!Array.isArray(importData)){
-                alert("文件格式错误，请选择正确的备份json文件");
+                showToast('E_IMPORT_FORMAT：请选择正确的 JSON 备份文件。', 'error');
                 return;
             }
             if(!confirm(`确认导入，会覆盖当前全部${getList().length}条记录？`)){
@@ -1727,9 +1694,9 @@ document.getElementById('fileInput').addEventListener('change',(e)=>{
             const importedRecords = ensureRecordTimestamps(importData).map(record => ({...record, owner: getCurrentUser(), updatedAt: Date.now()}));
             saveList(importedRecords);
             render();
-            alert("导入成功！");
+            showToast('导入完成，点击“立即同步”后才会上传。', 'info');
         }catch(err){
-            alert("解析失败，不是有效的备份文件");
+            showToast('E_IMPORT_PARSE：文件无法解析为有效 JSON。', 'error');
         }
     }
     reader.readAsText(file);
@@ -1784,6 +1751,7 @@ document.getElementById('tableBody').addEventListener('change',function(e){
     e.target.className = `status-select ${getStatusClass(item.status)}`;
     updateStat();
     updateInsights();
+    showToast('状态已更新，点击“立即同步”后才会上传。', 'info');
 });
 
 document.getElementById('tableBody').addEventListener('click',function(e){
@@ -1803,7 +1771,7 @@ document.getElementById('tableBody').addEventListener('click',function(e){
         const getField = field => row.querySelector(`[data-field="${field}"]`).value.trim();
         const company = getField('company');
         if(!company){
-            alert("请填写公司名称");
+            showToast('E_FORM_COMPANY_REQUIRED：请填写公司名称。', 'error');
             return;
         }
         item.company = company;
@@ -1818,13 +1786,14 @@ document.getElementById('tableBody').addEventListener('click',function(e){
         saveList(list);
         tableEditId = null;
         render();
-        showToast("投递记录已更新");
+        showToast('记录已更新，点击“立即同步”后才会上传。', 'info');
     }else if(e.target.classList.contains('btn-del')){
         if(window.confirm('确定删除这条投递记录？')){
             const newList = list.filter(x=>String(x.id) !== String(id));
             markRecordDeleted(id);
             saveList(newList);
             render();
+            showToast('记录已删除，点击“立即同步”后才会上传。', 'info');
         }
     }
 })
@@ -1840,17 +1809,20 @@ document.getElementById('saveGithubConfig').addEventListener('click', () => {
     const branch = document.getElementById('githubBranch').value.trim() || 'main';
     const token = document.getElementById('githubToken').value.trim();
     if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repo)){
-        setGithubSyncStatus('仓库格式错误', 'error');
-        showToast('仓库格式应为：用户名/仓库名');
+        const message = 'E_GH_CONFIG_INVALID：仓库格式应为 用户名/仓库名';
+        setGithubSyncStatus(message, 'error');
+        showToast(message, 'error');
         return;
     }
     if(!token){
-        setGithubSyncStatus('请配置令牌', 'error');
-        showToast('请填写仅限该仓库的 GitHub 令牌');
+        const message = 'E_GH_TOKEN_REQUIRED：请填写仅限该仓库的 GitHub 令牌';
+        setGithubSyncStatus(message, 'error');
+        showToast(message, 'error');
         return;
     }
     localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify({repo, branch, token}));
-    syncWithGithub({showResult: true});
+    setGithubSyncStatus('令牌配置已保存，等待手动同步', 'ready');
+    showToast('令牌配置已保存；点击“立即同步”才会上传本机修改。', 'info');
 });
 
 document.getElementById('syncGithubNow').addEventListener('click', () => {
@@ -1866,33 +1838,48 @@ document.getElementById('authForm').addEventListener('submit', async event => {
     const username = document.getElementById('authUsername').value.trim();
     const password = document.getElementById('authPassword').value;
     if(!/^[A-Za-z0-9_-]{3,24}$/.test(username)){
-        setAuthMessage('用户名需为 3–24 位字母、数字、下划线或连字符。');
+        const message = 'E_AUTH_USERNAME：用户名需为 3–24 位字母、数字、下划线或连字符。';
+        setAuthMessage(message);
+        showToast(message, 'error');
         return;
     }
     if(password.length < 6){
-        setAuthMessage('密码至少需要 6 位。');
+        const message = 'E_AUTH_PASSWORD_LENGTH：密码至少需要 6 位。';
+        setAuthMessage(message);
+        showToast(message, 'error');
         return;
     }
     setAuthMessage('正在验证账户…');
-    await syncWithGithub();
+    try{
+        await loadGithubDataForLogin();
+    }catch(error){
+        setAuthMessage(error.message || 'E_GH_READ：无法读取 GitHub 账户数据。');
+        showToast(error.message || 'E_GH_READ：无法读取 GitHub 账户数据。', 'error');
+        return;
+    }
     const accounts = getAccounts();
     const passwordHash = await hashPassword(password);
     if(authMode === 'register'){
         if(accounts[username]){
-            setAuthMessage('该用户名已存在，请直接登录。');
+            const message = 'E_AUTH_EXISTS：该用户名已存在，请直接登录。';
+            setAuthMessage(message);
+            showToast(message, 'error');
             return;
         }
         if(!getGithubConfig().token){
-            setAuthMessage('注册需要先配置有效 GitHub 令牌，以便保存新账户。');
+            const message = 'E_GH_TOKEN_REQUIRED：注册需要先配置有效 GitHub 令牌。';
+            setAuthMessage(message);
+            showToast(message, 'error');
             return;
         }
         accounts[username] = {passwordHash, createdAt: new Date().toISOString()};
         saveAccounts(accounts, {markForSync: true});
         localStorage.setItem(CURRENT_USER_KEY, username);
-        await syncWithGithub({showResult: true});
     }else{
         if(!accounts[username] || accounts[username].passwordHash !== passwordHash){
-            setAuthMessage('用户名或密码不正确。');
+            const message = 'E_AUTH_CREDENTIALS：用户名或密码不正确。';
+            setAuthMessage(message);
+            showToast(message, 'error');
             return;
         }
         localStorage.setItem(CURRENT_USER_KEY, username);
@@ -1902,6 +1889,7 @@ document.getElementById('authForm').addEventListener('submit', async event => {
     clearForm();
     render();
     setAuthMessage();
+    if(authMode === 'register') showToast('账号已创建；点击“立即同步”后才会写入 GitHub。', 'info');
 });
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
@@ -1917,16 +1905,21 @@ window.onload = async function(){
     document.getElementById('githubBranch').value = githubConfig.branch;
     document.getElementById('githubToken').value = githubConfig.token;
     setAuthMode('login');
-    setAuthMessage('正在加载账号资料…');
-    await syncWithGithub();
+    if(!getCurrentUser()){
+        setAuthMessage('正在加载 GitHub 账号资料…');
+        try{
+            await loadGithubDataForLogin();
+            setAuthMessage('');
+        }catch(error){
+            setAuthMessage(error.message || 'E_GH_READ：无法读取 GitHub 账号资料。');
+        }
+    }
     document.getElementById('authSubmit').disabled = false;
-    setAuthMessage('');
     updateAuthUI();
     if(getCurrentUser()){
         clearForm();
         render();
     }
-    startGithubAutoRefresh();
 };
 </script>
 </body>
