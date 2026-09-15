@@ -1081,12 +1081,23 @@ function serialisePayload(payload){
 
 async function fetchGithubFile(config){
     const url = `https://api.github.com/repos/${config.repo}/contents/data.json?ref=${encodeURIComponent(config.branch)}`;
+    const rawUrl = `https://raw.githubusercontent.com/${config.repo}/${encodeURIComponent(config.branch)}/data.json`;
     const publicHeaders = {
         'Accept': 'application/vnd.github+json',
         'X-GitHub-Api-Version': '2022-11-28'
     };
     const headers = config.token ? {...publicHeaders, Authorization: `Bearer ${config.token}`} : publicHeaders;
-    let response = await fetch(url, {headers});
+    const readRawPublicFile = async () => {
+        const rawResponse = await fetch(rawUrl, {cache: 'no-store'});
+        if(!rawResponse.ok) throw new Error(`读取失败（${rawResponse.status}）`);
+        return {sha: null, payload: parseRemotePayload(await rawResponse.text()), canWrite: false};
+    };
+    let response;
+    try{
+        response = await fetch(url, {headers});
+    }catch(error){
+        return readRawPublicFile();
+    }
     let canWrite = Boolean(config.token);
     // 令牌失效或未授权时，公开仓库仍允许只读加载，避免本机旧令牌阻断页面显示。
     if(config.token && (response.status === 401 || response.status === 403)){
@@ -1094,7 +1105,8 @@ async function fetchGithubFile(config){
         canWrite = false;
     }
     if(response.status === 404) return {sha: null, payload: {version: 2, accounts: {}, records: [], deletedRecords: {}}, canWrite};
-    if(!response.ok) throw new Error(`读取失败（${response.status}）`);
+    // 匿名 API 可能触发速率限制；公开仓库改从 Raw 地址读取，确保其他设备仍可登录。
+    if(!response.ok) return readRawPublicFile();
     const file = await response.json();
     return {sha: file.sha, payload: parseRemotePayload(fromBase64(file.content)), canWrite};
 }
