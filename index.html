@@ -700,7 +700,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
 
   <details class="github-sync-card" id="githubSyncCard">
     <summary>GitHub 自动同步 <span class="github-sync-status" id="githubSyncStatus">未配置</span></summary>
-    <p class="github-sync-help">数据将公开保存在 GitHub 的 <code>data.json</code>。令牌仅保存在当前设备的浏览器中，不会写进网页或上传到仓库。</p>
+    <p class="github-sync-help">GitHub 的 <code>data.json</code> 是唯一数据源。未配置令牌时仅可查看和导出；配置具备写入权限的令牌后才能新增、修改、导入并同步。令牌仅保存在当前浏览器中，不会写进网页或上传到仓库。</p>
     <div class="github-sync-grid">
       <div class="form-item">
         <label for="githubRepo">GitHub 仓库</label>
@@ -865,8 +865,10 @@ const ACCOUNTS_KEY = "resume_delivery_accounts";
 const CURRENT_USER_KEY = "resume_delivery_current_user";
 const GITHUB_CONFIG_KEY = "resume_delivery_github_config";
 const GITHUB_DELETED_KEY = "resume_delivery_deleted_records";
+const REMOTE_BASELINE_KEY = "resume_delivery_remote_baseline";
 const DEFAULT_GITHUB_REPO = "DoubleLB/resume-delivery-tracker";
 const GITHUB_REFRESH_INTERVAL_MS = 15000;
+const REMOTE_BASELINE_VERSION = "github-source-of-truth-20260916";
 let editId = null;
 let tableEditId = null;
 let toastTimer = null;
@@ -981,6 +983,21 @@ function getGithubConfig(){
     }
 }
 
+function needsRemoteBaseline(){
+    return localStorage.getItem(REMOTE_BASELINE_KEY) !== REMOTE_BASELINE_VERSION;
+}
+
+function markRemoteBaseline(){
+    localStorage.setItem(REMOTE_BASELINE_KEY, REMOTE_BASELINE_VERSION);
+}
+
+function ensureGithubWriteAccess(){
+    if(getGithubConfig().token) return true;
+    setGithubSyncStatus('只读模式：请配置令牌后编辑', 'error');
+    showToast('未配置 GitHub 令牌：当前仅可查看和导出，不能修改或同步。');
+    return false;
+}
+
 function getDeletedRecords(){
     try{
         return JSON.parse(localStorage.getItem(GITHUB_DELETED_KEY) || '{}');
@@ -991,6 +1008,15 @@ function getDeletedRecords(){
 
 function saveDeletedRecords(deletedRecords){
     localStorage.setItem(GITHUB_DELETED_KEY, JSON.stringify(deletedRecords));
+}
+
+function applyRemotePayload(payload){
+    applyingRemoteData = true;
+    saveList(payload.records, {skipGithubSync: true, replaceAll: true});
+    saveDeletedRecords(payload.deletedRecords);
+    saveAccounts(payload.accounts);
+    applyingRemoteData = false;
+    githubChangesPending = false;
 }
 
 function recordTimestamp(record){
@@ -1182,15 +1208,11 @@ async function syncWithGithub({showResult = false} = {}){
     try{
         if(!config.token){
             const remote = await fetchGithubFile(config);
-            const merged = mergeRecords(remote.payload, getStoredList(), getDeletedRecords(), getAccounts());
-            applyingRemoteData = true;
-            saveList(merged.records, {skipGithubSync: true, replaceAll: true});
-            saveDeletedRecords(merged.deletedRecords);
-            saveAccounts(merged.accounts);
-            applyingRemoteData = false;
+            applyRemotePayload(remote.payload);
+            markRemoteBaseline();
             render();
-            setGithubSyncStatus('已载入公开数据', 'ready');
-            if(showResult) showToast('已载入 GitHub 数据；填写令牌后可保存');
+            setGithubSyncStatus('只读模式：已载入 GitHub 数据', 'ready');
+            if(showResult) showToast('已载入 GitHub 数据；配置令牌后才能编辑和同步');
             return;
         }
         const hadPendingChanges = githubChangesPending;
@@ -1198,6 +1220,19 @@ async function syncWithGithub({showResult = false} = {}){
         let synced = false;
         for(let attempt = 0; attempt < 3 && !synced; attempt++){
             const remote = await fetchGithubFile(config);
+            // 发布“GitHub 为唯一数据源”的版本后，先统一清除各浏览器的旧缓存差异。
+            if(needsRemoteBaseline()){
+                applyRemotePayload(remote.payload);
+                markRemoteBaseline();
+                render();
+                if(!remote.canWrite){
+                    setGithubSyncStatus('只读模式：令牌无效，已载入 GitHub 数据', 'ready');
+                    if(showResult) showToast('令牌无效：已只读载入 GitHub 数据');
+                    return;
+                }
+                synced = true;
+                break;
+            }
             const merged = mergeRecords(remote.payload, getStoredList(), getDeletedRecords(), getAccounts());
             applyingRemoteData = true;
             saveList(merged.records, {skipGithubSync: true, replaceAll: true});
@@ -1205,9 +1240,10 @@ async function syncWithGithub({showResult = false} = {}){
             saveAccounts(merged.accounts);
             applyingRemoteData = false;
             if(!remote.canWrite){
+                applyRemotePayload(remote.payload);
                 render();
-                setGithubSyncStatus('已载入数据；令牌无效', 'ready');
-                if(showResult) showToast('已载入数据；请更新令牌后再保存');
+                setGithubSyncStatus('只读模式：令牌无效，已载入 GitHub 数据', 'ready');
+                if(showResult) showToast('令牌无效：已只读载入 GitHub 数据');
                 return;
             }
             // 没有待同步内容且合并结果与远端相同，只拉取数据，不创建无意义提交。
@@ -1614,6 +1650,7 @@ function clearForm(){
 
 //提交新增/编辑
 document.getElementById('submitBtn').addEventListener('click',()=>{
+    if(!ensureGithubWriteAccess()) return;
     const company = document.getElementById('company').value.trim();
     const companyType = document.getElementById('companyType').value;
     const companyLocation = document.getElementById('companyLocation').value.trim();
@@ -1665,10 +1702,15 @@ document.getElementById('exportBtn').addEventListener('click',()=>{
 
 //导入
 document.getElementById('importBtn').addEventListener('click',()=>{
+    if(!ensureGithubWriteAccess()) return;
     document.getElementById('fileInput').click();
 });
 
 document.getElementById('fileInput').addEventListener('change',(e)=>{
+    if(!ensureGithubWriteAccess()){
+        e.target.value = '';
+        return;
+    }
     const file = e.target.files[0];
     if(!file) return;
     const reader = new FileReader();
@@ -1728,6 +1770,10 @@ document.querySelectorAll('.nav-button').forEach(button => {
 
 document.getElementById('tableBody').addEventListener('change',function(e){
     if(!e.target.classList.contains('status-select')) return;
+    if(!ensureGithubWriteAccess()){
+        render();
+        return;
+    }
     const id = e.target.dataset.id;
     const list = getList();
     const item = list.find(record => String(record.id) === String(id));
@@ -1743,6 +1789,7 @@ document.getElementById('tableBody').addEventListener('change',function(e){
 document.getElementById('tableBody').addEventListener('click',function(e){
     const id = e.target.dataset.id;
     if(!id) return;
+    if(!e.target.classList.contains('btn-cancel') && !ensureGithubWriteAccess()) return;
     const list = getList();
     const item = list.find(x=>String(x.id) === String(id));
     if(e.target.classList.contains('btn-edit')){
