@@ -575,7 +575,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
       <label for="authPassword">密码</label>
       <input id="authPassword" type="password" autocomplete="current-password" required placeholder="至少 6 位">
     </div>
-    <button class="auth-submit" id="authSubmit" type="submit">登录</button>
+    <button class="auth-submit" id="authSubmit" type="submit" disabled>正在加载账号…</button>
     <button class="auth-switch" id="authSwitch" type="button">没有账号？注册新账号</button>
     <div class="auth-message" id="authMessage" role="alert"></div>
   </form>
@@ -1038,6 +1038,15 @@ function parseRemotePayload(content){
     };
 }
 
+function mergeAccounts(remoteAccounts = {}, localAccounts = {}){
+    const accounts = {...remoteAccounts};
+    Object.entries(localAccounts).forEach(([username, account]) => {
+        // 远端已存在的账号始终以 GitHub 数据为准，避免旧浏览器缓存覆盖新密码。
+        if(!accounts[username]) accounts[username] = account;
+    });
+    return accounts;
+}
+
 function mergeRecords(remotePayload, localRecords, localDeletedRecords, localAccounts = {}){
     const remoteRecords = new Map(ensureRecordTimestamps(remotePayload.records).map(record => [String(record.id), record]));
     const currentRecords = new Map(ensureRecordTimestamps(localRecords).map(record => [String(record.id), record]));
@@ -1057,7 +1066,7 @@ function mergeRecords(remotePayload, localRecords, localDeletedRecords, localAcc
             deletedRecords[id] = deletedAt;
         }
     });
-    return {version: 2, accounts: {...remotePayload.accounts, ...localAccounts}, records, deletedRecords};
+    return {version: 2, accounts: mergeAccounts(remotePayload.accounts, localAccounts), records, deletedRecords};
 }
 
 function serialisePayload(payload){
@@ -1791,7 +1800,10 @@ window.onload = async function(){
     document.getElementById('githubBranch').value = githubConfig.branch;
     document.getElementById('githubToken').value = githubConfig.token;
     setAuthMode('login');
+    setAuthMessage('正在加载账号资料…');
     await syncWithGithub();
+    document.getElementById('authSubmit').disabled = false;
+    setAuthMessage('');
     updateAuthUI();
     if(getCurrentUser()){
         clearForm();
