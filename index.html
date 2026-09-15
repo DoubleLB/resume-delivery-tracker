@@ -909,8 +909,13 @@ function getList(){
     return currentUser ? getStoredList().filter(record => record.owner === currentUser) : [];
 }
 
-function saveList(arr, {skipGithubSync = false} = {}){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+function saveList(arr, {skipGithubSync = false, replaceAll = false} = {}){
+    const currentUser = getCurrentUser();
+    // 日常编辑只替换当前账号的数据，避免同一设备缓存中的其他账号记录被覆盖。
+    const records = replaceAll || !currentUser
+        ? arr
+        : [...getStoredList().filter(record => record.owner !== currentUser), ...arr.map(record => ({...record, owner: currentUser}))];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
     if(!skipGithubSync && !applyingRemoteData) scheduleGithubSync();
 }
 
@@ -1124,7 +1129,7 @@ async function syncWithGithub({showResult = false} = {}){
             const remote = await fetchGithubFile(config);
             const merged = mergeRecords(remote.payload, getStoredList(), getDeletedRecords(), getAccounts());
             applyingRemoteData = true;
-            saveList(merged.records, {skipGithubSync: true});
+            saveList(merged.records, {skipGithubSync: true, replaceAll: true});
             saveDeletedRecords(merged.deletedRecords);
             saveAccounts(merged.accounts);
             applyingRemoteData = false;
@@ -1138,7 +1143,7 @@ async function syncWithGithub({showResult = false} = {}){
             const remote = await fetchGithubFile(config);
             const merged = mergeRecords(remote.payload, getStoredList(), getDeletedRecords(), getAccounts());
             applyingRemoteData = true;
-            saveList(merged.records, {skipGithubSync: true});
+            saveList(merged.records, {skipGithubSync: true, replaceAll: true});
             saveDeletedRecords(merged.deletedRecords);
             saveAccounts(merged.accounts);
             applyingRemoteData = false;
