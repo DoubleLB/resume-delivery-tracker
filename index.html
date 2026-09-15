@@ -866,12 +866,14 @@ const CURRENT_USER_KEY = "resume_delivery_current_user";
 const GITHUB_CONFIG_KEY = "resume_delivery_github_config";
 const GITHUB_DELETED_KEY = "resume_delivery_deleted_records";
 const DEFAULT_GITHUB_REPO = "DoubleLB/resume-delivery-tracker";
+const GITHUB_REFRESH_INTERVAL_MS = 15000;
 let editId = null;
 let tableEditId = null;
 let toastTimer = null;
 let githubSyncTimer = null;
 let githubSyncRunning = false;
 let githubSyncQueued = false;
+let githubChangesPending = false;
 let applyingRemoteData = false;
 let authMode = 'login';
 
@@ -916,7 +918,10 @@ function saveList(arr, {skipGithubSync = false, replaceAll = false} = {}){
         ? arr
         : [...getStoredList().filter(record => record.owner !== currentUser), ...arr.map(record => ({...record, owner: currentUser}))];
     localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
-    if(!skipGithubSync && !applyingRemoteData) scheduleGithubSync();
+    if(!skipGithubSync && !applyingRemoteData){
+        githubChangesPending = true;
+        scheduleGithubSync();
+    }
 }
 
 function getAccounts(){
@@ -928,8 +933,12 @@ function getAccounts(){
     }
 }
 
-function saveAccounts(accounts){
+function saveAccounts(accounts, {markForSync = false} = {}){
     localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
+    if(markForSync && !applyingRemoteData){
+        githubChangesPending = true;
+        scheduleGithubSync();
+    }
 }
 
 async function hashPassword(password){
@@ -1007,6 +1016,11 @@ function markRecordDeleted(id){
     saveDeletedRecords(deletedRecords);
 }
 
+function createRecordId(){
+    if(typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+    return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
 function setGithubSyncStatus(message, type = ''){
     const status = document.getElementById('githubSyncStatus');
     if(!status) return;
@@ -1069,6 +1083,24 @@ function mergeRecords(remotePayload, localRecords, localDeletedRecords, localAcc
     return {version: 2, accounts: mergeAccounts(remotePayload.accounts, localAccounts), records, deletedRecords};
 }
 
+function stableValue(value){
+    if(Array.isArray(value)) return value.map(stableValue);
+    if(value && typeof value === 'object'){
+        return Object.fromEntries(Object.keys(value).sort().map(key => [key, stableValue(value[key])]));
+    }
+    return value;
+}
+
+function payloadFingerprint(payload){
+    const normalized = {
+        version: 2,
+        accounts: payload.accounts || {},
+        records: [...(payload.records || [])].sort((a, b) => String(a.id).localeCompare(String(b.id))),
+        deletedRecords: payload.deletedRecords || {}
+    };
+    return JSON.stringify(stableValue(normalized));
+}
+
 function serialisePayload(payload){
     return JSON.stringify({
         version: 2,
@@ -1092,6 +1124,8 @@ async function fetchGithubFile(config){
         if(!rawResponse.ok) throw new Error(`读取失败（${rawResponse.status}）`);
         return {sha: null, payload: parseRemotePayload(await rawResponse.text()), canWrite: false};
     };
+    // 无令牌的设备直接读取公开 Raw 文件，避免消耗 GitHub 匿名 API 配额。
+    if(!config.token) return readRawPublicFile();
     let response;
     try{
         response = await fetch(url, {headers});
@@ -1159,6 +1193,8 @@ async function syncWithGithub({showResult = false} = {}){
             if(showResult) showToast('已载入 GitHub 数据；填写令牌后可保存');
             return;
         }
+        const hadPendingChanges = githubChangesPending;
+        let wroteMergedChanges = false;
         let synced = false;
         for(let attempt = 0; attempt < 3 && !synced; attempt++){
             const remote = await fetchGithubFile(config);
@@ -1174,13 +1210,23 @@ async function syncWithGithub({showResult = false} = {}){
                 if(showResult) showToast('已载入数据；请更新令牌后再保存');
                 return;
             }
+            // 没有待同步内容且合并结果与远端相同，只拉取数据，不创建无意义提交。
+            const shouldWrite = githubChangesPending || payloadFingerprint(merged) !== payloadFingerprint(remote.payload);
+            if(!shouldWrite){
+                synced = true;
+                break;
+            }
             const written = await writeGithubFile(config, merged, remote.sha);
-            if(written) synced = true;
+            if(written){
+                synced = true;
+                wroteMergedChanges = true;
+                githubChangesPending = false;
+            }
         }
         if(!synced) throw new Error('检测到多设备同时保存，请稍后重试');
         render();
-        setGithubSyncStatus('已同步', 'ready');
-        if(showResult) showToast('已同步至 GitHub');
+        setGithubSyncStatus(hadPendingChanges || wroteMergedChanges ? '已同步' : '已检查最新数据', 'ready');
+        if(showResult) showToast(hadPendingChanges || wroteMergedChanges ? '已同步至 GitHub' : '已载入最新数据');
     }catch(error){
         applyingRemoteData = false;
         setGithubSyncStatus(error.message || '同步失败', 'error');
@@ -1194,10 +1240,22 @@ async function syncWithGithub({showResult = false} = {}){
     }
 }
 
-function scheduleGithubSync(){
-    const config = getGithubConfig();
+function scheduleGithubSync(delay = 900){
     clearTimeout(githubSyncTimer);
-    githubSyncTimer = setTimeout(() => syncWithGithub(), 900);
+    githubSyncTimer = setTimeout(() => syncWithGithub(), delay);
+}
+
+function startGithubAutoRefresh(){
+    const refreshIfLoggedIn = () => {
+        if(getCurrentUser()) scheduleGithubSync(180);
+    };
+    window.addEventListener('focus', refreshIfLoggedIn);
+    document.addEventListener('visibilitychange', () => {
+        if(!document.hidden) refreshIfLoggedIn();
+    });
+    setInterval(() => {
+        if(!document.hidden) refreshIfLoggedIn();
+    }, GITHUB_REFRESH_INTERVAL_MS);
 }
 
 function getToday(){
@@ -1467,7 +1525,7 @@ function render(){
             const statusOptions = STATUS_OPTIONS.map(option =>
                 `<option value="${escapeHtml(option)}" ${option === status ? 'selected' : ''}>${escapeHtml(option)}</option>`
             ).join('');
-            if(tableEditId === item.id){
+            if(String(tableEditId) === String(item.id)){
                 const editStatusOptions = STATUS_OPTIONS.map(option =>
                     `<option value="${escapeHtml(option)}" ${option === status ? 'selected' : ''}>${escapeHtml(option)}</option>`
                 ).join('');
@@ -1572,7 +1630,7 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
     const list = getList();
     const isEditing = Boolean(editId);
     if(editId){
-        const idx = list.findIndex(i=>i.id === editId);
+        const idx = list.findIndex(i=>String(i.id) === String(editId));
         if(idx > -1){
             const {resumeVer, priority, ...existing} = list[idx];
             const {channel, ...withoutChannel} = existing;
@@ -1581,7 +1639,7 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
         }
     }else{
         list.push({
-            id: Date.now(), updatedAt: Date.now(),
+            id: createRecordId(), updatedAt: Date.now(),
             owner: getCurrentUser(), company,companyType,companyLocation,position,sendDate,salaryExpect,status,remark
         })
     }
@@ -1670,9 +1728,9 @@ document.querySelectorAll('.nav-button').forEach(button => {
 
 document.getElementById('tableBody').addEventListener('change',function(e){
     if(!e.target.classList.contains('status-select')) return;
-    const id = Number(e.target.dataset.id);
+    const id = e.target.dataset.id;
     const list = getList();
-    const item = list.find(record => record.id === id);
+    const item = list.find(record => String(record.id) === String(id));
     if(!item) return;
     item.status = e.target.value;
     markRecordChanged(item);
@@ -1683,10 +1741,10 @@ document.getElementById('tableBody').addEventListener('change',function(e){
 });
 
 document.getElementById('tableBody').addEventListener('click',function(e){
-    const id = Number(e.target.dataset.id);
+    const id = e.target.dataset.id;
     if(!id) return;
     const list = getList();
-    const item = list.find(x=>x.id===id);
+    const item = list.find(x=>String(x.id) === String(id));
     if(e.target.classList.contains('btn-edit')){
         tableEditId = id;
         render();
@@ -1716,7 +1774,7 @@ document.getElementById('tableBody').addEventListener('click',function(e){
         showToast("投递记录已更新");
     }else if(e.target.classList.contains('btn-del')){
         if(window.confirm('确定删除这条投递记录？')){
-            const newList = list.filter(x=>x.id !== id);
+            const newList = list.filter(x=>String(x.id) !== String(id));
             markRecordDeleted(id);
             saveList(newList);
             render();
@@ -1782,7 +1840,7 @@ document.getElementById('authForm').addEventListener('submit', async event => {
             return;
         }
         accounts[username] = {passwordHash, createdAt: new Date().toISOString()};
-        saveAccounts(accounts);
+        saveAccounts(accounts, {markForSync: true});
         localStorage.setItem(CURRENT_USER_KEY, username);
         await syncWithGithub({showResult: true});
     }else{
@@ -1821,6 +1879,7 @@ window.onload = async function(){
         clearForm();
         render();
     }
+    startGithubAutoRefresh();
 };
 </script>
 </body>
