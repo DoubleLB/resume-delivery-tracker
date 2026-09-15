@@ -579,6 +579,11 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
       <label for="authPassword">密码</label>
       <input id="authPassword" type="password" autocomplete="current-password" required placeholder="至少 6 位">
     </div>
+    <div class="form-item" id="authTokenGroup" hidden>
+      <label for="authToken">GitHub 细粒度访问令牌</label>
+      <input id="authToken" type="password" autocomplete="off" placeholder="仅需该仓库 Contents 读写权限">
+      <small class="muted">令牌只保存在当前浏览器；注册后请点击“立即同步”写入 GitHub。</small>
+    </div>
     <button class="auth-submit" id="authSubmit" type="submit" disabled>正在加载账号…</button>
     <button class="auth-switch" id="authSwitch" type="button">没有账号？注册新账号</button>
     <div class="auth-message" id="authMessage" role="alert"></div>
@@ -968,6 +973,8 @@ function setAuthMode(mode){
     document.getElementById('authSubmit').textContent = isRegister ? '注册并登录' : '登录';
     document.getElementById('authSwitch').textContent = isRegister ? '已有账号？返回登录' : '没有账号？注册新账号';
     document.getElementById('authPassword').autocomplete = isRegister ? 'new-password' : 'current-password';
+    document.getElementById('authTokenGroup').hidden = !isRegister;
+    document.getElementById('authToken').required = isRegister;
     setAuthMessage();
 }
 
@@ -1837,6 +1844,7 @@ document.getElementById('authForm').addEventListener('submit', async event => {
     event.preventDefault();
     const username = document.getElementById('authUsername').value.trim();
     const password = document.getElementById('authPassword').value;
+    const registrationToken = document.getElementById('authToken').value.trim();
     if(!/^[A-Za-z0-9_-]{3,24}$/.test(username)){
         const message = 'E_AUTH_USERNAME：用户名需为 3–24 位字母、数字、下划线或连字符。';
         setAuthMessage(message);
@@ -1866,12 +1874,15 @@ document.getElementById('authForm').addEventListener('submit', async event => {
             showToast(message, 'error');
             return;
         }
-        if(!getGithubConfig().token){
+        if(!registrationToken){
             const message = 'E_GH_TOKEN_REQUIRED：注册需要先配置有效 GitHub 令牌。';
             setAuthMessage(message);
             showToast(message, 'error');
             return;
         }
+        const config = getGithubConfig();
+        localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify({...config, token: registrationToken}));
+        document.getElementById('githubToken').value = registrationToken;
         accounts[username] = {passwordHash, createdAt: new Date().toISOString()};
         saveAccounts(accounts, {markForSync: true});
         localStorage.setItem(CURRENT_USER_KEY, username);
@@ -1885,6 +1896,7 @@ document.getElementById('authForm').addEventListener('submit', async event => {
         localStorage.setItem(CURRENT_USER_KEY, username);
     }
     document.getElementById('authPassword').value = '';
+    document.getElementById('authToken').value = '';
     updateAuthUI();
     clearForm();
     render();
