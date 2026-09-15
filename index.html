@@ -964,18 +964,23 @@ function serialisePayload(payload){
 }
 
 async function fetchGithubFile(config){
-    const headers = {
+    const url = `https://api.github.com/repos/${config.repo}/contents/data.json?ref=${encodeURIComponent(config.branch)}`;
+    const publicHeaders = {
         'Accept': 'application/vnd.github+json',
         'X-GitHub-Api-Version': '2022-11-28'
     };
-    if(config.token) headers.Authorization = `Bearer ${config.token}`;
-    const response = await fetch(`https://api.github.com/repos/${config.repo}/contents/data.json?ref=${encodeURIComponent(config.branch)}`, {
-        headers
-    });
-    if(response.status === 404) return {sha: null, payload: {version: 1, records: [], deletedRecords: {}}};
+    const headers = config.token ? {...publicHeaders, Authorization: `Bearer ${config.token}`} : publicHeaders;
+    let response = await fetch(url, {headers});
+    let canWrite = Boolean(config.token);
+    // 令牌失效或未授权时，公开仓库仍允许只读加载，避免本机旧令牌阻断页面显示。
+    if(config.token && (response.status === 401 || response.status === 403)){
+        response = await fetch(url, {headers: publicHeaders});
+        canWrite = false;
+    }
+    if(response.status === 404) return {sha: null, payload: {version: 1, records: [], deletedRecords: {}}, canWrite};
     if(!response.ok) throw new Error(`读取失败（${response.status}）`);
     const file = await response.json();
-    return {sha: file.sha, payload: parseRemotePayload(fromBase64(file.content))};
+    return {sha: file.sha, payload: parseRemotePayload(fromBase64(file.content)), canWrite};
 }
 
 async function writeGithubFile(config, payload, sha){
@@ -1033,6 +1038,12 @@ async function syncWithGithub({showResult = false} = {}){
             saveList(merged.records, {skipGithubSync: true});
             saveDeletedRecords(merged.deletedRecords);
             applyingRemoteData = false;
+            if(!remote.canWrite){
+                render();
+                setGithubSyncStatus('已载入数据；令牌无效', 'ready');
+                if(showResult) showToast('已载入数据；请更新令牌后再保存');
+                return;
+            }
             const written = await writeGithubFile(config, merged, remote.sha);
             if(written) synced = true;
         }
