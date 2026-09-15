@@ -586,6 +586,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
     </div>
     <button class="auth-submit" id="authSubmit" type="submit" disabled>正在加载账号…</button>
     <button class="auth-switch" id="authSwitch" type="button">没有账号？注册新账号</button>
+    <button class="auth-switch" id="adminEntry" type="button">管理员入口</button>
     <div class="auth-message" id="authMessage" role="alert"></div>
   </form>
 </section>
@@ -607,6 +608,9 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
     </button>
     <button class="nav-button" type="button" data-page="reviewPage">
       <span class="nav-dot"></span><span>投递记录复盘</span>
+    </button>
+    <button class="nav-button" id="adminNavButton" type="button" data-page="adminPage" hidden>
+      <span class="nav-dot"></span><span>账户管理</span>
     </button>
   </nav>
   <div class="account-panel">
@@ -864,6 +868,22 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
     </div>
   </div>
 </section>
+
+<section class="page-view" id="adminPage">
+  <div class="review-banner">
+    <h2>管理员账户管理</h2>
+    <p>可重命名用户、重置密码或删除用户及其全部投递记录。操作只保存在本机，点击“立即同步”后才会写入 GitHub。</p>
+  </div>
+  <div class="form-card">
+    <div class="form-title">已注册用户</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>用户名</th><th>投递记录</th><th>新用户名（可选）</th><th>新密码（可选）</th><th>操作</th></tr></thead>
+        <tbody id="adminAccountBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
 </main>
 </div>
 <div class="toast-message" id="toastMessage" role="status" aria-live="polite"></div>
@@ -872,8 +892,10 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
 const STORAGE_KEY = "resume_delivery_list";
 const ACCOUNTS_KEY = "resume_delivery_accounts";
 const CURRENT_USER_KEY = "resume_delivery_current_user";
+const ADMIN_SESSION_KEY = "resume_delivery_admin_session";
 const GITHUB_CONFIG_KEY = "resume_delivery_github_config";
 const GITHUB_DELETED_KEY = "resume_delivery_deleted_records";
+const GITHUB_DELETED_ACCOUNTS_KEY = "resume_delivery_deleted_accounts";
 const DEFAULT_GITHUB_REPO = "DoubleLB/resume-delivery-tracker";
 let editId = null;
 let tableEditId = null;
@@ -912,6 +934,10 @@ function getStoredList(){
 
 function getCurrentUser(){
     return localStorage.getItem(CURRENT_USER_KEY) || '';
+}
+
+function isAdminSession(){
+    return getCurrentUser() === 'lbw' && localStorage.getItem(ADMIN_SESSION_KEY) === '1';
 }
 
 function getList(){
@@ -962,19 +988,24 @@ function updateAuthUI(){
     const currentUser = getCurrentUser();
     document.getElementById('authScreen').hidden = Boolean(currentUser);
     document.getElementById('appShell').hidden = !currentUser;
-    document.getElementById('accountName').textContent = currentUser ? `当前账号：${currentUser}` : '';
+    document.getElementById('accountName').textContent = currentUser ? `当前账号：${currentUser}${isAdminSession() ? '（管理员）' : ''}` : '';
+    document.getElementById('adminNavButton').hidden = !isAdminSession();
 }
 
 function setAuthMode(mode){
     authMode = mode;
+    const isAdmin = mode === 'admin';
     const isRegister = mode === 'register';
-    document.getElementById('authTitle').textContent = isRegister ? '注册投递管理账号' : '登录投递管理中心';
-    document.getElementById('authDescription').textContent = isRegister ? '注册后仅显示并管理你的投递记录。' : '登录后仅显示你的投递记录。';
-    document.getElementById('authSubmit').textContent = isRegister ? '注册并登录' : '登录';
-    document.getElementById('authSwitch').textContent = isRegister ? '已有账号？返回登录' : '没有账号？注册新账号';
+    document.getElementById('authTitle').textContent = isAdmin ? '管理员登录' : isRegister ? '注册投递管理账号' : '登录投递管理中心';
+    document.getElementById('authDescription').textContent = isAdmin ? '仅 lbw 管理员可管理注册账户。' : isRegister ? '注册后仅显示并管理你的投递记录。' : '登录后仅显示你的投递记录。';
+    document.getElementById('authSubmit').textContent = isAdmin ? '管理员登录' : isRegister ? '注册并登录' : '登录';
+    document.getElementById('authSwitch').textContent = isAdmin ? '返回普通登录' : isRegister ? '已有账号？返回登录' : '没有账号？注册新账号';
     document.getElementById('authPassword').autocomplete = isRegister ? 'new-password' : 'current-password';
     document.getElementById('authTokenGroup').hidden = !isRegister;
     document.getElementById('authToken').required = isRegister;
+    document.getElementById('adminEntry').hidden = isAdmin || isRegister;
+    document.getElementById('authUsername').readOnly = isAdmin;
+    if(isAdmin) document.getElementById('authUsername').value = 'lbw';
     setAuthMessage();
 }
 
@@ -1006,14 +1037,27 @@ function getDeletedRecords(){
     }
 }
 
+function getDeletedAccounts(){
+    try{
+        return JSON.parse(localStorage.getItem(GITHUB_DELETED_ACCOUNTS_KEY) || '{}');
+    }catch(error){
+        return {};
+    }
+}
+
 function saveDeletedRecords(deletedRecords){
     localStorage.setItem(GITHUB_DELETED_KEY, JSON.stringify(deletedRecords));
+}
+
+function saveDeletedAccounts(deletedAccounts){
+    localStorage.setItem(GITHUB_DELETED_ACCOUNTS_KEY, JSON.stringify(deletedAccounts));
 }
 
 function applyRemotePayload(payload){
     applyingRemoteData = true;
     saveList(payload.records, {skipGithubSync: true, replaceAll: true});
     saveDeletedRecords(payload.deletedRecords);
+    saveDeletedAccounts(payload.deletedAccounts || {});
     saveAccounts(payload.accounts);
     applyingRemoteData = false;
     githubChangesPending = false;
@@ -1069,25 +1113,29 @@ function fromBase64(value){
 
 function parseRemotePayload(content){
     const parsed = JSON.parse(content);
-    if(Array.isArray(parsed)) return {version: 1, accounts: {}, records: parsed, deletedRecords: {}};
+    if(Array.isArray(parsed)) return {version: 1, accounts: {}, records: parsed, deletedRecords: {}, deletedAccounts: {}};
     return {
         version: Number(parsed.version) || 1,
         accounts: parsed.accounts && typeof parsed.accounts === 'object' ? parsed.accounts : {},
         records: Array.isArray(parsed.records) ? parsed.records : [],
-        deletedRecords: parsed.deletedRecords && typeof parsed.deletedRecords === 'object' ? parsed.deletedRecords : {}
+        deletedRecords: parsed.deletedRecords && typeof parsed.deletedRecords === 'object' ? parsed.deletedRecords : {},
+        deletedAccounts: parsed.deletedAccounts && typeof parsed.deletedAccounts === 'object' ? parsed.deletedAccounts : {}
     };
 }
 
-function mergeAccounts(remoteAccounts = {}, localAccounts = {}){
+function mergeAccounts(remoteAccounts = {}, localAccounts = {}, remoteDeletedAccounts = {}, localDeletedAccounts = {}){
+    const deletedAccounts = {...remoteDeletedAccounts, ...localDeletedAccounts};
     const accounts = {...remoteAccounts};
     Object.entries(localAccounts).forEach(([username, account]) => {
         // 远端已存在的账号始终以 GitHub 数据为准，避免旧浏览器缓存覆盖新密码。
-        if(!accounts[username]) accounts[username] = account;
+        if(!accounts[username] && !deletedAccounts[username]) accounts[username] = account;
     });
-    return accounts;
+    Object.keys(deletedAccounts).forEach(username => delete accounts[username]);
+    return {accounts, deletedAccounts};
 }
 
-function mergeRecords(remotePayload, localRecords, localDeletedRecords, localAccounts = {}){
+function mergeRecords(remotePayload, localRecords, localDeletedRecords, localAccounts = {}, localDeletedAccounts = {}){
+    const accountMerge = mergeAccounts(remotePayload.accounts, localAccounts, remotePayload.deletedAccounts, localDeletedAccounts);
     const remoteRecords = new Map(ensureRecordTimestamps(remotePayload.records).map(record => [String(record.id), record]));
     const currentRecords = new Map(ensureRecordTimestamps(localRecords).map(record => [String(record.id), record]));
     const allDeleted = {...remotePayload.deletedRecords, ...localDeletedRecords};
@@ -1100,13 +1148,13 @@ function mergeRecords(remotePayload, localRecords, localDeletedRecords, localAcc
         const current = currentRecords.get(id);
         const record = !remote ? current : !current ? remote : recordTimestamp(current) > recordTimestamp(remote) ? current : remote;
         const deletedAt = Number(allDeleted[id]) || 0;
-        if(record && recordTimestamp(record) > deletedAt){
+        if(record && recordTimestamp(record) > deletedAt && !accountMerge.deletedAccounts[record.owner]){
             records.push(record);
         }else if(deletedAt){
             deletedRecords[id] = deletedAt;
         }
     });
-    return {version: 2, accounts: mergeAccounts(remotePayload.accounts, localAccounts), records, deletedRecords};
+    return {version: 3, accounts: accountMerge.accounts, records, deletedRecords, deletedAccounts: accountMerge.deletedAccounts};
 }
 
 function stableValue(value){
@@ -1119,21 +1167,23 @@ function stableValue(value){
 
 function payloadFingerprint(payload){
     const normalized = {
-        version: 2,
+        version: 3,
         accounts: payload.accounts || {},
         records: [...(payload.records || [])].sort((a, b) => String(a.id).localeCompare(String(b.id))),
-        deletedRecords: payload.deletedRecords || {}
+        deletedRecords: payload.deletedRecords || {},
+        deletedAccounts: payload.deletedAccounts || {}
     };
     return JSON.stringify(stableValue(normalized));
 }
 
 function serialisePayload(payload){
     return JSON.stringify({
-        version: 2,
+        version: 3,
         updatedAt: new Date().toISOString(),
         accounts: payload.accounts,
         records: payload.records,
-        deletedRecords: payload.deletedRecords
+        deletedRecords: payload.deletedRecords,
+        deletedAccounts: payload.deletedAccounts || {}
     }, null, 2);
 }
 
@@ -1169,7 +1219,7 @@ async function fetchGithubFile(config){
         response = await fetch(url, {headers: publicHeaders});
         canWrite = false;
     }
-    if(response.status === 404) return {sha: null, payload: {version: 2, accounts: {}, records: [], deletedRecords: {}}, canWrite};
+    if(response.status === 404) return {sha: null, payload: {version: 3, accounts: {}, records: [], deletedRecords: {}, deletedAccounts: {}}, canWrite};
     // 匿名 API 可能触发速率限制；公开仓库改从 Raw 地址读取，确保其他设备仍可登录。
     if(!response.ok) return readRawPublicFile();
     const file = await response.json();
@@ -1241,7 +1291,7 @@ async function syncWithGithub({showResult = false} = {}){
             if(!remote.canWrite){
                 throw new Error('E_GH_TOKEN_INVALID：令牌无效或没有 data.json 写入权限');
             }
-            const merged = mergeRecords(remote.payload, getStoredList(), getDeletedRecords(), getAccounts());
+            const merged = mergeRecords(remote.payload, getStoredList(), getDeletedRecords(), getAccounts(), getDeletedAccounts());
             const written = await writeGithubFile(config, merged, remote.sha);
             if(written){
                 synced = true;
@@ -1251,6 +1301,7 @@ async function syncWithGithub({showResult = false} = {}){
         }
         if(!synced) throw new Error('E_GH_CONFLICT：检测到多设备同时保存，请再次点击立即同步');
         render();
+        if(isAdminSession()) renderAdminAccounts();
         setGithubSyncStatus('已同步至 GitHub', 'ready');
         if(showResult) showToast(hadPendingChanges ? '同步完成：本机修改已上传 GitHub' : '同步完成：已合并 GitHub 最新数据');
         return true;
@@ -1739,7 +1790,108 @@ document.querySelectorAll('.nav-button').forEach(button => {
         const pageId = button.dataset.page;
         document.querySelectorAll('.nav-button').forEach(item => item.classList.toggle('active', item === button));
         document.querySelectorAll('.page-view').forEach(page => page.classList.toggle('active', page.id === pageId));
+        if(pageId === 'adminPage') renderAdminAccounts();
     });
+});
+
+function renderAdminAccounts(){
+    const body = document.getElementById('adminAccountBody');
+    if(!isAdminSession()){
+        body.innerHTML = '<tr><td colspan="5" class="empty"><strong>无管理员权限</strong></td></tr>';
+        return;
+    }
+    const accounts = getAccounts();
+    const records = getStoredList();
+    const users = Object.keys(accounts).filter(username => username !== 'lbw').sort((a, b) => a.localeCompare(b));
+    if(users.length === 0){
+        body.innerHTML = '<tr><td colspan="5" class="empty"><strong>暂无可管理的普通用户</strong></td></tr>';
+        return;
+    }
+    body.innerHTML = users.map(username => {
+        const count = records.filter(record => record.owner === username).length;
+        const safeUsername = escapeHtml(username);
+        return `<tr>
+          <td><strong>${safeUsername}</strong></td><td>${count} 条</td>
+          <td><input class="admin-username" data-user="${safeUsername}" value="${safeUsername}" aria-label="${safeUsername}的新用户名"></td>
+          <td><input class="admin-password" data-user="${safeUsername}" type="password" placeholder="留空则不改" aria-label="${safeUsername}的新密码"></td>
+          <td><button class="op-btn btn-save admin-save" data-user="${safeUsername}">保存修改</button> <button class="op-btn btn-del admin-delete" data-user="${safeUsername}">删除用户</button></td>
+        </tr>`;
+    }).join('');
+}
+
+document.getElementById('adminAccountBody').addEventListener('click', async event => {
+    const username = event.target.dataset.user;
+    if(!username || !isAdminSession()) return;
+    if(!ensureGithubWriteAccess()) return;
+    const accounts = getAccounts();
+    if(!accounts[username]){
+        showToast('E_ADMIN_USER_NOT_FOUND：该用户已不存在。', 'error');
+        renderAdminAccounts();
+        return;
+    }
+    const row = event.target.closest('tr');
+    const now = Date.now();
+    if(event.target.classList.contains('admin-save')){
+        const newUsername = row.querySelector('.admin-username').value.trim();
+        const newPassword = row.querySelector('.admin-password').value;
+        if(!/^[A-Za-z0-9_-]{3,24}$/.test(newUsername)){
+            showToast('E_ADMIN_USERNAME：用户名需为 3–24 位字母、数字、下划线或连字符。', 'error');
+            return;
+        }
+        if(newUsername !== username && accounts[newUsername]){
+            showToast('E_ADMIN_USERNAME_EXISTS：新用户名已存在。', 'error');
+            return;
+        }
+        if(newPassword && newPassword.length < 6){
+            showToast('E_ADMIN_PASSWORD_LENGTH：新密码至少需要 6 位。', 'error');
+            return;
+        }
+        if(newUsername === username && !newPassword){
+            showToast('E_ADMIN_NO_CHANGE：请填写新的用户名或密码。', 'error');
+            return;
+        }
+        const allRecords = getStoredList();
+        const deletedAccounts = getDeletedAccounts();
+        const updatedAccount = {...accounts[username], updatedAt: now};
+        if(newPassword) updatedAccount.passwordHash = await hashPassword(newPassword);
+        if(newUsername !== username){
+            delete accounts[username];
+            accounts[newUsername] = updatedAccount;
+            deletedAccounts[username] = now;
+            allRecords.forEach(record => {
+                if(record.owner === username){
+                    record.owner = newUsername;
+                    record.updatedAt = now;
+                }
+            });
+            saveDeletedAccounts(deletedAccounts);
+            saveList(allRecords, {replaceAll: true});
+        }else{
+            accounts[username] = updatedAccount;
+        }
+        saveAccounts(accounts, {markForSync: true});
+        renderAdminAccounts();
+        showToast('账户修改已保存，点击“立即同步”后才会上传。', 'info');
+    }else if(event.target.classList.contains('admin-delete')){
+        if(!confirm(`确认删除用户“${username}”及其全部投递记录？此操作需同步后才会生效。`)) return;
+        delete accounts[username];
+        const deletedAccounts = getDeletedAccounts();
+        deletedAccounts[username] = now;
+        const deletedRecords = getDeletedRecords();
+        const remainingRecords = getStoredList().filter(record => {
+            if(record.owner === username){
+                deletedRecords[String(record.id)] = now;
+                return false;
+            }
+            return true;
+        });
+        saveDeletedAccounts(deletedAccounts);
+        saveDeletedRecords(deletedRecords);
+        saveAccounts(accounts, {markForSync: true});
+        saveList(remainingRecords, {replaceAll: true});
+        renderAdminAccounts();
+        showToast('用户及其记录已删除，点击“立即同步”后才会上传。', 'info');
+    }
 });
 
 document.getElementById('tableBody').addEventListener('change',function(e){
@@ -1840,6 +1992,10 @@ document.getElementById('authSwitch').addEventListener('click', () => {
     setAuthMode(authMode === 'login' ? 'register' : 'login');
 });
 
+document.getElementById('adminEntry').addEventListener('click', () => {
+    setAuthMode('admin');
+});
+
 document.getElementById('authForm').addEventListener('submit', async event => {
     event.preventDefault();
     const username = document.getElementById('authUsername').value.trim();
@@ -1867,7 +2023,16 @@ document.getElementById('authForm').addEventListener('submit', async event => {
     }
     const accounts = getAccounts();
     const passwordHash = await hashPassword(password);
-    if(authMode === 'register'){
+    if(authMode === 'admin'){
+        if(username !== 'lbw' || !accounts.lbw || accounts.lbw.passwordHash !== passwordHash){
+            const message = 'E_ADMIN_CREDENTIALS：管理员凭据不正确。';
+            setAuthMessage(message);
+            showToast(message, 'error');
+            return;
+        }
+        localStorage.setItem(CURRENT_USER_KEY, 'lbw');
+        localStorage.setItem(ADMIN_SESSION_KEY, '1');
+    }else if(authMode === 'register'){
         if(accounts[username]){
             const message = 'E_AUTH_EXISTS：该用户名已存在，请直接登录。';
             setAuthMessage(message);
@@ -1886,6 +2051,7 @@ document.getElementById('authForm').addEventListener('submit', async event => {
         accounts[username] = {passwordHash, createdAt: new Date().toISOString()};
         saveAccounts(accounts, {markForSync: true});
         localStorage.setItem(CURRENT_USER_KEY, username);
+        localStorage.removeItem(ADMIN_SESSION_KEY);
     }else{
         if(!accounts[username] || accounts[username].passwordHash !== passwordHash){
             const message = 'E_AUTH_CREDENTIALS：用户名或密码不正确。';
@@ -1894,18 +2060,21 @@ document.getElementById('authForm').addEventListener('submit', async event => {
             return;
         }
         localStorage.setItem(CURRENT_USER_KEY, username);
+        localStorage.removeItem(ADMIN_SESSION_KEY);
     }
     document.getElementById('authPassword').value = '';
     document.getElementById('authToken').value = '';
     updateAuthUI();
     clearForm();
     render();
+    if(isAdminSession()) renderAdminAccounts();
     setAuthMessage();
     if(authMode === 'register') showToast('账号已创建；点击“立即同步”后才会写入 GitHub。', 'info');
 });
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
     localStorage.removeItem(CURRENT_USER_KEY);
+    localStorage.removeItem(ADMIN_SESSION_KEY);
     tableEditId = null;
     setAuthMode('login');
     updateAuthUI();
