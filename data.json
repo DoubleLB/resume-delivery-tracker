@@ -517,9 +517,9 @@
       "position": "FPGA工程师",
       "sendDate": "2026-09-08",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "简历筛选中",
       "remark": "",
-      "updatedAt": 1788853538649,
+      "updatedAt": 1789485533051,
       "owner": "lbw"
     },
     {
@@ -953,15 +953,15 @@
     },
     {
       "id": 1789434384475,
-      "company": "浙江锐鹰传感",
+      "company": "浙江锐鹰传感技术有限公司",
       "companyType": "民企",
-      "companyLocation": "嘉兴",
-      "position": "嵌入式软件",
-      "sendDate": "2026-09-14",
-      "salaryExpect": "15K",
+      "companyLocation": "嘉兴、西安（筹备中）",
+      "position": "FPGA工程师、测试工程师",
+      "sendDate": "2026-09-15",
+      "salaryExpect": "研发硕士18w+、市场14w+",
       "status": "已投递",
-      "remark": "官网投递",
-      "updatedAt": 1789434384475,
+      "remark": "线下投递、邮箱投递HR@reagles.com",
+      "updatedAt": 1789485366863,
       "owner": "lbw"
     },
     {
@@ -989,6 +989,71 @@
       "status": "面试",
       "remark": "西安邮电大学 线下投递\n一面：9月16日9：20",
       "owner": "lbw"
+    },
+    {
+      "id": 1789484952323,
+      "updatedAt": 1789484952323,
+      "owner": "lbw",
+      "company": "西安乾景",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-15",
+      "salaryExpect": "10k",
+      "status": "已投递",
+      "remark": "线下投递"
+    },
+    {
+      "id": 1789484995959,
+      "updatedAt": 1789484995959,
+      "owner": "lbw",
+      "company": "西安信创电子",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA信号处理工程师",
+      "sendDate": "2026-09-15",
+      "salaryExpect": "11k",
+      "status": "已投递",
+      "remark": "线下投递"
+    },
+    {
+      "id": 1789485266593,
+      "updatedAt": 1789485266593,
+      "owner": "lbw",
+      "company": "欣旺达",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "测试工程师-性能测试",
+      "sendDate": "2026-09-15",
+      "salaryExpect": "10k",
+      "status": "已投递",
+      "remark": "线下投递、线上 软件开发-动力"
+    },
+    {
+      "id": 1789485453650,
+      "updatedAt": 1789485652615,
+      "owner": "lbw",
+      "company": "长园深瑞继保自动化",
+      "companyType": "民企",
+      "companyLocation": "深圳市南山区高新技术产业园北区科技北一路13号",
+      "position": "线上：技术支持 线下：FPGA工程师",
+      "sendDate": "2026-09-15",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "线上：技术支持 https://sznari.zhiye.com/personal/detailPage\n线下：FPGA工程师"
+    },
+    {
+      "id": 1789485765057,
+      "updatedAt": 1789485765057,
+      "owner": "lbw",
+      "company": "顺络科技",
+      "companyType": "民企",
+      "companyLocation": "深圳",
+      "position": "技术营销工程师",
+      "sendDate": "2026-09-15",
+      "salaryExpect": "14-20k",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/m/candidate/applications/deliver-query/sunlord"
     }
   ],
   "deletedRecords": {}
