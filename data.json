@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-16T03:19:07.117Z",
+  "updatedAt": "2026-09-16T03:21:50.999Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1068,6 +1068,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": ""
+    },
+    {
+      "id": "0753692d-e552-4a28-8c91-8370989ea615",
+      "updatedAt": 1789528906746,
+      "owner": "lbw",
+      "company": "咸阳正泰清研",
+      "companyType": "民企",
+      "companyLocation": "咸阳秦都区",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-16",
+      "salaryExpect": "11k",
+      "status": "面试",
+      "remark": "线下投递\n9月17日 9点 线上面试"
     }
   ],
   "deletedRecords": {},
