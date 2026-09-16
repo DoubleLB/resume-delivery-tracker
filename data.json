@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-16T03:23:03.496Z",
+  "updatedAt": "2026-09-16T08:59:50.940Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1081,6 +1081,19 @@
       "salaryExpect": "11k",
       "status": "面试",
       "remark": "线下投递\n9月17日 9点 线上面试"
+    },
+    {
+      "id": "10ee6459-296c-43cb-ac45-212913b1ea68",
+      "updatedAt": 1789549184008,
+      "owner": "lbw",
+      "company": "古瑞瓦特",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "国内售前技术工程师",
+      "sendDate": "2026-09-16",
+      "salaryExpect": "10k",
+      "status": "简历筛选中",
+      "remark": "线上问卷星投递"
     }
   ],
   "deletedRecords": {},
