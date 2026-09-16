@@ -110,7 +110,7 @@ input,select,textarea{font-family:inherit;font-size:14px;}
 /* ============ 统计卡片 ============ */
 .stat-wrap{
   display:grid;
-  grid-template-columns:repeat(5,minmax(150px,1fr));
+  grid-template-columns:repeat(6,minmax(150px,1fr));
   gap:14px;
   margin-bottom:22px;
 }
@@ -123,7 +123,9 @@ input,select,textarea{font-family:inherit;font-size:14px;}
   box-shadow:var(--shadow-sm);
   transition:transform .18s ease,box-shadow .18s ease;
 }
+.stat-item.stat-filter{cursor:pointer;}
 .stat-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.stat-item.stat-filter:focus-visible{outline:3px solid rgba(37,99,235,.45);outline-offset:3px;}
 .stat-item::after{
   content:"";position:absolute;right:-26px;top:-32px;
   width:96px;height:96px;border-radius:50%;
@@ -149,6 +151,8 @@ input,select,textarea{font-family:inherit;font-size:14px;}
 .stat-item:nth-child(4) .stat-icon{background:linear-gradient(135deg,#16a34a,#22c55e);}
 .stat-item:nth-child(5){border-top:3px solid var(--rose);}
 .stat-item:nth-child(5) .stat-icon{background:linear-gradient(135deg,#e11d48,#f43f5e);}
+.stat-item:nth-child(6){border-top:3px solid #64748b;}
+.stat-item:nth-child(6) .stat-icon{background:linear-gradient(135deg,#475569,#64748b);}
 
 /* ============ 表单卡片 ============ */
 .form-card{
@@ -622,25 +626,29 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
 <main class="content-area">
 <section class="page-view active" id="managePage">
   <div class="stat-wrap">
-    <div class="stat-item">
+    <div class="stat-item stat-filter" role="button" tabindex="0" data-stat-filter="all" aria-label="查看全部投递记录">
       <div class="stat-label"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>总投递</div>
       <div class="stat-num"><span id="total">0</span><small>条</small></div>
     </div>
-    <div class="stat-item">
+    <div class="stat-item stat-filter" role="button" tabindex="0" data-stat-filter="assessment" aria-label="筛选待测评记录">
       <div class="stat-label"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg></span>待测评</div>
       <div class="stat-num"><span id="s0">0</span><small>条</small></div>
     </div>
-    <div class="stat-item">
+    <div class="stat-item stat-filter" role="button" tabindex="0" data-stat-filter="process" aria-label="筛选流程进行中的记录">
       <div class="stat-label"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></span>流程进行中</div>
-      <div class="stat-num"><span id="s2">0</span><small>条</small></div>
+      <div class="stat-num"><span id="sProcess">0</span><small>条</small></div>
     </div>
-    <div class="stat-item">
+    <div class="stat-item stat-filter" role="button" tabindex="0" data-stat-filter="interview" aria-label="筛选面试记录">
+      <div class="stat-label"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>面试</div>
+      <div class="stat-num"><span id="sInterview">0</span><small>条</small></div>
+    </div>
+    <div class="stat-item stat-filter" role="button" tabindex="0" data-stat-filter="offer" aria-label="筛选获得 Offer 的记录">
       <div class="stat-label"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg></span>获得Offer</div>
-      <div class="stat-num"><span id="s3">0</span><small>条</small></div>
+      <div class="stat-num"><span id="sOffer">0</span><small>条</small></div>
     </div>
-    <div class="stat-item">
+    <div class="stat-item stat-filter" role="button" tabindex="0" data-stat-filter="closed" aria-label="筛选拒绝或放弃的记录">
       <div class="stat-label"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></span>拒绝/放弃</div>
-      <div class="stat-num"><span id="s4">0</span><small>条</small></div>
+      <div class="stat-num"><span id="sClosed">0</span><small>条</small></div>
     </div>
   </div>
 
@@ -693,8 +701,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
           <option value="终面">终面</option>
           <option value="offer">offer</option>
           <option value="进入人才库">进入人才库</option>
-          <option value="拒绝">拒绝</option>
-          <option value="已放弃">已放弃</option>
+          <option value="拒绝/放弃">拒绝/放弃</option>
         </select>
       </div>
     </div>
@@ -763,13 +770,12 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
       <option value="终面">终面</option>
       <option value="offer">offer</option>
       <option value="进入人才库">进入人才库</option>
-      <option value="拒绝">拒绝</option>
-      <option value="已放弃">已放弃</option>
+      <option value="拒绝/放弃">拒绝/放弃</option>
     </select>
     <button class="btn-clear-filter" id="clearFilter" type="button">清除筛选</button>
   </div>
 
-  <div class="table-section-title">
+  <div class="table-section-title" id="recordTableSection">
     <div>
       <h2>投递记录列表</h2>
       <p class="record-meta" id="recordMeta">所有数据保存在本机浏览器，可随时导出 JSON 备份。</p>
@@ -920,8 +926,24 @@ const DEFAULT_VAL = {
     position:"FPGA工程师",
     salaryExpect:"15K"
 };
-const STATUS_OPTIONS = ["待投递","已投递","简历筛选中","待测评","笔试","面试","二面","终面","offer","进入人才库","拒绝","已放弃"];
+const STATUS_OPTIONS = ["待投递","已投递","简历筛选中","待测评","笔试","面试","二面","终面","offer","进入人才库","拒绝/放弃"];
 const ACTIVE_STATUSES = ['已投递','简历筛选中','待测评','笔试','面试','二面','终面'];
+const PROCESS_STATUSES = ['已投递','简历筛选中','笔试'];
+const INTERVIEW_STATUSES = ['面试','二面','终面'];
+const STATISTIC_FILTERS = {
+    all: null,
+    assessment: ['待测评'],
+    process: PROCESS_STATUSES,
+    interview: INTERVIEW_STATUSES,
+    offer: ['offer'],
+    closed: ['拒绝/放弃']
+};
+let statisticStatusFilter = null;
+
+function normalizeStatus(status){
+    if(['拒绝','已放弃','拒绝/放弃'].includes(status)) return '拒绝/放弃';
+    return STATUS_OPTIONS.includes(status) ? status : '待投递';
+}
 
 function getStoredList(){
     try{
@@ -1366,6 +1388,7 @@ function typeChipHTML(type){
 
 // 状态标签样式
 function getStatusClass(status){
+    status = normalizeStatus(status);
     if(status === '待投递') return 'tag-wait';
     if(status === '已投递') return 'tag-send';
     if(status === '简历筛选中') return 'tag-screen';
@@ -1376,7 +1399,7 @@ function getStatusClass(status){
     if(status === '终面') return 'tag-final';
     if(status === 'offer') return 'tag-offer';
     if(status === '进入人才库') return 'tag-talent-pool';
-    if(['拒绝','已放弃'].includes(status)) return 'tag-reject';
+    if(status === '拒绝/放弃') return 'tag-reject';
     return '';
 }
 
@@ -1419,10 +1442,11 @@ function getFilteredList(){
     const filteredList = list.filter(item => {
         const type = item.companyType || '民企';
         const location = item.companyLocation || '未填写';
-        const status = STATUS_OPTIONS.includes(item.status) ? item.status : '待投递';
+        const status = normalizeStatus(item.status);
         const combinedText = [item.company, item.position, item.remark, item.companyLocation].join(' ').toLowerCase();
 
         return (!filterStatus || status === filterStatus)
+            && (!statisticStatusFilter || statisticStatusFilter.includes(status))
             && (!filterType || type === filterType)
             && (!filterLocation || location === filterLocation)
             && (!searchText || combinedText.includes(searchText));
@@ -1449,7 +1473,7 @@ function updateInsights(){
     const list = getList();
     const now = Date.now();
     const activeStatuses = ACTIVE_STATUSES;
-    const doneStatuses = ['offer','拒绝','已放弃'];
+    const doneStatuses = ['offer','拒绝/放弃'];
     const totalRaw = list.length;
     const total = totalRaw || 1;
     const percent = count => Math.round((count / total) * 100);
@@ -1483,20 +1507,20 @@ function updateInsights(){
 
     const followUpList = list.filter(item => {
         const days = daysFromSend(item);
-        return activeStatuses.includes(item.status) && days !== null && days > 7;
+        return activeStatuses.includes(normalizeStatus(item.status)) && days !== null && days > 7;
     }).sort((a,b) => (daysFromSend(b) || 0) - (daysFromSend(a) || 0)).slice(0,5);
 
-    const offerCount = list.filter(item => item.status === 'offer').length;
-    const processCount = list.filter(item => ["简历筛选中","待测评","笔试","面试","二面","终面"].includes(item.status)).length;
-    const activeCount = list.filter(item => activeStatuses.includes(item.status)).length;
-    const waitReplyCount = list.filter(item => ['已投递','简历筛选中'].includes(item.status)).length;
-    const rejectCount = list.filter(item => ['拒绝','已放弃'].includes(item.status)).length;
-    const closedCount = list.filter(item => doneStatuses.includes(item.status)).length;
+    const offerCount = list.filter(item => normalizeStatus(item.status) === 'offer').length;
+    const processCount = list.filter(item => PROCESS_STATUSES.includes(normalizeStatus(item.status))).length;
+    const activeCount = list.filter(item => activeStatuses.includes(normalizeStatus(item.status))).length;
+    const waitReplyCount = list.filter(item => ['已投递','简历筛选中'].includes(normalizeStatus(item.status))).length;
+    const rejectCount = list.filter(item => normalizeStatus(item.status) === '拒绝/放弃').length;
+    const closedCount = list.filter(item => doneStatuses.includes(normalizeStatus(item.status))).length;
     const processRate = percent(processCount);
     const activeRate = percent(activeCount);
     const offerRate = percent(offerCount);
     const activeWaitDays = list
-        .filter(item => activeStatuses.includes(item.status))
+        .filter(item => activeStatuses.includes(normalizeStatus(item.status)))
         .map(daysFromSend)
         .filter(days => days !== null);
     const avgWait = activeWaitDays.length
@@ -1507,7 +1531,7 @@ function updateInsights(){
         .sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0]));
     const typeRows = Object.entries(countBy(list, item => item.companyType || '民企'))
         .sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-    const statusRows = Object.entries(countBy(list, item => STATUS_OPTIONS.includes(item.status) ? item.status : '待投递'))
+    const statusRows = Object.entries(countBy(list, item => normalizeStatus(item.status)))
         .sort((a,b) => b[1] - a[1] || STATUS_OPTIONS.indexOf(a[0]) - STATUS_OPTIONS.indexOf(b[0]));
     const topCity = cityRows[0];
 
@@ -1574,7 +1598,7 @@ function render(){
     const showList = getFilteredList();
     const tbody = document.getElementById('tableBody');
     const recordMeta = document.getElementById('recordMeta');
-    const followUpTotal = list.filter(x => ACTIVE_STATUSES.includes(x.status) && (calcDays(x.sendDate) || 0) > 7).length;
+    const followUpTotal = list.filter(x => ACTIVE_STATUSES.includes(normalizeStatus(x.status)) && (calcDays(x.sendDate) || 0) > 7).length;
     recordMeta.innerHTML = `共 <b>${list.length}</b> 条记录，当前显示 <b>${showList.length}</b> 条 · 待跟进 <b style="color:#d97706">${followUpTotal}</b> 条。数据保存在本机浏览器，可随时导出 JSON 备份。`;
     tbody.innerHTML = '';
     if(showList.length === 0){
@@ -1582,7 +1606,7 @@ function render(){
     }else{
         showList.forEach((item)=>{
             const tr = document.createElement('tr');
-            const status = STATUS_OPTIONS.includes(item.status) ? item.status : '待投递';
+            const status = normalizeStatus(item.status);
             const statusOptions = STATUS_OPTIONS.map(option =>
                 `<option value="${escapeHtml(option)}" ${option === status ? 'selected' : ''}>${escapeHtml(option)}</option>`
             ).join('');
@@ -1612,7 +1636,7 @@ function render(){
                 const isActive = ACTIVE_STATUSES.includes(status);
                 const rowState = (isActive && days !== null && days > 7)
                     ? 'row-followup'
-                    : (status === 'offer' ? 'row-offer' : (['拒绝','已放弃'].includes(status) ? 'row-reject' : ''));
+                    : (status === 'offer' ? 'row-offer' : (status === '拒绝/放弃' ? 'row-reject' : ''));
                 if(rowState) tr.className = rowState;
 
                 // 日期 + 等待天数徽章
@@ -1654,10 +1678,11 @@ function render(){
 function updateStat(){
     const list = getList();
     document.getElementById('total').innerText = list.length;
-    document.getElementById('s0').innerText = list.filter(x=>x.status==="待测评").length;
-    document.getElementById('s2').innerText = list.filter(x=>["简历筛选中","待测评","笔试","面试","二面","终面"].includes(x.status)).length;
-    document.getElementById('s3').innerText = list.filter(x=>x.status==="offer").length;
-    document.getElementById('s4').innerText = list.filter(x=>["拒绝","已放弃"].includes(x.status)).length;
+    document.getElementById('s0').innerText = list.filter(x => normalizeStatus(x.status) === '待测评').length;
+    document.getElementById('sProcess').innerText = list.filter(x => PROCESS_STATUSES.includes(normalizeStatus(x.status))).length;
+    document.getElementById('sInterview').innerText = list.filter(x => INTERVIEW_STATUSES.includes(normalizeStatus(x.status))).length;
+    document.getElementById('sOffer').innerText = list.filter(x => normalizeStatus(x.status) === 'offer').length;
+    document.getElementById('sClosed').innerText = list.filter(x => normalizeStatus(x.status) === '拒绝/放弃').length;
 }
 
 function clearForm(){
@@ -1761,15 +1786,45 @@ document.getElementById('fileInput').addEventListener('change',(e)=>{
     e.target.value = '';
 })
 
-document.getElementById('filterStatus').addEventListener('change',render);
-document.getElementById('filterCompanyType').addEventListener('change',render);
-document.getElementById('filterLocation').addEventListener('change',render);
-document.getElementById('filterSearch').addEventListener('input',render);
-document.getElementById('clearFilter').addEventListener('click',()=>{
+function resetRecordFilters(){
     document.getElementById('filterSearch').value = '';
     document.getElementById('filterCompanyType').value = '';
     document.getElementById('filterLocation').value = '';
     document.getElementById('filterStatus').value = '';
+}
+
+function applyStatisticFilter(filterKey){
+    statisticStatusFilter = STATISTIC_FILTERS[filterKey]
+        ? [...STATISTIC_FILTERS[filterKey]]
+        : null;
+    resetRecordFilters();
+    render();
+    requestAnimationFrame(() => {
+        document.getElementById('recordTableSection').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+}
+
+document.querySelectorAll('[data-stat-filter]').forEach(card => {
+    const applyCardFilter = () => applyStatisticFilter(card.dataset.statFilter);
+    card.addEventListener('click', applyCardFilter);
+    card.addEventListener('keydown', event => {
+        if(event.key === 'Enter' || event.key === ' '){
+            event.preventDefault();
+            applyCardFilter();
+        }
+    });
+});
+
+document.getElementById('filterStatus').addEventListener('change',()=>{
+    statisticStatusFilter = null;
+    render();
+});
+document.getElementById('filterCompanyType').addEventListener('change',render);
+document.getElementById('filterLocation').addEventListener('change',render);
+document.getElementById('filterSearch').addEventListener('input',render);
+document.getElementById('clearFilter').addEventListener('click',()=>{
+    statisticStatusFilter = null;
+    resetRecordFilters();
     render();
 });
 const dateSortButton = document.getElementById('dateSort');
