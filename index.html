@@ -1218,6 +1218,20 @@ async function fetchGithubFile(config){
         'X-GitHub-Api-Version': '2022-11-28'
     };
     const headers = config.token ? {...publicHeaders, Authorization: `Bearer ${config.token}`} : publicHeaders;
+    // 优先读取当前网站同域的公开文件：手机已能打开本页时，不需要再访问可能被拦截的 raw.githubusercontent.com。
+    const readSameOriginPublicFile = async () => {
+        if(!['http:', 'https:'].includes(window.location.protocol)) return null;
+        const siteUrl = new URL('data.json', window.location.href);
+        siteUrl.searchParams.set('_', String(Date.now()));
+        let siteResponse;
+        try{
+            siteResponse = await fetch(siteUrl.href, {cache: 'no-store'});
+        }catch(error){
+            return null;
+        }
+        if(!siteResponse.ok) return null;
+        return {sha: null, payload: parseRemotePayload(await siteResponse.text()), canWrite: false};
+    };
     const readRawPublicFile = async () => {
         let rawResponse;
         try{
@@ -1228,13 +1242,14 @@ async function fetchGithubFile(config){
         if(!rawResponse.ok) throw new Error(`E_GH_READ_${rawResponse.status}：无法读取 GitHub 数据文件`);
         return {sha: null, payload: parseRemotePayload(await rawResponse.text()), canWrite: false};
     };
-    // 无令牌的设备直接读取公开 Raw 文件，避免消耗 GitHub 匿名 API 配额。
-    if(!config.token) return readRawPublicFile();
+    const readPublicFile = async () => (await readSameOriginPublicFile()) || readRawPublicFile();
+    // 无令牌设备优先从本站读取公开数据；本地 HTML 或其他部署环境自动回退至 GitHub Raw。
+    if(!config.token) return readPublicFile();
     let response;
     try{
         response = await fetch(url, {headers});
     }catch(error){
-        return readRawPublicFile();
+        return readPublicFile();
     }
     let canWrite = Boolean(config.token);
     // 令牌失效或未授权时，公开仓库仍允许只读加载，避免本机旧令牌阻断页面显示。
@@ -1243,8 +1258,8 @@ async function fetchGithubFile(config){
         canWrite = false;
     }
     if(response.status === 404) return {sha: null, payload: {version: 3, accounts: {}, records: [], deletedRecords: {}, deletedAccounts: {}}, canWrite};
-    // 匿名 API 可能触发速率限制；公开仓库改从 Raw 地址读取，确保其他设备仍可登录。
-    if(!response.ok) return readRawPublicFile();
+    // 匿名 API 可能触发速率限制；回退到公开页面数据，确保其他设备仍可登录。
+    if(!response.ok) return readPublicFile();
     const file = await response.json();
     return {sha: file.sha, payload: parseRemotePayload(fromBase64(file.content)), canWrite};
 }
