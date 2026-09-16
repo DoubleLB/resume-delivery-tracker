@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "updatedAt": "2026-09-15T16:36:40.011Z",
+  "version": 3,
+  "updatedAt": "2026-09-16T03:17:03.907Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -980,15 +980,15 @@
     },
     {
       "id": 1789484365207,
-      "updatedAt": 1789484365207,
-      "company": "凯翔",
+      "updatedAt": 1789528616465,
+      "company": "西安凯翔计算机研究所",
       "companyType": "国企",
       "companyLocation": "西安",
       "position": "FPGA测试工程师",
       "sendDate": "2026-09-15",
       "salaryExpect": "10k",
       "status": "面试",
-      "remark": "西安邮电大学 线下投递\n一面：9月16日9：20",
+      "remark": "西安邮电大学 线下投递\n一面：9月16日9：20 技术面\n问题：侧重于FPGA测试，有UAM等等测试相关问题，以及中断的使用，没有询问项目相关的开发。写好Verilog后从综合到烧写底层都经历了哪些变化",
       "owner": "lbw"
     },
     {
@@ -1070,5 +1070,6 @@
       "remark": ""
     }
   ],
-  "deletedRecords": {}
+  "deletedRecords": {},
+  "deletedAccounts": {}
 }
