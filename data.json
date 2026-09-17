@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-17T11:56:13.426Z",
+  "updatedAt": "2026-09-17T12:11:52.816Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1107,6 +1107,19 @@
       "salaryExpect": "10k",
       "status": "已投递",
       "remark": "线下投递，632外包。"
+    },
+    {
+      "id": "bc8ad4c7-c070-42ef-b007-89d3eac81915",
+      "updatedAt": 1789647107212,
+      "owner": "lbw",
+      "company": "上海汉得信息股份有限公司",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-17",
+      "salaryExpect": "10k",
+      "status": "待投递",
+      "remark": "http://career.hand-china.com"
     }
   ],
   "deletedRecords": {},
