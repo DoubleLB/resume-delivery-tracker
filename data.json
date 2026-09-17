@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-16T08:59:50.940Z",
+  "updatedAt": "2026-09-17T02:13:35.038Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -921,9 +921,9 @@
       "position": "应用系统支持岗",
       "sendDate": "2026-09-14",
       "salaryExpect": "10k",
-      "status": "待测评",
+      "status": "简历筛选中",
       "remark": "https://campus.geely.com/campus-recruitment/geely/78436?locale=zh-CN#/candidateHome/applications",
-      "updatedAt": 1789381145428,
+      "updatedAt": 1789611208514,
       "owner": "lbw"
     },
     {
@@ -1071,7 +1071,7 @@
     },
     {
       "id": "0753692d-e552-4a28-8c91-8370989ea615",
-      "updatedAt": 1789528906746,
+      "updatedAt": 1789609614600,
       "owner": "lbw",
       "company": "咸阳正泰清研",
       "companyType": "民企",
@@ -1080,7 +1080,7 @@
       "sendDate": "2026-09-16",
       "salaryExpect": "11k",
       "status": "面试",
-      "remark": "线下投递\n9月17日 9点 线上面试"
+      "remark": "线下投递\n9月17日 9点 线上面试\nI2C的调试、ADC的滤波（逻辑的内部滤波）、UART的开发调试，具体功能等等。PCIE IP核的使用、BRAM的各个种类、FIFO的两种模式（传统和**）、没有光模块，是否测试过GTX本身的速率）"
     },
     {
       "id": "10ee6459-296c-43cb-ac45-212913b1ea68",
