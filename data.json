@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-17T02:13:35.038Z",
+  "updatedAt": "2026-09-17T02:14:55.881Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -505,9 +505,9 @@
       "position": "软件",
       "sendDate": "2026-09-07",
       "salaryExpect": "13k",
-      "status": "简历筛选中",
+      "status": "进入人才库",
       "remark": "线下投递",
-      "updatedAt": 1788840576575,
+      "updatedAt": 1789611254414,
       "owner": "lbw"
     },
     {
@@ -583,9 +583,9 @@
       "position": "嵌入式软件",
       "sendDate": "2026-09-09",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "简历筛选中",
       "remark": "应届生求职APP-扫码投递",
-      "updatedAt": 1788959322809,
+      "updatedAt": 1789611289242,
       "owner": "lbw"
     },
     {
