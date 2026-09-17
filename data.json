@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-17T02:58:33.480Z",
+  "updatedAt": "2026-09-17T10:47:49.761Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1019,7 +1019,7 @@
     },
     {
       "id": 1789485266593,
-      "updatedAt": 1789485266593,
+      "updatedAt": 1789642064967,
       "owner": "lbw",
       "company": "欣旺达",
       "companyType": "民企",
@@ -1027,8 +1027,8 @@
       "position": "测试工程师-性能测试",
       "sendDate": "2026-09-15",
       "salaryExpect": "10k",
-      "status": "已投递",
-      "remark": "线下投递、线上 软件开发-动力"
+      "status": "面试",
+      "remark": "09月18日 周五 16:00"
     },
     {
       "id": 1789485453650,
