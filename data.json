@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-17T11:53:21.281Z",
+  "updatedAt": "2026-09-17T11:56:13.426Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1094,6 +1094,19 @@
       "salaryExpect": "10k",
       "status": "简历筛选中",
       "remark": "线上问卷星投递"
+    },
+    {
+      "id": "6df39f56-1639-409c-9761-245d1cada92b",
+      "updatedAt": 1789646166190,
+      "owner": "lbw",
+      "company": "631所外包",
+      "companyType": "民企",
+      "companyLocation": "",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-17",
+      "salaryExpect": "10k",
+      "status": "已投递",
+      "remark": "线下投递，632外包。"
     }
   ],
   "deletedRecords": {},
