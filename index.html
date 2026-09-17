@@ -64,7 +64,9 @@ input,select,textarea{font-family:inherit;font-size:14px;}
 .auth-message{min-height:20px;margin-top:12px;color:#be123c;font-size:12.5px;font-weight:700;}
 .account-panel{display:flex;align-items:center;gap:10px;margin-left:auto;}
 .account-name{font-size:13px;font-weight:800;color:#fff;white-space:nowrap;}
-.btn-logout{min-height:34px;padding:7px 11px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.10);color:#fff;font-size:12px;}
+.btn-logout,.btn-refresh-remote{min-height:34px;padding:7px 11px;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:12px;}
+.btn-logout{background:rgba(255,255,255,.10);}
+.btn-refresh-remote{background:rgba(13,148,136,.78);}
 .app-shell[hidden],.auth-screen[hidden]{display:none!important;}
 
 /* ============ 顶栏 ============ */
@@ -587,7 +589,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
     <div class="form-item" id="authTokenGroup" hidden>
       <label for="authToken">GitHub 细粒度访问令牌</label>
       <input id="authToken" type="password" autocomplete="off" placeholder="仅需该仓库 Contents 读写权限">
-      <small class="muted">令牌只保存在当前浏览器；注册后请点击“立即同步”写入 GitHub。</small>
+      <small class="muted">令牌只保存在当前浏览器；注册后会在 5 秒无操作时自动同步，也可手动立即同步。</small>
     </div>
     <button class="auth-submit" id="authSubmit" type="submit" disabled>正在加载账号…</button>
     <button class="auth-switch" id="authSwitch" type="button">没有账号？注册新账号</button>
@@ -620,6 +622,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
   </nav>
   <div class="account-panel">
     <span class="account-name" id="accountName"></span>
+    <button class="btn-refresh-remote" id="refreshGithubData" type="button" title="读取 GitHub 最新数据并刷新当前页面">同步刷新</button>
     <button class="btn-logout" id="logoutBtn" type="button">退出登录</button>
   </div>
 </header>
@@ -721,7 +724,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
 
   <details class="github-sync-card" id="githubSyncCard">
     <summary>GitHub 自动同步 <span class="github-sync-status" id="githubSyncStatus">未配置</span></summary>
-    <p class="github-sync-help">退出后重新登录时会从 GitHub 的 <code>data.json</code> 读取最新记录；本机修改只保存在当前浏览器，点击“立即同步”才会合并并上传。令牌仅保存在当前浏览器中，不会写进网页或上传到仓库。</p>
+    <p class="github-sync-help">退出后重新登录或点击顶部“同步刷新”会从 GitHub 的 <code>data.json</code> 读取最新记录；修改完成后静置 5 秒会自动同步，也可点击“立即同步”。令牌仅保存在当前浏览器中，不会写进网页或上传到仓库。</p>
     <div class="github-sync-grid">
       <div class="form-item">
         <label for="githubRepo">GitHub 仓库</label>
@@ -879,7 +882,7 @@ tbody tr.row-reject td:first-child{box-shadow:inset 4px 0 0 #c2ccd9;}
 <section class="page-view" id="adminPage">
   <div class="review-banner">
     <h2>管理员账户管理</h2>
-    <p>可重命名用户、重置密码或删除用户及其全部投递记录。操作只保存在本机，点击“立即同步”后才会写入 GitHub。</p>
+    <p>可重命名用户、重置密码或删除用户及其全部投递记录。修改后静置 5 秒会自动同步，也可点击“立即同步”。</p>
   </div>
   <div class="form-card">
     <div class="form-title">已注册用户</div>
@@ -904,12 +907,15 @@ const GITHUB_CONFIG_KEY = "resume_delivery_github_config";
 const GITHUB_DELETED_KEY = "resume_delivery_deleted_records";
 const GITHUB_DELETED_ACCOUNTS_KEY = "resume_delivery_deleted_accounts";
 const DEFAULT_GITHUB_REPO = "DoubleLB/resume-delivery-tracker";
+const ADMIN_USERNAME = 'admin';
+const ADMIN_PASSWORD = 'admin';
 let editId = null;
 let tableEditId = null;
 let toastTimer = null;
 let githubSyncRunning = false;
 let githubSyncQueued = false;
 let githubChangesPending = false;
+let githubAutoSyncTimer = null;
 let applyingRemoteData = false;
 let authMode = 'login';
 
@@ -960,7 +966,7 @@ function getCurrentUser(){
 }
 
 function isAdminSession(){
-    return getCurrentUser() === 'lbw' && localStorage.getItem(ADMIN_SESSION_KEY) === '1';
+    return getCurrentUser() === ADMIN_USERNAME && localStorage.getItem(ADMIN_SESSION_KEY) === '1';
 }
 
 function getList(){
@@ -977,7 +983,8 @@ function saveList(arr, {skipGithubSync = false, replaceAll = false} = {}){
     localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
     if(!skipGithubSync && !applyingRemoteData){
         githubChangesPending = true;
-        setGithubSyncStatus('本机修改待同步', 'working');
+        setGithubSyncStatus('本机修改待同步，将在 5 秒后自动同步', 'working');
+        scheduleGithubAutoSync();
     }
 }
 
@@ -994,7 +1001,8 @@ function saveAccounts(accounts, {markForSync = false} = {}){
     localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
     if(markForSync && !applyingRemoteData){
         githubChangesPending = true;
-        setGithubSyncStatus('本机修改待同步', 'working');
+        setGithubSyncStatus('本机修改待同步，将在 5 秒后自动同步', 'working');
+        scheduleGithubAutoSync();
     }
 }
 
@@ -1020,15 +1028,16 @@ function setAuthMode(mode){
     const isAdmin = mode === 'admin';
     const isRegister = mode === 'register';
     document.getElementById('authTitle').textContent = isAdmin ? '管理员登录' : isRegister ? '注册投递管理账号' : '登录投递管理中心';
-    document.getElementById('authDescription').textContent = isAdmin ? '仅 lbw 管理员可管理注册账户。' : isRegister ? '注册后仅显示并管理你的投递记录。' : '登录后仅显示你的投递记录。';
+    document.getElementById('authDescription').textContent = isAdmin ? '使用 admin 管理员账户，可管理全部普通账户。' : isRegister ? '注册后仅显示并管理你的投递记录。' : '登录后仅显示你的投递记录。';
     document.getElementById('authSubmit').textContent = isAdmin ? '管理员登录' : isRegister ? '注册并登录' : '登录';
     document.getElementById('authSwitch').textContent = isAdmin ? '返回普通登录' : isRegister ? '已有账号？返回登录' : '没有账号？注册新账号';
     document.getElementById('authPassword').autocomplete = isRegister ? 'new-password' : 'current-password';
+    document.getElementById('authPassword').placeholder = isAdmin ? '请输入管理员密码' : '至少 6 位';
     document.getElementById('authTokenGroup').hidden = !isRegister;
     document.getElementById('authToken').required = isRegister;
     document.getElementById('adminEntry').hidden = isAdmin || isRegister;
     document.getElementById('authUsername').readOnly = isAdmin;
-    if(isAdmin) document.getElementById('authUsername').value = 'lbw';
+    if(isAdmin) document.getElementById('authUsername').value = ADMIN_USERNAME;
     setAuthMessage();
 }
 
@@ -1301,18 +1310,66 @@ async function loadGithubDataForLogin(){
     return remote;
 }
 
-async function syncWithGithub({showResult = false} = {}){
+async function refreshGithubData({showResult = false} = {}){
+    if(githubSyncRunning){
+        const message = 'E_GH_BUSY：当前正在同步，请稍后再刷新。';
+        setGithubSyncStatus(message, 'working');
+        if(showResult) showToast(message, 'info');
+        return false;
+    }
+    if(githubChangesPending && !confirm('本机有尚未同步的修改。同步刷新会用 GitHub 最新数据覆盖本机当前内容，是否继续？')){
+        return false;
+    }
+    githubSyncRunning = true;
+    setGithubSyncStatus('正在读取 GitHub 最新数据…', 'working');
+    try{
+        const config = getGithubConfig();
+        if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(config.repo)){
+            throw new Error('E_GH_CONFIG_INVALID：仓库格式应为 用户名/仓库名');
+        }
+        const remote = await fetchGithubFile(config);
+        applyRemotePayload(remote.payload);
+        clearTimeout(githubAutoSyncTimer);
+        render();
+        if(isAdminSession()) renderAdminAccounts();
+        setGithubSyncStatus(remote.canWrite ? '已刷新 GitHub 最新数据' : '只读：已刷新 GitHub 最新数据', 'ready');
+        if(showResult) showToast('同步刷新完成：已显示 GitHub 最新数据');
+        return true;
+    }catch(error){
+        const message = error.message || 'E_GH_READ：无法读取 GitHub 最新数据';
+        setGithubSyncStatus(message, 'error');
+        if(showResult) showToast(message, 'error');
+        return false;
+    }finally{
+        githubSyncRunning = false;
+    }
+}
+
+function scheduleGithubAutoSync(){
+    clearTimeout(githubAutoSyncTimer);
+    if(applyingRemoteData || !githubChangesPending || !getCurrentUser()) return;
+    githubAutoSyncTimer = setTimeout(() => {
+        if(!githubChangesPending) return;
+        if(githubSyncRunning){
+            githubSyncQueued = true;
+            return;
+        }
+        syncWithGithub({auto: true});
+    }, 5000);
+}
+
+async function syncWithGithub({showResult = false, auto = false} = {}){
     const config = getGithubConfig();
     if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(config.repo)){
         const message = 'E_GH_CONFIG_INVALID：仓库格式应为 用户名/仓库名';
         setGithubSyncStatus(message, 'error');
-        if(showResult) showToast(message, 'error');
+        if(showResult || auto) showToast(message, 'error');
         return false;
     }
     if(!config.token){
         const message = 'E_GH_TOKEN_REQUIRED：请配置 GitHub 写入令牌后再同步';
         setGithubSyncStatus(message, 'error');
-        if(showResult) showToast(message, 'error');
+        if(showResult || auto) showToast(message, 'error');
         return false;
     }
     if(githubSyncRunning){
@@ -1347,12 +1404,13 @@ async function syncWithGithub({showResult = false} = {}){
         applyingRemoteData = false;
         const message = error.message || 'E_GH_UNKNOWN：GitHub 同步失败';
         setGithubSyncStatus(message, 'error');
-        if(showResult) showToast(message, 'error');
+        if(showResult || auto) showToast(message, 'error');
         return false;
     }finally{
         githubSyncRunning = false;
         if(githubSyncQueued){
             githubSyncQueued = false;
+            if(githubChangesPending) scheduleGithubAutoSync();
         }
     }
 }
@@ -1749,7 +1807,7 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
     saveList(list);
     clearForm();
     render();
-    showToast(isEditing ? '记录已更新，点击“立即同步”后才会上传。' : '记录已添加，点击“立即同步”后才会上传。', 'info');
+    showToast(isEditing ? '记录已更新，将在 5 秒无操作后自动同步。' : '记录已添加，将在 5 秒无操作后自动同步。', 'info');
 })
 
 document.getElementById('resetForm').addEventListener('click',clearForm);
@@ -1793,7 +1851,7 @@ document.getElementById('fileInput').addEventListener('change',(e)=>{
             const importedRecords = ensureRecordTimestamps(importData).map(record => ({...record, owner: getCurrentUser(), updatedAt: Date.now()}));
             saveList(importedRecords);
             render();
-            showToast('导入完成，点击“立即同步”后才会上传。', 'info');
+            showToast('导入完成，将在 5 秒无操作后自动同步。', 'info');
         }catch(err){
             showToast('E_IMPORT_PARSE：文件无法解析为有效 JSON。', 'error');
         }
@@ -1873,7 +1931,7 @@ function renderAdminAccounts(){
     }
     const accounts = getAccounts();
     const records = getStoredList();
-    const users = Object.keys(accounts).filter(username => username !== 'lbw').sort((a, b) => a.localeCompare(b));
+    const users = Object.keys(accounts).filter(username => username !== ADMIN_USERNAME).sort((a, b) => a.localeCompare(b));
     if(users.length === 0){
         body.innerHTML = '<tr><td colspan="5" class="empty"><strong>暂无可管理的普通用户</strong></td></tr>';
         return;
@@ -1942,9 +2000,9 @@ document.getElementById('adminAccountBody').addEventListener('click', async even
         }
         saveAccounts(accounts, {markForSync: true});
         renderAdminAccounts();
-        showToast('账户修改已保存，点击“立即同步”后才会上传。', 'info');
+        showToast('账户修改已保存，将在 5 秒无操作后自动同步；也可立即同步。', 'info');
     }else if(event.target.classList.contains('admin-delete')){
-        if(!confirm(`确认删除用户“${username}”及其全部投递记录？此操作需同步后才会生效。`)) return;
+        if(!confirm(`确认删除用户“${username}”及其全部投递记录？将于 5 秒无操作后自动同步。`)) return;
         delete accounts[username];
         const deletedAccounts = getDeletedAccounts();
         deletedAccounts[username] = now;
@@ -1961,7 +2019,7 @@ document.getElementById('adminAccountBody').addEventListener('click', async even
         saveAccounts(accounts, {markForSync: true});
         saveList(remainingRecords, {replaceAll: true});
         renderAdminAccounts();
-        showToast('用户及其记录已删除，点击“立即同步”后才会上传。', 'info');
+        showToast('用户及其记录已删除，将在 5 秒无操作后自动同步；也可立即同步。', 'info');
     }
 });
 
@@ -1981,7 +2039,7 @@ document.getElementById('tableBody').addEventListener('change',function(e){
     e.target.className = `status-select ${getStatusClass(item.status)}`;
     updateStat();
     updateInsights();
-    showToast('状态已更新，点击“立即同步”后才会上传。', 'info');
+    showToast('状态已更新，将在 5 秒无操作后自动同步。', 'info');
 });
 
 document.getElementById('tableBody').addEventListener('click',function(e){
@@ -2016,14 +2074,14 @@ document.getElementById('tableBody').addEventListener('click',function(e){
         saveList(list);
         tableEditId = null;
         render();
-        showToast('记录已更新，点击“立即同步”后才会上传。', 'info');
+        showToast('记录已更新，将在 5 秒无操作后自动同步。', 'info');
     }else if(e.target.classList.contains('btn-del')){
         if(window.confirm('确定删除这条投递记录？')){
             const newList = list.filter(x=>String(x.id) !== String(id));
             markRecordDeleted(id);
             saveList(newList);
             render();
-            showToast('记录已删除，点击“立即同步”后才会上传。', 'info');
+            showToast('记录已删除，将在 5 秒无操作后自动同步。', 'info');
         }
     }
 })
@@ -2051,12 +2109,17 @@ document.getElementById('saveGithubConfig').addEventListener('click', () => {
         return;
     }
     localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify({repo, branch, token}));
-    setGithubSyncStatus('令牌配置已保存，等待手动同步', 'ready');
-    showToast('令牌配置已保存；点击“立即同步”才会上传本机修改。', 'info');
+    if(githubChangesPending) scheduleGithubAutoSync();
+    setGithubSyncStatus(githubChangesPending ? '令牌配置已保存，将在 5 秒后自动同步' : '令牌配置已保存', 'ready');
+    showToast('令牌配置已保存；后续修改会在 5 秒无操作后自动同步，也可立即同步。', 'info');
 });
 
 document.getElementById('syncGithubNow').addEventListener('click', () => {
     syncWithGithub({showResult: true});
+});
+
+document.getElementById('refreshGithubData').addEventListener('click', () => {
+    refreshGithubData({showResult: true});
 });
 
 document.getElementById('authSwitch').addEventListener('click', () => {
@@ -2078,7 +2141,7 @@ document.getElementById('authForm').addEventListener('submit', async event => {
         showToast(message, 'error');
         return;
     }
-    if(password.length < 6){
+    if(authMode !== 'admin' && password.length < 6){
         const message = 'E_AUTH_PASSWORD_LENGTH：密码至少需要 6 位。';
         setAuthMessage(message);
         showToast(message, 'error');
@@ -2095,13 +2158,13 @@ document.getElementById('authForm').addEventListener('submit', async event => {
     const accounts = getAccounts();
     const passwordHash = await hashPassword(password);
     if(authMode === 'admin'){
-        if(username !== 'lbw' || !accounts.lbw || accounts.lbw.passwordHash !== passwordHash){
+        if(username !== ADMIN_USERNAME || password !== ADMIN_PASSWORD){
             const message = 'E_ADMIN_CREDENTIALS：管理员凭据不正确。';
             setAuthMessage(message);
             showToast(message, 'error');
             return;
         }
-        localStorage.setItem(CURRENT_USER_KEY, 'lbw');
+        localStorage.setItem(CURRENT_USER_KEY, ADMIN_USERNAME);
         localStorage.setItem(ADMIN_SESSION_KEY, '1');
     }else if(authMode === 'register'){
         if(accounts[username]){
@@ -2140,10 +2203,11 @@ document.getElementById('authForm').addEventListener('submit', async event => {
     render();
     if(isAdminSession()) renderAdminAccounts();
     setAuthMessage();
-    if(authMode === 'register') showToast('账号已创建；点击“立即同步”后才会写入 GitHub。', 'info');
+    if(authMode === 'register') showToast('账号已创建，将在 5 秒无操作后自动同步至 GitHub。', 'info');
 });
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
+    clearTimeout(githubAutoSyncTimer);
     localStorage.removeItem(CURRENT_USER_KEY);
     localStorage.removeItem(ADMIN_SESSION_KEY);
     tableEditId = null;
