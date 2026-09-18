@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-18T14:38:12.745Z",
+  "updatedAt": "2026-09-18T14:39:25.548Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -979,19 +979,6 @@
       "owner": "lbw"
     },
     {
-      "id": 1789484365207,
-      "updatedAt": 1789528743127,
-      "company": "西安凯翔计算机研究所",
-      "companyType": "国企",
-      "companyLocation": "西安",
-      "position": "FPGA测试工程师",
-      "sendDate": "2026-09-15",
-      "salaryExpect": "10k",
-      "status": "面试",
-      "remark": "西安邮电大学 线下投递\n一面：9月16日9：20 技术面\n问题：侧重于FPGA测试，有UAM等等测试相关问题，以及中断的使用，没有询问项目相关的开发。\n1、写好Verilog后从综合到烧写底层都经历了哪些变化\n2、写好一个模块后，是如何写testbeach和仿真脚本的。\n3、在项目中遇到的仿真测试相关的问题。观测波形图等等",
-      "owner": "lbw"
-    },
-    {
       "id": 1789484952323,
       "updatedAt": 1789484952323,
       "owner": "lbw",
@@ -1174,6 +1161,8 @@
       "remark": "西安邮电大学 线下投递\n一面：9月16日9：20 技术面\n问题：侧重于FPGA测试，有UAM等等测试相关问题，以及中断的使用，没有询问项目相关的开发。\n1、写好Verilog后从综合到烧写底层都经历了哪些变化\n2、写好一个模块后，是如何写testbeach和仿真脚本的。\n3、在项目中遇到的仿真测试相关的问题。观测波形图等等\n18号通过，但是需要实习到毕业，每天150+30补贴；登记为12月实习，可签三方。"
     }
   ],
-  "deletedRecords": {},
+  "deletedRecords": {
+    "1789484365207": 1789742296092
+  },
   "deletedAccounts": {}
 }
