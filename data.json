@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-17T12:11:52.816Z",
+  "updatedAt": "2026-09-18T14:26:47.987Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1120,6 +1120,19 @@
       "salaryExpect": "10k",
       "status": "待投递",
       "remark": "http://career.hand-china.com"
+    },
+    {
+      "id": "c18b79cd-f2ef-4107-aa05-2e14848d7c19",
+      "updatedAt": 1789741601823,
+      "owner": "lbw",
+      "company": "汇川科技",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-18",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://recruit.inovance.com/#/dashboard/applications"
     }
   ],
   "deletedRecords": {},
