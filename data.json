@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-18T14:29:25.665Z",
+  "updatedAt": "2026-09-18T14:30:55.356Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1136,13 +1136,26 @@
     },
     {
       "id": "1fd7a257-c63e-467e-bb18-e8a49643b10f",
-      "updatedAt": 1789741712708,
+      "updatedAt": 1789741849211,
       "owner": "lbw",
       "company": "汇川科技",
       "companyType": "民企",
       "companyLocation": "西安",
       "position": "生产计划工程师",
       "sendDate": "2026-09-18",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://recruit.inovance.com/#/dashboard/applications"
+    },
+    {
+      "id": "3c770f47-2a0a-4101-87f3-8b69f1559be3",
+      "updatedAt": 1789741825348,
+      "owner": "lbw",
+      "company": "汇川技术",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "软件质量工程师",
+      "sendDate": "2026-09-06",
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://recruit.inovance.com/#/dashboard/applications"
