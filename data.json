@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-18T14:33:42.159Z",
+  "updatedAt": "2026-09-18T14:36:31.511Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1159,6 +1159,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://recruit.inovance.com/#/dashboard/applications"
+    },
+    {
+      "id": "a916df7e-7d88-4f63-b0c2-e8906bb2489f",
+      "updatedAt": 1789742185391,
+      "owner": "lbw",
+      "company": "西安凯翔航空工业计算机有限公司",
+      "companyType": "国企",
+      "companyLocation": "西安",
+      "position": "FPGA测试工程师",
+      "sendDate": "2026-09-15",
+      "salaryExpect": "12k",
+      "status": "offer",
+      "remark": "线下投递，16号面试\n18号通过，但是需要实习到毕业，每天150+30补贴；登记为12月实习，可签三方。"
     }
   ],
   "deletedRecords": {},
