@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-18T14:40:46.780Z",
+  "updatedAt": "2026-09-19T03:38:01.745Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1044,19 +1044,6 @@
       "remark": "https://app.mokahr.com/m/candidate/applications/deliver-query/sunlord"
     },
     {
-      "id": "8b4810de-123c-4781-9989-e58fd6f0442e",
-      "updatedAt": 1789490199372,
-      "owner": "lbw",
-      "company": "123",
-      "companyType": "民企",
-      "companyLocation": "",
-      "position": "FPGA工程师",
-      "sendDate": "2026-09-16",
-      "salaryExpect": "15K",
-      "status": "已投递",
-      "remark": ""
-    },
-    {
       "id": "0753692d-e552-4a28-8c91-8370989ea615",
       "updatedAt": 1789613907469,
       "owner": "lbw",
@@ -1162,6 +1149,7 @@
     }
   ],
   "deletedRecords": {
+    "8b4810de-123c-4781-9989-e58fd6f0442e": 1789789076183,
     "1789484365207": 1789742296092
   },
   "deletedAccounts": {}
