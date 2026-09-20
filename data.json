@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-20T03:18:45.902Z",
+  "updatedAt": "2026-09-20T03:21:08.657Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -89,9 +89,9 @@
       "position": "FPGA工程师",
       "sendDate": "2026-08-26",
       "salaryExpect": "15K",
-      "status": "简历筛选中",
+      "status": "面试",
       "remark": "https://campushr.hikvision.com/myDelivery\n一面：09-21 10:30~11:00",
-      "updatedAt": 1789874320148,
+      "updatedAt": 1789874459443,
       "owner": "lbw"
     },
     {
