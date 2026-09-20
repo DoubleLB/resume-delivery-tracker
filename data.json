@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-20T07:57:47.689Z",
+  "updatedAt": "2026-09-20T07:59:06.714Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1006,7 +1006,7 @@
     },
     {
       "id": 1789485266593,
-      "updatedAt": 1789891061731,
+      "updatedAt": 1789891140565,
       "owner": "lbw",
       "company": "欣旺达",
       "companyType": "民企",
@@ -1014,8 +1014,8 @@
       "position": "测试工程师-性能测试",
       "sendDate": "2026-09-15",
       "salaryExpect": "10k",
-      "status": "面试",
-      "remark": "https://sunwodacampus.zhiye.com/personal/deliveryRecord\n09月18日 周五 16:00\n主要询问了MCU方面的东西\n9月19日截至 AI面 18：55完成AI面试"
+      "status": "offer",
+      "remark": "https://sunwodacampus.zhiye.com/personal/deliveryRecord\n09月18日 周五 16:00\n主要询问了MCU方面的东西\n9月19日 截至 AI面 18：55完成AI面试\n9月20日 HR开集体意向offer答疑会议。"
     },
     {
       "id": 1789485453650,
