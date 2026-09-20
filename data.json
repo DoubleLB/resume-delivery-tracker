@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-20T10:51:00.266Z",
+  "updatedAt": "2026-09-20T10:52:54.671Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1146,6 +1146,19 @@
       "salaryExpect": "12k",
       "status": "offer",
       "remark": "西安邮电大学 线下投递\n一面：9月16日9：20 技术面\n问题：侧重于FPGA测试，有UAM等等测试相关问题，以及中断的使用，没有询问项目相关的开发。\n1、写好Verilog后从综合到烧写底层都经历了哪些变化\n2、写好一个模块后，是如何写testbeach和仿真脚本的。\n3、在项目中遇到的仿真测试相关的问题。观测波形图等等\n18号通过，但是需要实习到毕业，每天150+30补贴；登记为12月实习，可签三方。"
+    },
+    {
+      "id": "23ec75c2-25ae-4024-8746-226e538de428",
+      "updatedAt": 1789901567958,
+      "owner": "lbw",
+      "company": "西安乾景防务",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-20",
+      "salaryExpect": "15K",
+      "status": "面试",
+      "remark": "地点：陕西省西安市长安区毕原二路3000号曲率引擎光子制造园一区13栋\n宣讲日期 2026年9月22日（星期二）宣讲时间 14:20 – 15:00 笔试时间15:40 – 16:20"
     }
   ],
   "deletedRecords": {
