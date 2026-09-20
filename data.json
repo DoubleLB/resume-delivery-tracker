@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-19T10:55:38.835Z",
+  "updatedAt": "2026-09-20T03:16:38.891Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -388,9 +388,9 @@
       "position": "硬件工程师-2027届(J11189)",
       "sendDate": "2026-09-03",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "进入人才库",
       "remark": "https://awinic1.zhiye.com/personal/deliveryRecord",
-      "updatedAt": 1788430187829,
+      "updatedAt": 1789874192794,
       "owner": "lbw"
     },
     {
@@ -401,9 +401,9 @@
       "position": "技术服务工程师-2027届(J11208)",
       "sendDate": "2026-09-03",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "进入人才库",
       "remark": "",
-      "updatedAt": 1788430213431,
+      "updatedAt": 1789874187488,
       "owner": "lbw"
     },
     {
@@ -414,9 +414,9 @@
       "position": "应用工程师-2027届(J11178)",
       "sendDate": "2026-09-03",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "进入人才库",
       "remark": "",
-      "updatedAt": 1788430331691,
+      "updatedAt": 1789874189840,
       "owner": "lbw"
     },
     {
