@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T04:19:52.437Z",
+  "updatedAt": "2026-09-21T08:20:15.042Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1185,6 +1185,19 @@
       "salaryExpect": "15~20K 13薪",
       "status": "已投递",
       "remark": "国聘网站\nhttps://c.iguopin.com/job/apply"
+    },
+    {
+      "id": "7c9c11b4-af08-4cb8-ae7c-0b9b4b7c5f65",
+      "updatedAt": 1789978774727,
+      "owner": "lbw",
+      "company": "中兴通讯",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-21",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/campus-recruitment/zte/46903#/candidateHome/applications"
     }
   ],
   "deletedRecords": {
