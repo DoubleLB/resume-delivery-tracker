@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T03:48:05.167Z",
+  "updatedAt": "2026-09-21T03:50:13.573Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -85,13 +85,13 @@
       "id": 6,
       "company": "海康威视",
       "companyType": "国企",
-      "companyLocation": "",
+      "companyLocation": "杭州、成都",
       "position": "FPGA工程师",
       "sendDate": "2026-08-26",
       "salaryExpect": "15K",
       "status": "面试",
       "remark": "https://campushr.hikvision.com/myDelivery\n一面：09-21 10:30~11:00\n主要问项目偏多，找一个参与最多的项目进行介绍，越详细越好，就开始一点一点询问。其中问到如何进行项目中的测试的，我回答了模块测试、板卡测试、时需优化。",
-      "updatedAt": 1789959107257,
+      "updatedAt": 1789962530000,
       "owner": "lbw"
     },
     {
