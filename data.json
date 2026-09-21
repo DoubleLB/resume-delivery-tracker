@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T09:54:08.400Z",
+  "updatedAt": "2026-09-21T12:29:24.077Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1006,7 +1006,7 @@
     },
     {
       "id": 1789485266593,
-      "updatedAt": 1789901588338,
+      "updatedAt": 1789993758284,
       "owner": "lbw",
       "company": "欣旺达",
       "companyType": "民企",
@@ -1014,7 +1014,7 @@
       "position": "测试工程师-功能-动力-西安",
       "sendDate": "2026-09-15",
       "salaryExpect": "12k~15k",
-      "status": "offer",
+      "status": "终面",
       "remark": "https://sunwodacampus.zhiye.com/personal/deliveryRecord\n09月18日 周五 16:00\n主要询问了MCU方面的东西\n9月19日 截至 AI面 18：55完成AI面试\n9月20日 HR开集体意向offer答疑会议。\n问HR：薪资待遇，每天的工作时间，薪资构成，是否属于研发，加班，补贴等等。"
     },
     {
