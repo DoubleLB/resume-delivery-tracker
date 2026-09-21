@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T00:35:08.860Z",
+  "updatedAt": "2026-09-21T00:42:11.873Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -967,14 +967,14 @@
     },
     {
       "id": 1789484177131,
-      "updatedAt": 1789484177131,
+      "updatedAt": 1789950920817,
       "company": "图为电气",
       "companyType": "民企",
       "companyLocation": "西安",
       "position": "技术服务工程师",
       "sendDate": "2026-09-15",
       "salaryExpect": "12k",
-      "status": "已投递",
+      "status": "拒绝/放弃",
       "remark": "邮箱投递 tw.hr@topologyco.com",
       "owner": "lbw"
     },
