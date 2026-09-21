@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T02:51:53.707Z",
+  "updatedAt": "2026-09-21T03:48:05.167Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1159,6 +1159,19 @@
       "salaryExpect": "15K",
       "status": "笔试",
       "remark": "地点：陕西省西安市长安区毕原二路3000号曲率引擎光子制造园一区13栋\n宣讲日期 2026年9月22日（星期二）宣讲时间 14:20 – 15:00 笔试时间15:40 – 16:20"
+    },
+    {
+      "id": "6a2f70ee-805d-4ddf-b1c5-4146f4319184",
+      "updatedAt": 1789962479538,
+      "owner": "lbw",
+      "company": "北京思昇科技",
+      "companyType": "民企",
+      "companyLocation": "北京",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-02",
+      "salaryExpect": "20~40K",
+      "status": "面试",
+      "remark": "BOSS投递\n9/24 下午面试"
     }
   ],
   "deletedRecords": {
