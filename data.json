@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-20T14:02:49.798Z",
+  "updatedAt": "2026-09-21T00:35:08.860Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1071,7 +1071,7 @@
     },
     {
       "id": "6df39f56-1639-409c-9761-245d1cada92b",
-      "updatedAt": 1789646166190,
+      "updatedAt": 1789950902891,
       "owner": "lbw",
       "company": "631所外包",
       "companyType": "民企",
@@ -1080,7 +1080,7 @@
       "sendDate": "2026-09-17",
       "salaryExpect": "10k",
       "status": "已投递",
-      "remark": "线下投递，632外包。"
+      "remark": "线下投递，631外包。"
     },
     {
       "id": "bc8ad4c7-c070-42ef-b007-89d3eac81915",
