@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T08:20:15.042Z",
+  "updatedAt": "2026-09-21T09:24:34.591Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1162,7 +1162,7 @@
     },
     {
       "id": "6a2f70ee-805d-4ddf-b1c5-4146f4319184",
-      "updatedAt": 1789962479538,
+      "updatedAt": 1789982634297,
       "owner": "lbw",
       "company": "北京思昇科技",
       "companyType": "民企",
@@ -1171,7 +1171,7 @@
       "sendDate": "2026-09-02",
       "salaryExpect": "20~40K",
       "status": "面试",
-      "remark": "BOSS投递\n9/24 下午面试"
+      "remark": "BOSS投递\n9/24 下午面试17：30~18：00"
     },
     {
       "id": "ebfa765f-3bbb-45f9-8352-e2b6ecce755c",
