@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T03:50:13.573Z",
+  "updatedAt": "2026-09-21T04:19:52.437Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -26,7 +26,7 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://app.mokahr.com/campus_apply/hytera/182194?recommendCode=DSJgA1m6#/candidateHome/applications",
-      "updatedAt": 1,
+      "updatedAt": 1789962952373,
       "owner": "lbw"
     },
     {
@@ -1172,6 +1172,19 @@
       "salaryExpect": "20~40K",
       "status": "面试",
       "remark": "BOSS投递\n9/24 下午面试"
+    },
+    {
+      "id": "ebfa765f-3bbb-45f9-8352-e2b6ecce755c",
+      "updatedAt": 1789964389530,
+      "owner": "lbw",
+      "company": "北方广电股份有限公司",
+      "companyType": "国企",
+      "companyLocation": "西安-新城区",
+      "position": "FPGA电路开发工程师(J14625)",
+      "sendDate": "2026-09-21",
+      "salaryExpect": "15~20K 13薪",
+      "status": "已投递",
+      "remark": "国聘网站\nhttps://c.iguopin.com/job/apply"
     }
   ],
   "deletedRecords": {
