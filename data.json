@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T09:24:34.591Z",
+  "updatedAt": "2026-09-21T09:26:03.217Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -103,8 +103,8 @@
       "sendDate": "2026-08-26",
       "salaryExpect": "15K",
       "status": "拒绝/放弃",
-      "remark": "https://novastar.zhiye.com/personal/deliveryRecord\n1-综合测评些许超时\n2-已发邮箱告知HR是否有影响，等待回复",
-      "updatedAt": 1789912963254,
+      "remark": "https://novastar.zhiye.com/personal/deliveryRecord\n1-综合测评些许超时\n2-已发邮箱告知HR是否有影响，等待回复\n9.21找导员给了简历，等待初筛",
+      "updatedAt": 1789982755971,
       "owner": "lbw"
     },
     {
@@ -648,9 +648,9 @@
       "position": "嵌入式软件、测试开发工程师",
       "sendDate": "2026-09-10",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "拒绝/放弃",
       "remark": "https://hr.teld.cn/recruit#/portal_job_list?job_class=_HB5_Y2FtcHVz&filter_dict=_HB5_eyJf!m9iX2NsYXNzIjoiY2FtcHVzIiwic2VsZWN0X2RlcGFydCI6bnVsbH0%253D",
-      "updatedAt": 1789054881811,
+      "updatedAt": 1789982701552,
       "owner": "lbw"
     },
     {
