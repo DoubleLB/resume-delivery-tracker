@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-21T12:32:15.999Z",
+  "updatedAt": "2026-09-22T08:20:53.466Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -980,7 +980,7 @@
     },
     {
       "id": 1789484952323,
-      "updatedAt": 1789484952323,
+      "updatedAt": 1790065209881,
       "owner": "lbw",
       "company": "西安乾景",
       "companyType": "民企",
@@ -989,7 +989,7 @@
       "sendDate": "2026-09-15",
       "salaryExpect": "10k",
       "status": "已投递",
-      "remark": "线下投递"
+      "remark": "西邮线下投递"
     },
     {
       "id": 1789484995959,
@@ -1149,7 +1149,7 @@
     },
     {
       "id": "23ec75c2-25ae-4024-8746-226e538de428",
-      "updatedAt": 1789901634932,
+      "updatedAt": 1790065244146,
       "owner": "lbw",
       "company": "西安乾景防务",
       "companyType": "民企",
@@ -1158,7 +1158,7 @@
       "sendDate": "2026-09-20",
       "salaryExpect": "15K",
       "status": "笔试",
-      "remark": "地点：陕西省西安市长安区毕原二路3000号曲率引擎光子制造园一区13栋\n宣讲日期 2026年9月22日（星期二）宣讲时间 14:20 – 15:00 笔试时间15:40 – 16:20"
+      "remark": "地点：陕西省西安市长安区毕原二路3000号曲率引擎光子制造园一区13栋\n宣讲日期 2026年9月22日（星期二）宣讲时间 14:20 – 15:00 笔试时间15:40 – 16:20\n15-20w 加班双休未知"
     },
     {
       "id": "6a2f70ee-805d-4ddf-b1c5-4146f4319184",
@@ -1198,6 +1198,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://app.mokahr.com/campus-recruitment/zte/46903#/candidateHome/applications"
+    },
+    {
+      "id": "8e57eaaf-c253-4107-bc21-df1183b537b6",
+      "updatedAt": 1790065143305,
+      "owner": "lbw",
+      "company": "铂力特",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-21",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://xablt.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
