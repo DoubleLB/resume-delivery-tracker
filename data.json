@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-22T08:20:53.466Z",
+  "updatedAt": "2026-09-22T09:56:11.175Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1211,6 +1211,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://xablt.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "7868a9f9-e371-462b-87a1-80c15c4d11d1",
+      "updatedAt": 1790070967994,
+      "owner": "lbw",
+      "company": "舜宇集团",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-22",
+      "salaryExpect": "15K",
+      "status": "简历筛选中",
+      "remark": "9.22日宣讲会线上投递：https://app.mokahr.com/m/campus-recruitment/sunnyoptical/45602?sourceToken=9166fe6b2361af02d089402345e9b05e#/home/candidate/history\n等待筛选"
     }
   ],
   "deletedRecords": {
