@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-23T02:33:47.484Z",
+  "updatedAt": "2026-09-23T03:10:48.472Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -467,8 +467,8 @@
       "sendDate": "2026-09-04",
       "salaryExpect": "15k",
       "status": "已投递",
-      "remark": "扫码投递",
-      "updatedAt": 1788516607843,
+      "remark": "扫码投递\nhttps://mp.weixin.qq.com/s/Rrc6FVQO-MFrPMXggAcWiw",
+      "updatedAt": 1790131848640,
       "owner": "lbw"
     },
     {
@@ -1237,6 +1237,84 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递：xiaoyuanzhaopin@shenglu.com"
+    },
+    {
+      "id": "4fbc8d9e-a39d-4393-96cf-8836eb87b6ae",
+      "updatedAt": 1790131259158,
+      "owner": "lbw",
+      "company": "先临三维",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://shining3d.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "b8575882-0e25-4617-ade0-708179113606",
+      "updatedAt": 1790131721538,
+      "owner": "lbw",
+      "company": "先导科技",
+      "companyType": "民企",
+      "companyLocation": "广东省·广州市·天河区",
+      "position": "FPGA工程师【半导体设备零部件-射频电源】(J17337)",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "简历筛选中",
+      "remark": "https://vital.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "26b38d28-2141-44da-ae3d-138d37909080",
+      "updatedAt": 1790132094893,
+      "owner": "lbw",
+      "company": "浙江赛思",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "官网：https://www.zjsaisi.com/campus-recruitment/"
+    },
+    {
+      "id": "e8217555-ca49-4a65-a323-e133f3c2d662",
+      "updatedAt": 1790132394322,
+      "owner": "lbw",
+      "company": "深视智能",
+      "companyType": "民企",
+      "companyLocation": "深圳",
+      "position": "FPGA工程师（27届校招）",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://cnsszn.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "1c512992-aef5-48da-938b-bb9f4c054f79",
+      "updatedAt": 1790132901574,
+      "owner": "lbw",
+      "company": "迅芯微电子",
+      "companyType": "民企",
+      "companyLocation": "苏州、西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：hr@acelamicro.com"
+    },
+    {
+      "id": "eedeef77-c03d-4cc7-91ce-37757e312733",
+      "updatedAt": 1790133044744,
+      "owner": "lbw",
+      "company": "无锡卓海科技",
+      "companyType": "民企",
+      "companyLocation": "无锡",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "公告：https://mp.weixin.qq.com/s/1LZvHy-i-bnYSwjakjvuww"
     }
   ],
   "deletedRecords": {
