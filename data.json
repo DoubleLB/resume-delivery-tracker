@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-22T13:10:11.632Z",
+  "updatedAt": "2026-09-23T02:29:16.012Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1224,6 +1224,19 @@
       "salaryExpect": "15K",
       "status": "简历筛选中",
       "remark": "9.22日宣讲会线上投递：https://app.mokahr.com/m/campus-recruitment/sunnyoptical/45602?sourceToken=9166fe6b2361af02d089402345e9b05e#/home/candidate/history\n等待筛选"
+    },
+    {
+      "id": "0ecf1c4b-3c23-4d0b-8050-dd4a188b8acb",
+      "updatedAt": 1790130553163,
+      "owner": "lbw",
+      "company": "盛路通信",
+      "companyType": "民企",
+      "companyLocation": "佛山",
+      "position": "数字硬件与FPGA工程师",
+      "sendDate": "2026-09-22",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：xiaoyuanzhaopin@shenglu.com"
     }
   ],
   "deletedRecords": {
