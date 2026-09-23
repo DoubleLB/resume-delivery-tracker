@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-23T03:10:48.472Z",
+  "updatedAt": "2026-09-23T03:15:39.227Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1315,6 +1315,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "公告：https://mp.weixin.qq.com/s/1LZvHy-i-bnYSwjakjvuww"
+    },
+    {
+      "id": "60dffb33-3343-46b3-88d4-6c2480d1b2e1",
+      "updatedAt": 1790133168975,
+      "owner": "lbw",
+      "company": "凌久电子",
+      "companyType": "国企",
+      "companyLocation": "武汉",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "hr@cssc-lincom.cn"
+    },
+    {
+      "id": "c0c6fa55-1732-4ee7-a26e-e9e29615817e",
+      "updatedAt": 1790133336157,
+      "owner": "lbw",
+      "company": "绿盟科技",
+      "companyType": "民企",
+      "companyLocation": "成都",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/campus_apply/nsfocus/29118#/candidateHome/applications"
     }
   ],
   "deletedRecords": {
