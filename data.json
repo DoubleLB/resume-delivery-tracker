@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-23T03:39:25.372Z",
+  "updatedAt": "2026-09-23T09:14:50.017Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1279,7 +1279,7 @@
     },
     {
       "id": "e8217555-ca49-4a65-a323-e133f3c2d662",
-      "updatedAt": 1790132394322,
+      "updatedAt": 1790154802616,
       "owner": "lbw",
       "company": "深视智能",
       "companyType": "民企",
@@ -1287,7 +1287,7 @@
       "position": "FPGA工程师（27届校招）",
       "sendDate": "2026-09-23",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "简历筛选中",
       "remark": "https://cnsszn.zhiye.com/personal/deliveryRecord"
     },
     {
@@ -1354,6 +1354,19 @@
       "salaryExpect": "9-13k",
       "status": "已投递",
       "remark": "校园宣讲会；网申链接投递"
+    },
+    {
+      "id": "d2114eae-15a4-4584-ab74-619c41d07c9f",
+      "updatedAt": 1790152990404,
+      "owner": "lbw",
+      "company": "浙江水晶光电",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-23",
+      "salaryExpect": "15K",
+      "status": "简历筛选中",
+      "remark": "https://crystal-optech1.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
