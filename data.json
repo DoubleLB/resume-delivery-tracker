@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-23T02:29:16.012Z",
+  "updatedAt": "2026-09-23T02:33:47.484Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -674,9 +674,9 @@
       "position": "嵌入式软件工程师",
       "sendDate": "2026-09-10",
       "salaryExpect": "15K",
-      "status": "面试",
+      "status": "拒绝/放弃",
       "remark": "参加宣讲会：9/11 教四 C607\n线下面试：ADC状态机、ADC芯片相关 滤波等等知识",
-      "updatedAt": 1789055649382,
+      "updatedAt": 1790130628312,
       "owner": "lbw"
     },
     {
