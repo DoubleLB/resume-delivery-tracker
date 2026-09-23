@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-23T09:14:50.017Z",
+  "updatedAt": "2026-09-23T09:17:00.798Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -102,9 +102,9 @@
       "position": "FPGA工程师",
       "sendDate": "2026-08-26",
       "salaryExpect": "15K",
-      "status": "拒绝/放弃",
-      "remark": "https://novastar.zhiye.com/personal/deliveryRecord\n1-综合测评些许超时\n2-已发邮箱告知HR是否有影响，等待回复\n9.21找导员给了简历，等待初筛",
-      "updatedAt": 1789982755971,
+      "status": "进入人才库",
+      "remark": "https://novastar.zhiye.com/personal/deliveryRecord\n1-综合测评些许超时\n2-已发邮箱告知HR是否有影响，等待回复\n9.21找导员给了简历，等待初筛\n9/23感谢信 可能综合测评未过",
+      "updatedAt": 1790155012400,
       "owner": "lbw"
     },
     {
