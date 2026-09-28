@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-28T08:15:40.927Z",
+  "updatedAt": "2026-09-28T08:59:57.436Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1448,7 +1448,7 @@
     },
     {
       "id": "5e0c63e4-f8bf-4b81-9a91-a725a3cd94d9",
-      "updatedAt": 1790583338808,
+      "updatedAt": 1790585986119,
       "owner": "lbw",
       "company": "佰维存储",
       "companyType": "民企",
@@ -1456,7 +1456,7 @@
       "position": "DRAM 介质分析工程师（27届校招）(J12043)",
       "sendDate": "2026-09-28",
       "salaryExpect": "15K",
-      "status": "待测评",
+      "status": "简历筛选中",
       "remark": "https://biwin1.zhiye.com/personal/deliveryRecord"
     }
   ],
