@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-28T08:59:57.436Z",
+  "updatedAt": "2026-09-28T09:23:22.318Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1458,6 +1458,19 @@
       "salaryExpect": "15K",
       "status": "简历筛选中",
       "remark": "https://biwin1.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "f2101d8e-7ebe-4752-8353-d53853485851",
+      "updatedAt": 1790587398758,
+      "owner": "lbw",
+      "company": "宸芯科技",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "通信IP设计工程师(J10196)",
+      "sendDate": "2026-09-28",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://morningcore.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
