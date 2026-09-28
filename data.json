@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-28T03:24:23.645Z",
+  "updatedAt": "2026-09-28T07:11:12.146Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -922,8 +922,8 @@
       "sendDate": "2026-09-14",
       "salaryExpect": "10k",
       "status": "简历筛选中",
-      "remark": "https://campus.geely.com/campus-recruitment/geely/78436?locale=zh-CN#/candidateHome/applications",
-      "updatedAt": 1789611208514,
+      "remark": "https://campus.geely.com/campus-recruitment/geely/78436?locale=zh-CN#/candidateHome/applications\n查看官网，与当前岗位不匹配，留意后续转岗",
+      "updatedAt": 1790579468480,
       "owner": "lbw"
     },
     {
