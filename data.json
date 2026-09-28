@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-28T07:11:12.146Z",
+  "updatedAt": "2026-09-28T08:15:40.927Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -103,8 +103,8 @@
       "sendDate": "2026-08-26",
       "salaryExpect": "15K",
       "status": "进入人才库",
-      "remark": "https://novastar.zhiye.com/personal/deliveryRecord\n1-综合测评些许超时\n2-已发邮箱告知HR是否有影响，等待回复\n9.21找导员给了简历，等待初筛\n9/23感谢信 可能综合测评未过",
-      "updatedAt": 1790155012400,
+      "remark": "https://novastar.zhiye.com/personal/deliveryRecord\n1-综合测评些许超时\n2-已发邮箱告知HR是否有影响，等待回复\n9.21找导员给了简历，等待初筛\n9/23感谢信 可能综合测评未过\n9/23 换199重新申请FPGA开发",
+      "updatedAt": 1790580800977,
       "owner": "lbw"
     },
     {
@@ -1432,6 +1432,32 @@
       "salaryExpect": "15K",
       "status": "简历筛选中",
       "remark": "微信问卷投递，等待AI初筛 邮箱投递：raco-zhaopin@racodf.com"
+    },
+    {
+      "id": "d14984aa-597d-4b22-a141-7d7701a9bb5a",
+      "updatedAt": 1790581660999,
+      "owner": "lbw",
+      "company": "智诚微电子",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "IC验证工程师",
+      "sendDate": "2026-09-28",
+      "salaryExpect": "8~12K",
+      "status": "已投递",
+      "remark": "邮箱投递：hr@intex-chip.com"
+    },
+    {
+      "id": "5e0c63e4-f8bf-4b81-9a91-a725a3cd94d9",
+      "updatedAt": 1790583338808,
+      "owner": "lbw",
+      "company": "佰维存储",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "DRAM 介质分析工程师（27届校招）(J12043)",
+      "sendDate": "2026-09-28",
+      "salaryExpect": "15K",
+      "status": "待测评",
+      "remark": "https://biwin1.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
