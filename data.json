@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-29T09:49:37.831Z",
+  "updatedAt": "2026-09-29T10:09:37.908Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1614,6 +1614,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "网投\n公告：https://mp.weixin.qq.com/s/6h25zdoPAfGh1LkBnkw3ew"
+    },
+    {
+      "id": "051d98ac-98fc-40a0-8f2d-8828ba011895",
+      "updatedAt": 1790676575515,
+      "owner": "lbw",
+      "company": "汇川技术",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "【27校招 - 供应链】过程测试开发工程师（储能，单板）",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://recruit.inovance.com/#/dashboard/applications"
     }
   ],
   "deletedRecords": {
