@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-29T08:32:55.380Z",
+  "updatedAt": "2026-09-29T08:38:16.483Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1549,6 +1549,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递hr@zhwld.com"
+    },
+    {
+      "id": "4c9492d9-066a-4bbf-aed6-6f94be3d8e5b",
+      "updatedAt": 1790670875109,
+      "owner": "lbw",
+      "company": "长广辰芯",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "杭州+FPGA工程师+李博文\n邮箱投递：hr-hz@gpixel.com"
+    },
+    {
+      "id": "6c8ee910-6b93-42a8-b89e-2e2eabd73fe6",
+      "updatedAt": 1790671086831,
+      "owner": "lbw",
+      "company": "芯矩科技",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://ec1bnau1io.feishu.cn/share/base/form/shrcnB6IuYR1XM54yVTRCZHFvXf"
     }
   ],
   "deletedRecords": {
