@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-29T08:24:51.764Z",
+  "updatedAt": "2026-09-29T08:32:55.380Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1523,6 +1523,32 @@
       "salaryExpect": "15K",
       "status": "简历筛选中",
       "remark": "https://galaxy.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "af20b02d-d402-4222-9c27-e98ad85561bb",
+      "updatedAt": 1790670478641,
+      "owner": "lbw",
+      "company": "南方测绘",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://southsurvey.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "52494242-3637-4654-812d-ca0d059109b8",
+      "updatedAt": 1790670773535,
+      "owner": "lbw",
+      "company": "万力达电气",
+      "companyType": "民企",
+      "companyLocation": "广州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递hr@zhwld.com"
     }
   ],
   "deletedRecords": {
