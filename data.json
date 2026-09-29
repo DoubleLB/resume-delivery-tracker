@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-29T08:16:30.197Z",
+  "updatedAt": "2026-09-29T08:24:51.764Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1201,7 +1201,7 @@
     },
     {
       "id": "8e57eaaf-c253-4107-bc21-df1183b537b6",
-      "updatedAt": 1790065143305,
+      "updatedAt": 1790670284390,
       "owner": "lbw",
       "company": "铂力特",
       "companyType": "民企",
@@ -1209,7 +1209,7 @@
       "position": "FPGA工程师",
       "sendDate": "2026-09-21",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "简历筛选中",
       "remark": "https://xablt.zhiye.com/personal/deliveryRecord"
     },
     {
@@ -1510,6 +1510,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://haige.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "98a58f2d-997b-4397-8cd4-caef216a7f77",
+      "updatedAt": 1790670099243,
+      "owner": "lbw",
+      "company": "银河航天",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "简历筛选中",
+      "remark": "https://galaxy.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
