@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-29T06:21:25.665Z",
+  "updatedAt": "2026-09-29T08:16:30.197Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -141,9 +141,9 @@
       "position": "FPGA工程师",
       "sendDate": "2026-08-28",
       "salaryExpect": "15K",
-      "status": "简历筛选中",
+      "status": "拒绝/放弃",
       "remark": "",
-      "updatedAt": 1787902958041,
+      "updatedAt": 1790652765647,
       "owner": "lbw"
     },
     {
@@ -167,9 +167,9 @@
       "position": "自动驾驶硬件工程师岗位",
       "sendDate": "2026-08-31",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "拒绝/放弃",
       "remark": "https://app.mokahr.com/social-recruitment/plus/73958#/candidateHome/applications",
-      "updatedAt": 1788159070598,
+      "updatedAt": 1790652786954,
       "owner": "lbw"
     },
     {
@@ -1461,7 +1461,7 @@
     },
     {
       "id": "f2101d8e-7ebe-4752-8353-d53853485851",
-      "updatedAt": 1790587398758,
+      "updatedAt": 1790669287753,
       "owner": "lbw",
       "company": "宸芯科技",
       "companyType": "民企",
@@ -1469,8 +1469,47 @@
       "position": "通信IP设计工程师(J10196)",
       "sendDate": "2026-09-28",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "简历筛选中",
       "remark": "https://morningcore.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "b211ad53-b073-4617-b02a-a06b174289e4",
+      "updatedAt": 1790587794946,
+      "owner": "lbw",
+      "company": "西安安泰电子科技",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "技术支持工程师",
+      "sendDate": "2026-09-28",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：aigtekhr@aigtek.com"
+    },
+    {
+      "id": "be2a91cc-fd08-4cda-8f23-6909624060c1",
+      "updatedAt": 1790669259933,
+      "owner": "lbw",
+      "company": "深圳市汉森软件",
+      "companyType": "民企",
+      "companyLocation": "深圳",
+      "position": "逻辑开发工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K~20K",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/campus-recruitment/hosonsoft/96288#/candidateHome/applications"
+    },
+    {
+      "id": "58601e74-ba75-4f8f-9fff-b8e5a1994388",
+      "updatedAt": 1790669786835,
+      "owner": "lbw",
+      "company": "海格通信",
+      "companyType": "国企",
+      "companyLocation": "广州、南京",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://haige.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
