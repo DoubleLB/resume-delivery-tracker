@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-29T09:41:03.706Z",
+  "updatedAt": "2026-09-29T09:49:37.831Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1601,6 +1601,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://rigolportal.jobs.feishu.cn/campus/position/application"
+    },
+    {
+      "id": "868a8a3b-9cf8-4458-829a-0f234b8015d0",
+      "updatedAt": 1790675374798,
+      "owner": "lbw",
+      "company": "武汉多谱多勒科技有限公司",
+      "companyType": "民企",
+      "companyLocation": "武汉",
+      "position": "FPGA工程师（实习/应届）",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "网投\n公告：https://mp.weixin.qq.com/s/6h25zdoPAfGh1LkBnkw3ew"
     }
   ],
   "deletedRecords": {
