@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-29T08:38:16.483Z",
+  "updatedAt": "2026-09-29T09:27:07.246Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1575,6 +1575,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://ec1bnau1io.feishu.cn/share/base/form/shrcnB6IuYR1XM54yVTRCZHFvXf"
+    },
+    {
+      "id": "db8bedfb-501d-43d3-877a-580765a5bb81",
+      "updatedAt": 1790671387615,
+      "owner": "lbw",
+      "company": "远宽能源",
+      "companyType": "民企",
+      "companyLocation": "上海、西安、武汉",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "投递：https://jsj.top/f/n5SmSU?x_field_1=\n公告：https://mp.weixin.qq.com/s/A86mEhWM2zPti5OjJkR9jA"
+    },
+    {
+      "id": "8a1f7f23-7993-40ed-b33f-6345ca9f36e6",
+      "updatedAt": 1790674025093,
+      "owner": "lbw",
+      "company": "普源精电",
+      "companyType": "民企",
+      "companyLocation": "西安、苏州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-29",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://rigolportal.jobs.feishu.cn/campus/position/application"
     }
   ],
   "deletedRecords": {
