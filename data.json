@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-29T09:27:07.246Z",
+  "updatedAt": "2026-09-29T09:41:03.706Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1006,7 +1006,7 @@
     },
     {
       "id": 1789485266593,
-      "updatedAt": 1789993758284,
+      "updatedAt": 1790674860594,
       "owner": "lbw",
       "company": "欣旺达",
       "companyType": "民企",
@@ -1014,8 +1014,8 @@
       "position": "测试工程师-功能-动力-西安",
       "sendDate": "2026-09-15",
       "salaryExpect": "12k~15k",
-      "status": "终面",
-      "remark": "https://sunwodacampus.zhiye.com/personal/deliveryRecord\n09月18日 周五 16:00\n主要询问了MCU方面的东西\n9月19日 截至 AI面 18：55完成AI面试\n9月20日 HR开集体意向offer答疑会议。\n问HR：薪资待遇，每天的工作时间，薪资构成，是否属于研发，加班，补贴等等。"
+      "status": "offer",
+      "remark": "https://sunwodacampus.zhiye.com/personal/deliveryRecord\n09月18日 周五 16:00\n主要询问了MCU方面的东西\n9月19日 截至 AI面 18：55完成AI面试\n9月20日 HR开集体意向offer答疑会议。\n问HR：薪资待遇，每天的工作时间，薪资构成，是否属于研发，加班，补贴等等。\n9/29 HR电话联系薪资 基础+绩效；试用期9折；需要去深圳总部实习1~2个月或者三周；管中午的餐食，住宿需要申请不保证。稍后有被调邮件需要确认。"
     },
     {
       "id": 1789485453650,
