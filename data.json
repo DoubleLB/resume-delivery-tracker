@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-28T09:23:22.318Z",
+  "updatedAt": "2026-09-29T06:21:25.665Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -518,9 +518,9 @@
       "position": "FPGA工程师",
       "sendDate": "2026-09-08",
       "salaryExpect": "15K",
-      "status": "简历筛选中",
+      "status": "拒绝/放弃",
       "remark": "",
-      "updatedAt": 1789485533051,
+      "updatedAt": 1790662875186,
       "owner": "lbw"
     },
     {
@@ -661,9 +661,9 @@
       "position": "嵌入式软件工程师",
       "sendDate": "2026-09-10",
       "salaryExpect": "15K",
-      "status": "已投递",
+      "status": "拒绝/放弃",
       "remark": "https://jobs.ecoflow.com/602892/position/application?share_token=MzsxNzg3ODMxMTIwODQyOzc2Nzg1ODQ5MDcxOTA5Mjk3MTA7MDsxLzI",
-      "updatedAt": 1789055213908,
+      "updatedAt": 1790607329721,
       "owner": "lbw"
     },
     {
