@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T08:57:38.019Z",
+  "updatedAt": "2026-09-30T08:59:37.251Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -9,8 +9,10 @@
       "updatedAt": 0
     },
     "lbw": {
-      "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
-      "createdAt": "2026-09-15T14:49:45.4319781Z"
+      "passwordHash": "91b4d142823f7d20c5f08df69122de43f35f057a988d9619f6d3138485c9a203",
+      "createdAt": "2026-09-15T14:49:45.4319781Z",
+      "updatedAt": 1790758688381,
+      "revision": "aa0f84c3-8692-4017-9e7f-8068d2362a02"
     },
     "sunyu": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
