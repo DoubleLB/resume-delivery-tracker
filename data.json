@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T09:10:42.213Z",
+  "updatedAt": "2026-09-30T09:39:37.018Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1765,6 +1765,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递：recruitment@tenafe.com"
+    },
+    {
+      "id": "2183c6f9-4c31-463b-b627-6d5dee2b39bd",
+      "updatedAt": 1790761174004,
+      "owner": "lbw",
+      "company": "浙江华睿科技股份有限公司",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "简历筛选中",
+      "remark": "https://irayple.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
