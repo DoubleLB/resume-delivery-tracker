@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T04:02:19.780Z",
+  "updatedAt": "2026-09-30T04:09:00.367Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1653,6 +1653,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://hopewind.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "d555c022-73ff-4a87-a960-ecdb59306000",
+      "updatedAt": 1790741337531,
+      "owner": "lbw",
+      "company": "叩持电子",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "数字IC设计工程师、数字验证工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：hr_coachip@coachip.cn"
     }
   ],
   "deletedRecords": {
