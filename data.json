@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T08:59:37.251Z",
+  "updatedAt": "2026-09-30T09:07:28.852Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1739,6 +1739,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://app135149.dingtalkoxm.com/campus-recruitment/shengyu/100000319#/candidateHome/applications"
+    },
+    {
+      "id": "ff793d3b-d1df-4018-902a-ca71f0d037cd",
+      "updatedAt": 1790759244007,
+      "owner": "lbw",
+      "company": "氮星光联",
+      "companyType": "民企",
+      "companyLocation": "成都",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：rjye0352@histarlink.cn"
     }
   ],
   "deletedRecords": {
