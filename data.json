@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T10:09:56.740Z",
+  "updatedAt": "2026-09-30T10:13:55.534Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1843,6 +1843,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://hire.dingtalk.com/jobDetailRecommendShare?corpId=ding36dd1b1a0462e39c&jobId=jobIdafdb19b1865647059cba9698fb0ee648&referralUserId=17459148775841376&referralUserName=Demi&showmenu=false&dd_share=false"
+    },
+    {
+      "id": "c1520f09-9aab-4d0e-9dcb-7e61dfaf984a",
+      "updatedAt": 1790763231992,
+      "owner": "lbw",
+      "company": "纳睿雷达",
+      "companyType": "民企",
+      "companyLocation": "深圳",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：hr@naruida.com"
     }
   ],
   "deletedRecords": {
