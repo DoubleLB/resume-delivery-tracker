@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T10:01:22.563Z",
+  "updatedAt": "2026-09-30T10:07:09.796Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1817,6 +1817,19 @@
       "salaryExpect": "12K~20K",
       "status": "已投递",
       "remark": "邮箱投递：zyhdhr@zyhd.com.cn\n网申：https://hr.zyhd.com.cn/awm/hr/position/detail/178"
+    },
+    {
+      "id": "c979c66c-97bf-4c4f-abc2-8cd4bf76844c",
+      "updatedAt": 1790762826610,
+      "owner": "lbw",
+      "company": "敦泰电子",
+      "companyType": "民企",
+      "companyLocation": "深圳",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：career@focaltech-electronics.com"
     }
   ],
   "deletedRecords": {
