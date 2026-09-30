@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T08:12:50.163Z",
+  "updatedAt": "2026-09-30T08:14:53.205Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1084,7 +1084,7 @@
     },
     {
       "id": "bc8ad4c7-c070-42ef-b007-89d3eac81915",
-      "updatedAt": 1790221698585,
+      "updatedAt": 1790756087543,
       "owner": "lbw",
       "company": "上海汉得信息股份有限公司",
       "companyType": "民企",
@@ -1092,7 +1092,7 @@
       "position": "云解决方案工程师(J14679)",
       "sendDate": "2026-09-17",
       "salaryExpect": "6K-12K 元/月",
-      "status": "简历筛选中",
+      "status": "拒绝/放弃",
       "remark": "https://hand-china1.zhiye.com/personal/deliveryRecord"
     },
     {
