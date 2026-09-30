@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T09:59:03.717Z",
+  "updatedAt": "2026-09-30T10:01:22.563Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1804,6 +1804,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递：zhaopin@zhenxinkj.cn"
+    },
+    {
+      "id": "26ea8c45-50a3-4f88-a14c-a8f1727b1a71",
+      "updatedAt": 1790762479593,
+      "owner": "lbw",
+      "company": "武汉中元华电股份",
+      "companyType": "民企",
+      "companyLocation": "武汉",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "12K~20K",
+      "status": "已投递",
+      "remark": "邮箱投递：zyhdhr@zyhd.com.cn\n网申：https://hr.zyhd.com.cn/awm/hr/position/detail/178"
     }
   ],
   "deletedRecords": {
