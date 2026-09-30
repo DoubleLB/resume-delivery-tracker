@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T10:07:09.796Z",
+  "updatedAt": "2026-09-30T10:09:56.740Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1830,6 +1830,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递：career@focaltech-electronics.com"
+    },
+    {
+      "id": "eb58c705-e683-4490-b384-2a59b2cd0022",
+      "updatedAt": 1790762994326,
+      "owner": "lbw",
+      "company": "深圳市辰卓科技股份有限公司",
+      "companyType": "民企",
+      "companyLocation": "深圳",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://hire.dingtalk.com/jobDetailRecommendShare?corpId=ding36dd1b1a0462e39c&jobId=jobIdafdb19b1865647059cba9698fb0ee648&referralUserId=17459148775841376&referralUserName=Demi&showmenu=false&dd_share=false"
     }
   ],
   "deletedRecords": {
