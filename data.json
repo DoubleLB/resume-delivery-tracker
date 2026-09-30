@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T09:50:33.869Z",
+  "updatedAt": "2026-09-30T09:59:03.717Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -696,8 +696,8 @@
       "sendDate": "2026-09-12",
       "salaryExpect": "15K",
       "status": "待投递",
-      "remark": "http://s1semi.com/col.jsp?id=104\nhr@s1semi.com",
-      "updatedAt": 1789184698104,
+      "remark": "http://s1semi.com/col.jsp?id=104\n邮箱投递：hr@s1semi.com",
+      "updatedAt": 1790762237644,
       "owner": "lbw"
     },
     {
@@ -1430,7 +1430,7 @@
     },
     {
       "id": "0e740623-68b1-4ac1-a6b7-c140c21bd6f8",
-      "updatedAt": 1790170849746,
+      "updatedAt": 1790762248773,
       "owner": "lbw",
       "company": "理工雷科",
       "companyType": "民企",
@@ -1439,7 +1439,7 @@
       "sendDate": "2026-09-23",
       "salaryExpect": "15K",
       "status": "简历筛选中",
-      "remark": "微信问卷投递，等待AI初筛 邮箱投递：raco-zhaopin@racodf.com"
+      "remark": "微信问卷投递，等待AI初筛 \n邮箱投递：raco-zhaopin@racodf.com"
     },
     {
       "id": "d14984aa-597d-4b22-a141-7d7701a9bb5a",
@@ -1791,6 +1791,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递：cathy.li@interwiser.com"
+    },
+    {
+      "id": "0779cbd9-0a62-4170-abb3-233bb47709f6",
+      "updatedAt": 1790762283697,
+      "owner": "lbw",
+      "company": "成都振芯聚力",
+      "companyType": "民企",
+      "companyLocation": "成都",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：zhaopin@zhenxinkj.cn"
     }
   ],
   "deletedRecords": {
