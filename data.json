@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T07:13:51.932Z",
+  "updatedAt": "2026-09-30T07:28:32.236Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -103,8 +103,8 @@
       "sendDate": "2026-08-26",
       "salaryExpect": "15K",
       "status": "进入人才库",
-      "remark": "https://novastar.zhiye.com/personal/deliveryRecord\n1-综合测评些许超时\n2-已发邮箱告知HR是否有影响，等待回复\n9.21找导员给了简历，等待初筛\n9/23感谢信 可能综合测评未过\n9/23 换199重新申请FPGA开发",
-      "updatedAt": 1790580800977,
+      "remark": "https://novastar.zhiye.com/personal/deliveryRecord\n1-综合测评些许超时\n2-已发邮箱告知HR是否有影响，等待回复\n9.21找导员给了简历，等待初筛\n9/23感谢信 可能综合测评未过\n9/23 换199重新申请FPGA开发\n9/30 重发测评但是无法答题",
+      "updatedAt": 1790753249055,
       "owner": "lbw"
     },
     {
@@ -1357,12 +1357,12 @@
     },
     {
       "id": "d2114eae-15a4-4584-ab74-619c41d07c9f",
-      "updatedAt": 1790152990404,
+      "updatedAt": 1790753178718,
       "owner": "lbw",
       "company": "浙江水晶光电",
       "companyType": "民企",
       "companyLocation": "杭州",
-      "position": "FPGA工程师",
+      "position": "软件工程师",
       "sendDate": "2026-09-23",
       "salaryExpect": "15K",
       "status": "简历筛选中",
@@ -1666,6 +1666,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递：hr_coachip@coachip.cn"
+    },
+    {
+      "id": "91e715a4-c2dd-4a0a-b28d-8a874010d91d",
+      "updatedAt": 1790752690971,
+      "owner": "lbw",
+      "company": "领慧立芯",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "数字IC验证/设计工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：hr@legendsemi.com"
+    },
+    {
+      "id": "d9ea3c6f-77aa-4f6c-8438-db31be0e8845",
+      "updatedAt": 1790753307063,
+      "owner": "lbw",
+      "company": "星际智装",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "产品测试岗",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：gurunqi@i-space.com.cn"
     }
   ],
   "deletedRecords": {
