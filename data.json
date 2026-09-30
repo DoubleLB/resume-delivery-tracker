@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T09:39:37.018Z",
+  "updatedAt": "2026-09-30T09:50:33.869Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -533,7 +533,7 @@
     },
     {
       "id": 1788958004739,
-      "company": "彼睿",
+      "company": "西安彼睿电子",
       "companyType": "民企",
       "companyLocation": "西安",
       "position": "FPGA工程师",
@@ -541,7 +541,7 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "线下投递",
-      "updatedAt": 1788958004739,
+      "updatedAt": 1790761810288,
       "owner": "lbw"
     },
     {
@@ -1778,6 +1778,19 @@
       "salaryExpect": "15K",
       "status": "简历筛选中",
       "remark": "https://irayple.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "8932a728-6344-46c8-a2dc-caab2bd1325a",
+      "updatedAt": 1790761832261,
+      "owner": "lbw",
+      "company": "西安彼睿电子",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：cathy.li@interwiser.com"
     }
   ],
   "deletedRecords": {
