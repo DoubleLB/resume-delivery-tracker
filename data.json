@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T07:28:32.236Z",
+  "updatedAt": "2026-09-30T08:12:50.163Z",
   "accounts": {
     "lbw": {
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
@@ -1692,6 +1692,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递：gurunqi@i-space.com.cn"
+    },
+    {
+      "id": "94dd90ec-5cb2-4bf2-8451-5603a860e73b",
+      "updatedAt": 1790753714186,
+      "owner": "lbw",
+      "company": "华航唯实",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "测试工程师、技术应用工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：zhaopin@chlrob.com"
+    },
+    {
+      "id": "d64e5aab-2537-4279-bea3-dedc0b42fc98",
+      "updatedAt": 1790754208403,
+      "owner": "lbw",
+      "company": "速腾聚创",
+      "companyType": "民企",
+      "companyLocation": "深圳",
+      "position": "FPGA工程师",
+      "sendDate": "2026-09-30",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/campus-recruitment/robosense/69887#/candidateHome/applications"
     }
   ],
   "deletedRecords": {
