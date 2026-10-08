@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-08T03:24:46.185Z",
+  "updatedAt": "2026-10-08T03:32:13.864Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1869,6 +1869,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://univista-isg.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "4f269153-3381-4650-9252-0bb5a27ecf7a",
+      "updatedAt": 1791430331275,
+      "owner": "lbw",
+      "company": "中国华能",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "锅炉设备及环保事业部-技术研发岗",
+      "sendDate": "2026-10-08",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://zhaopin.chng.com.cn/applyList"
     }
   ],
   "deletedRecords": {
