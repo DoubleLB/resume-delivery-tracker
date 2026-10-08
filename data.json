@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-09-30T10:13:55.534Z",
+  "updatedAt": "2026-10-08T03:24:46.185Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1856,6 +1856,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "邮箱投递：hr@naruida.com"
+    },
+    {
+      "id": "f6702762-3d2b-49dc-80b5-4af469862103",
+      "updatedAt": 1791429882469,
+      "owner": "lbw",
+      "company": "合见工软",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "硬件仿真验证工程师(J11019)",
+      "sendDate": "2026-10-08",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://univista-isg.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
