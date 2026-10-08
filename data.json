@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-08T03:32:13.864Z",
+  "updatedAt": "2026-10-08T08:53:15.686Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1882,6 +1882,45 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://zhaopin.chng.com.cn/applyList"
+    },
+    {
+      "id": "36f68cd1-6f7e-407d-b738-bc1db0949bf9",
+      "updatedAt": 1791448245156,
+      "owner": "lbw",
+      "company": "光引科技",
+      "companyType": "民企",
+      "companyLocation": "江苏",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-08",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：HR@glitterin.tech"
+    },
+    {
+      "id": "4fd4fc2b-7635-434d-8653-bc084e108929",
+      "updatedAt": 1791448541290,
+      "owner": "lbw",
+      "company": "新紫光前沿技术研究院",
+      "companyType": "民企",
+      "companyLocation": "成都",
+      "position": "EMU/FPGA原型验证工程师（27届校招）",
+      "sendDate": "2026-10-08",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://brightchip.jobs.feishu.cn/428482/position/application"
+    },
+    {
+      "id": "a35b6a59-2fa7-4915-8432-48571c6c330d",
+      "updatedAt": 1791449593070,
+      "owner": "lbw",
+      "company": "长虹电子科技有限公司",
+      "companyType": "国企",
+      "companyLocation": "成都",
+      "position": "FPGA开发工程师",
+      "sendDate": "2026-10-08",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://zhaopin.changhong.com/SU6886eae30287e94ac767de53/pb/account.html#/myDeliver"
     }
   ],
   "deletedRecords": {
