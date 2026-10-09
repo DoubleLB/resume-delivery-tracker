@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-09T11:10:26.347Z",
+  "updatedAt": "2026-10-09T11:12:25.664Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1947,6 +1947,19 @@
       "salaryExpect": "15K",
       "status": "简历筛选中",
       "remark": "应届生求职APP投递"
+    },
+    {
+      "id": "57cc4a2a-ffc1-4fc9-a14f-c41ae3b94d36",
+      "updatedAt": 1791544342928,
+      "owner": "lbw",
+      "company": "中国水电十五局",
+      "companyType": "国企",
+      "companyLocation": "全国",
+      "position": "项目组",
+      "sendDate": "2026-10-09",
+      "salaryExpect": "10~12w",
+      "status": "面试",
+      "remark": "10/9 线下招聘会投递简历，结束后面试：需要跟随项目进工地。"
     }
   ],
   "deletedRecords": {
