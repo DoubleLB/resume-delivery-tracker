@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-08T08:53:15.686Z",
+  "updatedAt": "2026-10-09T11:08:26.144Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1921,6 +1921,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://zhaopin.changhong.com/SU6886eae30287e94ac767de53/pb/account.html#/myDeliver"
+    },
+    {
+      "id": "2e469e54-7df6-48d5-a334-173aec73f463",
+      "updatedAt": 1791451048184,
+      "owner": "lbw",
+      "company": "零跑",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "BMS系统工程师",
+      "sendDate": "2026-10-08",
+      "salaryExpect": "200000",
+      "status": "已投递",
+      "remark": "https://leapmotor1.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
