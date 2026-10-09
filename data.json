@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-09T11:12:25.664Z",
+  "updatedAt": "2026-10-09T11:13:31.853Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1937,7 +1937,7 @@
     },
     {
       "id": "875d8292-0a11-4c54-af27-3b6fb47bb5a6",
-      "updatedAt": 1791544223315,
+      "updatedAt": 1791544399868,
       "owner": "lbw",
       "company": "文晔领科",
       "companyType": "民企",
@@ -1946,7 +1946,7 @@
       "sendDate": "2026-10-09",
       "salaryExpect": "15K",
       "status": "简历筛选中",
-      "remark": "应届生求职APP投递"
+      "remark": "应届生求职APP投递、10/9日完成线上测评。"
     },
     {
       "id": "57cc4a2a-ffc1-4fc9-a14f-c41ae3b94d36",
