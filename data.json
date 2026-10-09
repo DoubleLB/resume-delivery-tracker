@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-09T11:53:20.669Z",
+  "updatedAt": "2026-10-09T11:54:21.477Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1963,7 +1963,7 @@
     },
     {
       "id": "198c6422-a8b9-4c3b-8a8c-c20acb889095",
-      "updatedAt": 1791546798716,
+      "updatedAt": 1791546837747,
       "owner": "lbw",
       "company": "中国五矿钢铁",
       "companyType": "国企",
@@ -1972,7 +1972,7 @@
       "sendDate": "2026-10-09",
       "salaryExpect": "15K",
       "status": "已投递",
-      "remark": "微信扫码投递"
+      "remark": "微信扫码投递\nhttps://wecruit.hotjob.cn/SU62f37858bef57c29ead8adab/pb/account.html#/myDeliver"
     }
   ],
   "deletedRecords": {
