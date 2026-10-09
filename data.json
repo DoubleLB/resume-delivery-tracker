@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-09T11:08:26.144Z",
+  "updatedAt": "2026-10-09T11:10:26.347Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1934,6 +1934,19 @@
       "salaryExpect": "200000",
       "status": "已投递",
       "remark": "https://leapmotor1.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "875d8292-0a11-4c54-af27-3b6fb47bb5a6",
+      "updatedAt": 1791544223315,
+      "owner": "lbw",
+      "company": "文晔领科",
+      "companyType": "民企",
+      "companyLocation": "待填写",
+      "position": "销售工程师",
+      "sendDate": "2026-10-09",
+      "salaryExpect": "15K",
+      "status": "简历筛选中",
+      "remark": "应届生求职APP投递"
     }
   ],
   "deletedRecords": {
