@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-09T11:13:31.853Z",
+  "updatedAt": "2026-10-09T11:53:20.669Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1960,6 +1960,19 @@
       "salaryExpect": "10~12w",
       "status": "面试",
       "remark": "10/9 线下招聘会投递简历，结束后面试：需要跟随项目进工地。"
+    },
+    {
+      "id": "198c6422-a8b9-4c3b-8a8c-c20acb889095",
+      "updatedAt": 1791546798716,
+      "owner": "lbw",
+      "company": "中国五矿钢铁",
+      "companyType": "国企",
+      "companyLocation": "北京",
+      "position": "五矿钢铁管培生（职能方向）",
+      "sendDate": "2026-10-09",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "微信扫码投递"
     }
   ],
   "deletedRecords": {
