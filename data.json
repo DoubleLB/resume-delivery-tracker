@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-09T11:54:21.477Z",
+  "updatedAt": "2026-10-10T09:57:20.198Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1973,6 +1973,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "微信扫码投递\nhttps://wecruit.hotjob.cn/SU62f37858bef57c29ead8adab/pb/account.html#/myDeliver"
+    },
+    {
+      "id": "0f834a19-8f25-4946-b6e1-a59fefd5a1ea",
+      "updatedAt": 1791626219100,
+      "owner": "lbw",
+      "company": "杭州宇视科技",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-10",
+      "salaryExpect": "12~15K",
+      "status": "已投递",
+      "remark": "https://talent.uniview.com/wt/uniview/web/index/applyPositionN310!listApplyPosition?brandCode=1&operational=0f8fbe624fa80ecf2df533a8abb2002a35d9647e2f2fccca16bf01b327f00dfc748e525df9cce337d4b02d296825bdd2ee60dc66a033e17b7e6a129aa7f877cb2d303e06e7bff929d4558ed31ccfde97a747316ea0b028dc434e53fc1886970b"
     }
   ],
   "deletedRecords": {
