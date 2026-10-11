@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-11T10:59:33.033Z",
+  "updatedAt": "2026-10-11T11:02:57.084Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1999,6 +1999,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "西安西电高压套管有限公司、西安西电商业保理有限公司、西安宝光智能电气有限公司"
+    },
+    {
+      "id": "f0864e70-b984-4421-9def-336e22a3d623",
+      "updatedAt": 1791716575421,
+      "owner": "lbw",
+      "company": "翔腾微电子",
+      "companyType": "国企",
+      "companyLocation": "西安",
+      "position": "测试工程师（FPGA）",
+      "sendDate": "2026-10-11",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "应届生求职网投递"
     }
   ],
   "deletedRecords": {
