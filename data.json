@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-11T09:48:58.348Z",
+  "updatedAt": "2026-10-11T10:59:33.033Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1986,6 +1986,19 @@
       "salaryExpect": "12~15K",
       "status": "已投递",
       "remark": "https://talent.uniview.com/wt/uniview/web/index/applyPositionN310!listApplyPosition?brandCode=1&operational=0f8fbe624fa80ecf2df533a8abb2002a35d9647e2f2fccca16bf01b327f00dfc748e525df9cce337d4b02d296825bdd2ee60dc66a033e17b7e6a129aa7f877cb2d303e06e7bff929d4558ed31ccfde97a747316ea0b028dc434e53fc1886970b"
+    },
+    {
+      "id": "89880ecd-4a27-4a89-ab41-e96fb8338f0e",
+      "updatedAt": 1791716370478,
+      "owner": "lbw",
+      "company": "中国电气装备集团",
+      "companyType": "国企",
+      "companyLocation": "西安",
+      "position": "信息化工程师",
+      "sendDate": "2026-10-11",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "西安西电高压套管有限公司、西安西电商业保理有限公司、西安宝光智能电气有限公司"
     }
   ],
   "deletedRecords": {
