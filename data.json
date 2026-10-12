@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-12T02:51:51.943Z",
+  "updatedAt": "2026-10-12T03:28:13.696Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2064,6 +2064,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://zhono.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "3b163c6a-8b0e-46ea-837c-b039a08f9255",
+      "updatedAt": 1791773963961,
+      "owner": "lbw",
+      "company": "江苏华创微系统有限公司",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "数字前端设计工程师（SOC）",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://hcmicro.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "87df2f41-baad-4444-aeea-11dfd4c08b65",
+      "updatedAt": 1791775686232,
+      "owner": "lbw",
+      "company": "晶晨半导体",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "数字设计工程师",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://amlogicsh.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
