@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-11T14:57:07.486Z",
+  "updatedAt": "2026-10-12T02:51:51.943Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2012,6 +2012,58 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "应届生求职网投递"
+    },
+    {
+      "id": "a03e701d-2a41-4c7d-b834-9cf1275bc560",
+      "updatedAt": 1791769991584,
+      "owner": "lbw",
+      "company": "宇称电子",
+      "companyType": "民企",
+      "companyLocation": "杭州",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "邮箱投递：hr@microparity.com\nhttps://mp.weixin.qq.com/s/Oi2h9IMtiszXl3Pk7e2R1w"
+    },
+    {
+      "id": "f01186e3-7e6f-4068-88ab-b4f611927222",
+      "updatedAt": 1791770919362,
+      "owner": "lbw",
+      "company": "阿特拉斯 · 科普柯",
+      "companyType": "外企",
+      "companyLocation": "无锡",
+      "position": "测试工程培训生",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/campus-recruitment/atlascopcogroup/140454?locale=zh-CN#/candidateHome/applications"
+    },
+    {
+      "id": "9f4dbed2-af0d-491d-ad2b-8082d59eb77d",
+      "updatedAt": 1791773333677,
+      "owner": "lbw",
+      "company": "北极雄芯",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "数字IC验证工程师（西安）、数字IC设计工程师（西安）",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/campus-recruitment/bjxx/172674?locale=zh-CN#/candidateHome/applications"
+    },
+    {
+      "id": "34d669ba-5a6b-4540-95bf-7008b0a41dbb",
+      "updatedAt": 1791773505346,
+      "owner": "lbw",
+      "company": "广州众诺微电子",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "数字IC设计工程师（FPGA方向）",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://zhono.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
