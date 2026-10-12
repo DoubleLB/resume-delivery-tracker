@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-12T03:28:13.696Z",
+  "updatedAt": "2026-10-12T03:46:30.551Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -54,13 +54,13 @@
       "id": 3,
       "company": "itc保伦股份",
       "companyType": "民企",
-      "companyLocation": "",
+      "companyLocation": "广州",
       "position": "FPGA工程师",
       "sendDate": "2026-08-26",
       "salaryExpect": "15K",
       "status": "笔试",
       "remark": "https://hr.itc.vip/job/school.html",
-      "updatedAt": 1791712134165,
+      "updatedAt": 1791776787957,
       "owner": "lbw"
     },
     {
