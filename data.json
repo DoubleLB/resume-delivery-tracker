@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-12T09:08:31.457Z",
+  "updatedAt": "2026-10-12T09:22:11.063Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2116,6 +2116,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://unigroup-gt.zhiye.com/campus/detail?jobAdId=253db6ae-d1d0-43df-a8cc-2edd928b39fb"
+    },
+    {
+      "id": "3bd1fcf5-a2fa-4fca-b265-5b1694edd062",
+      "updatedAt": 1791796928584,
+      "owner": "lbw",
+      "company": "陕西烽火通信",
+      "companyType": "国企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/campus-recruitment/whfhtx/73922#/candidateHome/applications"
     }
   ],
   "deletedRecords": {
