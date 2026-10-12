@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-12T09:02:20.887Z",
+  "updatedAt": "2026-10-12T09:08:31.457Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2103,6 +2103,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://geg7eg8cyc.jobs.feishu.cn/615803/position/application"
+    },
+    {
+      "id": "e690c762-8020-4ee2-9865-078450a89471",
+      "updatedAt": 1791796108674,
+      "owner": "lbw",
+      "company": "格创通信",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "芯片设计验证工程师(J10024)",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://unigroup-gt.zhiye.com/campus/detail?jobAdId=253db6ae-d1d0-43df-a8cc-2edd928b39fb"
     }
   ],
   "deletedRecords": {
