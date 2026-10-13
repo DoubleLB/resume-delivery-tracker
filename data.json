@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-13T02:24:21.996Z",
+  "updatedAt": "2026-10-13T02:35:46.569Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2142,6 +2142,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://hkaco.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "5b963176-c4ca-4de8-b77e-17f8e7bb264b",
+      "updatedAt": 1791858944824,
+      "owner": "lbw",
+      "company": "长鑫存储",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "验证设计",
+      "sendDate": "2026-10-13",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://cxmt.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
