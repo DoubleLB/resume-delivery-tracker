@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-12T09:22:11.063Z",
+  "updatedAt": "2026-10-13T02:24:21.996Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2129,6 +2129,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://app.mokahr.com/campus-recruitment/whfhtx/73922#/candidateHome/applications"
+    },
+    {
+      "id": "27023f07-932a-4eb7-9879-4f1daa36ef88",
+      "updatedAt": 1791858256632,
+      "owner": "lbw",
+      "company": "广州虹科电子科技有限公司",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-12",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://hkaco.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
