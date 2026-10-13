@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-13T03:25:59.528Z",
+  "updatedAt": "2026-10-13T07:29:39.412Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -96,10 +96,10 @@
       "companyLocation": "杭州、成都",
       "position": "FPGA工程师",
       "sendDate": "2026-08-26",
-      "salaryExpect": "15K",
+      "salaryExpect": "18K~22K",
       "status": "二面",
       "remark": "https://campushr.hikvision.com/myDelivery\n一面：09-21 10:30~11:00\n主要问项目偏多，找一个参与最多的项目进行介绍，越详细越好，就开始一点一点询问。其中问到如何进行项目中的测试的，我回答了模块测试、板卡测试、时序优化。\n9/30 发邮件说修改面试站点，提交为西安，后续可能安排线下面试。\n10/15 15：35~16：00 线下面试：海康威视西安科技园D幢1楼",
-      "updatedAt": 1791861953480,
+      "updatedAt": 1791876572880,
       "owner": "lbw"
     },
     {
