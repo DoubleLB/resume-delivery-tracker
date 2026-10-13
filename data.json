@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-13T02:35:46.569Z",
+  "updatedAt": "2026-10-13T03:00:42.003Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -344,9 +344,9 @@
       "position": "硬件开发工程师（2027届）",
       "sendDate": "2026-09-03",
       "salaryExpect": "15k",
-      "status": "简历筛选中",
-      "remark": "",
-      "updatedAt": 1788421692325,
+      "status": "面试",
+      "remark": "https://app.mokahr.com/campus-recruitment/hq/44757#/candidateHome/applications\n10/14面试",
+      "updatedAt": 1791859446068,
       "owner": "lbw"
     },
     {
