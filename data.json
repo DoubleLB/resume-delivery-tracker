@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-14T06:42:12.904Z",
+  "updatedAt": "2026-10-14T06:44:50.568Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -345,8 +345,8 @@
       "sendDate": "2026-09-03",
       "salaryExpect": "15k",
       "status": "面试",
-      "remark": "https://app.mokahr.com/campus-recruitment/hq/44757#/candidateHome/applications\n10/14面试",
-      "updatedAt": 1791859446068,
+      "remark": "https://app.mokahr.com/campus-recruitment/hq/44757#/candidateHome/applications\n10/14面试 一面：问了项目，详细问了下，基础知识有BRAM、LUTRAM、DRAM等等RAM知识和使用情况；跨时钟域问题：50MHZ到25MHZ单比特如何跨时钟域，讲一下。",
+      "updatedAt": 1791960286339,
       "owner": "lbw"
     },
     {
