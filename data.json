@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-15T07:24:33.987Z",
+  "updatedAt": "2026-10-15T09:22:41.797Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2171,14 +2171,14 @@
     },
     {
       "id": "423f7db1-33e2-47a7-9e52-207dc2c7e224",
-      "updatedAt": 1792049032133,
+      "updatedAt": 1792055739439,
       "owner": "lbw",
       "company": "陕西凌云电器",
       "companyType": "民企",
       "companyLocation": "宝鸡",
       "position": "FPGA测试",
       "sendDate": "2026-10-15",
-      "salaryExpect": "8K",
+      "salaryExpect": "6K",
       "status": "已投递",
       "remark": "线下投递，内：不出差；外：出差"
     }
