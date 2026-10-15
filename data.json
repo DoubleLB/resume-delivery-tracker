@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-15T07:22:33.816Z",
+  "updatedAt": "2026-10-15T07:24:33.987Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -98,8 +98,8 @@
       "sendDate": "2026-08-26",
       "salaryExpect": "18K~22K",
       "status": "二面",
-      "remark": "https://campushr.hikvision.com/myDelivery\n一面：09-21 10:30~11:00\n主要问项目偏多，找一个参与最多的项目进行介绍，越详细越好，就开始一点一点询问。其中问到如何进行项目中的测试的，我回答了模块测试、板卡测试、时序优化。\n9/30 发邮件说修改面试站点，提交为西安，后续可能安排线下面试。\n10/15 15：35~16：00 线下面试：海康威视西安科技园D幢1楼 \nHR面：问我大四和研一的gap期间，杭州base地，期望薪资18K，在实习公司有什么收获等等，以及未来的发展。反问：1培养体系、2部门人数、3薪资福利",
-      "updatedAt": 1792048946306,
+      "remark": "https://campushr.hikvision.com/myDelivery\n一面：09-21 10:30~11:00\n主要问项目偏多，找一个参与最多的项目进行介绍，越详细越好，就开始一点一点询问。其中问到如何进行项目中的测试的，我回答了模块测试、板卡测试、时序优化。\n9/30 发邮件说修改面试站点，提交为西安，后续可能安排线下面试。\n10/15 15：35~16：00 线下面试：海康威视西安科技园D幢1楼 \nHR面：问我大四和研一的gap期间，杭州base地，期望薪资18K，在实习公司有什么收获等等，以及未来的发展。反问：1培养体系、2部门人数、3薪资福利 2～3周等结果。",
+      "updatedAt": 1792049070107,
       "owner": "lbw"
     },
     {
@@ -2155,6 +2155,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://cxmt.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "c6f2bbb5-2a4e-4d22-b090-f812057bfd5a",
+      "updatedAt": 1792048987832,
+      "owner": "lbw",
+      "company": "西安为光能源科技有限公司",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-11",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "10/15西理线下投递"
+    },
+    {
+      "id": "423f7db1-33e2-47a7-9e52-207dc2c7e224",
+      "updatedAt": 1792049032133,
+      "owner": "lbw",
+      "company": "陕西凌云电器",
+      "companyType": "民企",
+      "companyLocation": "宝鸡",
+      "position": "FPGA测试",
+      "sendDate": "2026-10-15",
+      "salaryExpect": "8K",
+      "status": "已投递",
+      "remark": "线下投递，内：不出差；外：出差"
     }
   ],
   "deletedRecords": {
