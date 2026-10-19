@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-19T09:07:52.754Z",
+  "updatedAt": "2026-10-19T09:21:16.306Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2181,6 +2181,19 @@
       "salaryExpect": "6K",
       "status": "已投递",
       "remark": "线下投递，内：不出差；外：出差"
+    },
+    {
+      "id": "e55a86fb-3b1f-4934-a5e3-e95fbf94311d",
+      "updatedAt": 1792401672967,
+      "owner": "lbw",
+      "company": "九院研发中心",
+      "companyType": "国企",
+      "companyLocation": "西安",
+      "position": "嵌入式硬件设计",
+      "sendDate": "2026-10-15",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://yfzx328.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
