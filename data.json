@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-19T09:21:16.306Z",
+  "updatedAt": "2026-10-20T02:41:51.262Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2158,7 +2158,7 @@
     },
     {
       "id": "c6f2bbb5-2a4e-4d22-b090-f812057bfd5a",
-      "updatedAt": 1792048987832,
+      "updatedAt": 1792463935369,
       "owner": "lbw",
       "company": "西安为光能源科技有限公司",
       "companyType": "民企",
@@ -2167,7 +2167,7 @@
       "sendDate": "2026-10-11",
       "salaryExpect": "15K",
       "status": "已投递",
-      "remark": "10/15西理线下投递"
+      "remark": "10/15西理线下投递\n10/20邮箱投递：wangxiaokang@weiguangenergy.com"
     },
     {
       "id": "423f7db1-33e2-47a7-9e52-207dc2c7e224",
@@ -2194,6 +2194,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://yfzx328.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "5a5560de-75a4-4790-95f8-713986b5ef97",
+      "updatedAt": 1792461257189,
+      "owner": "lbw",
+      "company": "联影医疗",
+      "companyType": "民企",
+      "companyLocation": "武汉",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-20",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://united-imaging.zhiye.com/personal/deliveryRecord"
     }
   ],
   "deletedRecords": {
