@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-20T02:41:51.262Z",
+  "updatedAt": "2026-10-20T02:50:09.140Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2158,7 +2158,7 @@
     },
     {
       "id": "c6f2bbb5-2a4e-4d22-b090-f812057bfd5a",
-      "updatedAt": 1792463935369,
+      "updatedAt": 1792464605848,
       "owner": "lbw",
       "company": "西安为光能源科技有限公司",
       "companyType": "民企",
