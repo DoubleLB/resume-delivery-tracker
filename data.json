@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-20T09:19:14.548Z",
+  "updatedAt": "2026-10-21T07:29:33.438Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2207,6 +2207,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://united-imaging.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "e750e675-e7ee-48de-bbcc-218affc066a1",
+      "updatedAt": 1792567649907,
+      "owner": "lbw",
+      "company": "北芯生物",
+      "companyType": "民企",
+      "companyLocation": "深圳",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-21",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://insight-med.zhiye.com/personal/deliveryRecord"
+    },
+    {
+      "id": "8eac81be-ef73-49f1-8c5d-f114430a37c0",
+      "updatedAt": 1792567768681,
+      "owner": "lbw",
+      "company": "大华机器人",
+      "companyType": "民企",
+      "companyLocation": "上海",
+      "position": "FPGA工程师",
+      "sendDate": "2026-10-21",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://app.mokahr.com/campus-recruitment/dhrobotics/168695?locale=zh-CN#/candidateHome/applications"
     }
   ],
   "deletedRecords": {
