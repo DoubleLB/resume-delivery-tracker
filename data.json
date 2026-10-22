@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-21T07:29:33.438Z",
+  "updatedAt": "2026-10-22T09:23:29.468Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2233,6 +2233,19 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "https://app.mokahr.com/campus-recruitment/dhrobotics/168695?locale=zh-CN#/candidateHome/applications"
+    },
+    {
+      "id": "bd352ea7-8ac5-483d-aa68-89562edc7e6d",
+      "updatedAt": 1792661004209,
+      "owner": "lbw",
+      "company": "立讯精密",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "研发岗",
+      "sendDate": "2026-10-21",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "已投递https://wecruit.hotjob.cn/SU601778b25d83dc072073230a/pb/account.html#/myDeliver"
     }
   ],
   "deletedRecords": {
