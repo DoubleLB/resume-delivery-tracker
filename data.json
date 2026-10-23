@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-23T02:54:12.606Z",
+  "updatedAt": "2026-10-23T06:35:40.869Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1378,7 +1378,7 @@
     },
     {
       "id": "bc958d8e-e4b1-4f7e-adc7-73e87018ecdf",
-      "updatedAt": 1790219257971,
+      "updatedAt": 1792724057683,
       "owner": "lbw",
       "company": "英维克",
       "companyType": "民企",
@@ -1386,7 +1386,7 @@
       "position": "软件测试工程师",
       "sendDate": "2026-09-23",
       "salaryExpect": "15K",
-      "status": "面试",
+      "status": "拒绝/放弃",
       "remark": "9/23 下午笔试 投递 线上投递\nhttps://envicool.zhiye.com/personal/deliveryRecord\n9/24 C608（四）面试：主要询问昨晚线下笔试的试卷，说我是几百的笔试中唯一一个全对的，现场让开始讲笔试上的问题思路。"
     },
     {
@@ -1950,7 +1950,7 @@
     },
     {
       "id": "57cc4a2a-ffc1-4fc9-a14f-c41ae3b94d36",
-      "updatedAt": 1791544342928,
+      "updatedAt": 1792724059427,
       "owner": "lbw",
       "company": "中国水电十五局",
       "companyType": "国企",
@@ -1958,7 +1958,7 @@
       "position": "项目组",
       "sendDate": "2026-10-09",
       "salaryExpect": "10~12w",
-      "status": "面试",
+      "status": "拒绝/放弃",
       "remark": "10/9 线下招聘会投递简历，结束后面试：需要跟随项目进工地。"
     },
     {
