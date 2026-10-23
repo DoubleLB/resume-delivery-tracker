@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-23T06:36:49.064Z",
+  "updatedAt": "2026-10-23T09:47:40.134Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -363,29 +363,16 @@
       "owner": "lbw"
     },
     {
-      "id": 1788426632687,
-      "company": "航天工业庆安",
-      "companyType": "国企",
-      "companyLocation": "西安",
-      "position": "硬件研发工程师(J10103)",
-      "sendDate": "2026-09-03",
-      "salaryExpect": "15K",
-      "status": "简历筛选中",
-      "remark": "https://qingan.zhiye.com/personal/deliveryRecord",
-      "updatedAt": 1788426632687,
-      "owner": "lbw"
-    },
-    {
       "id": 1788426653490,
       "company": "航天工业庆安",
       "companyType": "国企",
       "companyLocation": "西安",
-      "position": "智能制造工程师(J10055)",
+      "position": "智能制造工程师(J10055)、硬件研发工程师(J10103)",
       "sendDate": "2026-09-03",
       "salaryExpect": "15k",
-      "status": "简历筛选中",
-      "remark": "https://qingan.zhiye.com/personal/deliveryRecord",
-      "updatedAt": 1788426653490,
+      "status": "面试",
+      "remark": "https://qingan.zhiye.com/personal/deliveryRecord\n10/23 HR加微信，待后续面试通知",
+      "updatedAt": 1792748852566,
       "owner": "lbw"
     },
     {
@@ -2249,6 +2236,7 @@
     }
   ],
   "deletedRecords": {
+    "1788426632687": 1792748834470,
     "8b4810de-123c-4781-9989-e58fd6f0442e": 1789789076183,
     "1789484365207": 1789742296092
   },
