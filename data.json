@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-23T09:47:40.134Z",
+  "updatedAt": "2026-10-26T02:45:51.961Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1963,7 +1963,7 @@
     },
     {
       "id": "0f834a19-8f25-4946-b6e1-a59fefd5a1ea",
-      "updatedAt": 1792064832083,
+      "updatedAt": 1792982744176,
       "owner": "lbw",
       "company": "杭州宇视科技",
       "companyType": "民企",
@@ -1972,7 +1972,7 @@
       "sendDate": "2026-10-10",
       "salaryExpect": "12~15K",
       "status": "已投递",
-      "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus"
+      "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus\n10/26 10：15 业务面：1项目核心介绍。2核心介绍一下数据流。八股：3FIFO的种类、接口、具体是如何使用的，读这边怎么判断fifo有数据可以读了。4AXI三类的几种接口。5UART中如果从设备不知道主设备的波特率是多少应该如何去确认。6PS与PL的交互有哪些。"
     },
     {
       "id": "89880ecd-4a27-4a89-ab41-e96fb8338f0e",
