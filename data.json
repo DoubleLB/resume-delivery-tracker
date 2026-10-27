@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-26T16:46:33.811Z",
+  "updatedAt": "2026-10-27T02:34:43.148Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -371,8 +371,8 @@
       "sendDate": "2026-09-03",
       "salaryExpect": "15k",
       "status": "面试",
-      "remark": "https://qingan.zhiye.com/personal/deliveryRecord\n10/23 HR加微信，待后续面试通知",
-      "updatedAt": 1792748852566,
+      "remark": "https://qingan.zhiye.com/personal/deliveryRecord\n10/23 HR加微信，待后续面试通知\n10/27 15：40~15：40 面试",
+      "updatedAt": 1793068480001,
       "owner": "lbw"
     },
     {
