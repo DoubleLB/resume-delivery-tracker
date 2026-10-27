@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-27T03:00:52.356Z",
+  "updatedAt": "2026-10-27T08:02:54.353Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -371,8 +371,8 @@
       "sendDate": "2026-09-03",
       "salaryExpect": "9k",
       "status": "面试",
-      "remark": "https://qingan.zhiye.com/personal/deliveryRecord\n10/23 HR加微信，待后续面试通知\n10/27 15：40~15：40 面试",
-      "updatedAt": 1793068605040,
+      "remark": "https://qingan.zhiye.com/personal/deliveryRecord\n10/23 HR加微信，待后续面试通知\n10/27 15：40~15：40 面试\n问项目；开发过程中用到的软件；DDR的时序；总线接口了解哪些，用到的了哪些；问了一下ADC的时序了解吗，SPI你们是做主还是从还是都做；以及时序优化等等；仿真主要做了哪些；",
+      "updatedAt": 1793088170099,
       "owner": "lbw"
     },
     {
