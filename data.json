@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-27T08:22:13.573Z",
+  "updatedAt": "2026-10-27T09:04:16.993Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1963,7 +1963,7 @@
     },
     {
       "id": "0f834a19-8f25-4946-b6e1-a59fefd5a1ea",
-      "updatedAt": 1793070049521,
+      "updatedAt": 1793091839408,
       "owner": "lbw",
       "company": "杭州宇视科技",
       "companyType": "民企",
@@ -1972,7 +1972,7 @@
       "sendDate": "2026-10-10",
       "salaryExpect": "12~15K",
       "status": "已投递",
-      "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus\n10/26 10：15～10：40 宇视业务面\n1项目核心介绍。\n2核心介绍一下数据流。\n八股：\n3FIFO的种类、接口、具体是如何使用的，读这边怎么判断fifo有数据可以读了。\n4AXI三类的几种接口。\n5UART中如果从设备不知道主设备的波特率是多少应该如何去确认。\n6PS与PL的交互有哪些。\n7FPGA工程从写好到烧写bit流文件各个环节都经历了什么。\n8FPGA的内部资源有哪些。\n10/27 16：30～17：00 宇视素质面"
+      "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus\n10/26 10：15～10：40 宇视业务面\n1项目核心介绍。\n2核心介绍一下数据流。\n八股：\n3FIFO的种类、接口、具体是如何使用的，读这边怎么判断fifo有数据可以读了。\n4AXI三类的几种接口。\n5UART中如果从设备不知道主设备的波特率是多少应该如何去确认。\n6PS与PL的交互有哪些。\n7FPGA工程从写好到烧写bit流文件各个环节都经历了什么。\n8FPGA的内部资源有哪些。\n10/27 16：30～17：00 宇视素质面 单纯HR面"
     },
     {
       "id": "89880ecd-4a27-4a89-ab41-e96fb8338f0e",
