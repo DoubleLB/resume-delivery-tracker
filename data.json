@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-27T02:34:43.148Z",
+  "updatedAt": "2026-10-27T02:36:48.048Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -369,10 +369,10 @@
       "companyLocation": "西安",
       "position": "智能制造工程师(J10055)、硬件研发工程师(J10103)",
       "sendDate": "2026-09-03",
-      "salaryExpect": "15k",
+      "salaryExpect": "9k",
       "status": "面试",
       "remark": "https://qingan.zhiye.com/personal/deliveryRecord\n10/23 HR加微信，待后续面试通知\n10/27 15：40~15：40 面试",
-      "updatedAt": 1793068480001,
+      "updatedAt": 1793068605040,
       "owner": "lbw"
     },
     {
