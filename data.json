@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-29T09:16:02.545Z",
+  "updatedAt": "2026-10-29T09:24:29.573Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2249,7 +2249,7 @@
     },
     {
       "id": "dbc0dbf6-9538-41e4-beae-8a67b833d396",
-      "updatedAt": 1793265016952,
+      "updatedAt": 1793265866256,
       "owner": "lbw",
       "company": "法士特",
       "companyType": "国企",
@@ -2258,7 +2258,7 @@
       "sendDate": "2026-10-29",
       "salaryExpect": "年包13.3W",
       "status": "面试",
-      "remark": "10/29 14：00线下机电学院投递，现场面试。需要出差，跟随项目进行。"
+      "remark": "10/29 14：00线下机电学院投递，现场面试。需要出差，跟随项目进行。\n补测评"
     },
     {
       "id": "4ab3279f-b038-4aaf-844d-e10251b39096",
