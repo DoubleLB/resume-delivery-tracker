@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-29T02:13:18.804Z",
+  "updatedAt": "2026-10-29T09:10:20.279Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2233,6 +2233,32 @@
       "salaryExpect": "15K",
       "status": "已投递",
       "remark": "已投递https://wecruit.hotjob.cn/SU601778b25d83dc072073230a/pb/account.html#/myDeliver"
+    },
+    {
+      "id": "5f7a0bcb-d542-43ee-af40-0c5b3dec5eaf",
+      "updatedAt": 1793264934370,
+      "owner": "lbw",
+      "company": "H3C",
+      "companyType": "民企",
+      "companyLocation": "西安",
+      "position": "芯片开发设计工程师",
+      "sendDate": "2026-10-26",
+      "salaryExpect": "15K",
+      "status": "已投递",
+      "remark": "https://career.h3c.com/personal/deliveryRecord"
+    },
+    {
+      "id": "dbc0dbf6-9538-41e4-beae-8a67b833d396",
+      "updatedAt": 1793265016952,
+      "owner": "lbw",
+      "company": "法士特",
+      "companyType": "国企",
+      "companyLocation": "西安",
+      "position": "产品应用工程师",
+      "sendDate": "2026-10-29",
+      "salaryExpect": "年包13.3W",
+      "status": "面试",
+      "remark": "10/29 14：00线下机电学院投递，现场面试。需要出差，跟随项目进行。"
     }
   ],
   "deletedRecords": {
