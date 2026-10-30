@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-30T12:49:04.740Z",
+  "updatedAt": "2026-10-30T13:16:13.116Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -344,9 +344,9 @@
       "position": "硬件开发工程师（2027届）",
       "sendDate": "2026-09-03",
       "salaryExpect": "15k",
-      "status": "面试",
+      "status": "终面",
       "remark": "https://app.mokahr.com/campus-recruitment/hq/44757#/candidateHome/applications\n10/14面试 一面：问了项目，详细问了下，基础知识有BRAM、LUTRAM、DRAM等等RAM知识和使用情况；跨时钟域问题：50MHZ到25MHZ单比特如何跨时钟域，讲一下；Aurora 8B/10B编码的作用：避免连续的0和1导致数据的不确定性，难以采集，名词：直流平衡。\n二面：正常HR面\n终面：10/23 腾讯会议 14：15 \nDBG硬件，问了我的项目、项目中最难的事情、为什么选择华勤、后续的方向等等。",
-      "updatedAt": 1792737401206,
+      "updatedAt": 1793366130153,
       "owner": "lbw"
     },
     {
@@ -825,9 +825,9 @@
       "position": "硬件测试工程师（√）、软件测试工程师、应用开发工程师",
       "sendDate": "2026-09-14",
       "salaryExpect": "15k",
-      "status": "简历筛选中",
+      "status": "面试",
       "remark": "投递岗位：https://app.mokahr.com/campus-recruitment/longcheer/166561#/jobs?3511230=&page=1&anchorName=jobsList&location%5B0%5D=%E8%A5%BF%E5%AE%89%E5%B8%82\n查询状态：https://app.mokahr.com/campus-recruitment/longcheer/166561#/candidateHome/applications\n10/31 14：30 线下面试",
-      "updatedAt": 1793364540623,
+      "updatedAt": 1793366084178,
       "owner": "lbw"
     },
     {
@@ -1157,7 +1157,7 @@
     },
     {
       "id": "6a2f70ee-805d-4ddf-b1c5-4146f4319184",
-      "updatedAt": 1792388942548,
+      "updatedAt": 1793366139921,
       "owner": "lbw",
       "company": "北京思昇科技",
       "companyType": "民企",
@@ -1165,7 +1165,7 @@
       "position": "FPGA工程师",
       "sendDate": "2026-09-02",
       "salaryExpect": "20~40K",
-      "status": "面试",
+      "status": "二面",
       "remark": "BOSS投递\n9/24 下午面试17：30~18：00\n拷打：1如果我们需要接收许多通道的ADC数据连续的数据，你应该如何设计FPGA架构，数据保存在哪里，并且需要考虑如何判断是否出错。\n2你这个RTC时钟同步是如何如何同步AB两个通道的时钟的，比如说AB运行时间过长导致时钟偏移，这种情况你是如何解决的，怎么处理。\n3详细讲一下你的冗余管理、序列号校验、偏差检测。\n10/15 下午二面18：00 主要也是问项目，讲解了下EDE的项目架构"
     },
     {
@@ -1963,7 +1963,7 @@
     },
     {
       "id": "0f834a19-8f25-4946-b6e1-a59fefd5a1ea",
-      "updatedAt": 1793364518237,
+      "updatedAt": 1793366144509,
       "owner": "lbw",
       "company": "杭州宇视科技",
       "companyType": "民企",
@@ -1971,7 +1971,7 @@
       "position": "FPGA工程师",
       "sendDate": "2026-10-10",
       "salaryExpect": "12~15K",
-      "status": "已投递",
+      "status": "终面",
       "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus\n10/26 10：15～10：40 宇视业务面（线上）\n1项目核心介绍。\n2核心介绍一下数据流。\n八股：\n3FIFO的种类、接口、具体是如何使用的，读这边怎么判断fifo有数据可以读了。\n4AXI三类的几种接口。\n5UART中如果从设备不知道主设备的波特率是多少应该如何去确认。\n6PS与PL的交互有哪些。\n7FPGA工程从写好到烧写bit流文件各个环节都经历了什么。\n8FPGA的内部资源有哪些。\n10/27 16：30～17：00 宇视素质面（线上） 单纯HR面\n10/30 15：00 宇视综合面 纯聊天，然后问了我PS和PL的相关架构设计。薪资12+1K 五险一金全额缴纳单边12%。双休，一二四加班"
     },
     {
