@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-30T03:09:52.662Z",
+  "updatedAt": "2026-10-30T12:49:04.740Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -826,8 +826,8 @@
       "sendDate": "2026-09-14",
       "salaryExpect": "15k",
       "status": "简历筛选中",
-      "remark": "投递岗位：https://app.mokahr.com/campus-recruitment/longcheer/166561#/jobs?3511230=&page=1&anchorName=jobsList&location%5B0%5D=%E8%A5%BF%E5%AE%89%E5%B8%82\n查询状态：https://app.mokahr.com/campus-recruitment/longcheer/166561#/candidateHome/applications",
-      "updatedAt": 1789355152720,
+      "remark": "投递岗位：https://app.mokahr.com/campus-recruitment/longcheer/166561#/jobs?3511230=&page=1&anchorName=jobsList&location%5B0%5D=%E8%A5%BF%E5%AE%89%E5%B8%82\n查询状态：https://app.mokahr.com/campus-recruitment/longcheer/166561#/candidateHome/applications\n10/31 14：30 线下面试",
+      "updatedAt": 1793364540623,
       "owner": "lbw"
     },
     {
@@ -1963,7 +1963,7 @@
     },
     {
       "id": "0f834a19-8f25-4946-b6e1-a59fefd5a1ea",
-      "updatedAt": 1793329788895,
+      "updatedAt": 1793364518237,
       "owner": "lbw",
       "company": "杭州宇视科技",
       "companyType": "民企",
@@ -1972,7 +1972,7 @@
       "sendDate": "2026-10-10",
       "salaryExpect": "12~15K",
       "status": "已投递",
-      "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus\n10/26 10：15～10：40 宇视业务面（线上）\n1项目核心介绍。\n2核心介绍一下数据流。\n八股：\n3FIFO的种类、接口、具体是如何使用的，读这边怎么判断fifo有数据可以读了。\n4AXI三类的几种接口。\n5UART中如果从设备不知道主设备的波特率是多少应该如何去确认。\n6PS与PL的交互有哪些。\n7FPGA工程从写好到烧写bit流文件各个环节都经历了什么。\n8FPGA的内部资源有哪些。\n10/27 16：30～17：00 宇视素质面（线上） 单纯HR面\n10/30 15：00 宇视综合面"
+      "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus\n10/26 10：15～10：40 宇视业务面（线上）\n1项目核心介绍。\n2核心介绍一下数据流。\n八股：\n3FIFO的种类、接口、具体是如何使用的，读这边怎么判断fifo有数据可以读了。\n4AXI三类的几种接口。\n5UART中如果从设备不知道主设备的波特率是多少应该如何去确认。\n6PS与PL的交互有哪些。\n7FPGA工程从写好到烧写bit流文件各个环节都经历了什么。\n8FPGA的内部资源有哪些。\n10/27 16：30～17：00 宇视素质面（线上） 单纯HR面\n10/30 15：00 宇视综合面 纯聊天，然后问了我PS和PL的相关架构设计。薪资12+1K 五险一金全额缴纳单边12%。双休，一二四加班"
     },
     {
       "id": "89880ecd-4a27-4a89-ab41-e96fb8338f0e",
