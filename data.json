@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-30T13:16:13.116Z",
+  "updatedAt": "2026-10-31T08:32:48.088Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -345,8 +345,8 @@
       "sendDate": "2026-09-03",
       "salaryExpect": "15k",
       "status": "终面",
-      "remark": "https://app.mokahr.com/campus-recruitment/hq/44757#/candidateHome/applications\n10/14面试 一面：问了项目，详细问了下，基础知识有BRAM、LUTRAM、DRAM等等RAM知识和使用情况；跨时钟域问题：50MHZ到25MHZ单比特如何跨时钟域，讲一下；Aurora 8B/10B编码的作用：避免连续的0和1导致数据的不确定性，难以采集，名词：直流平衡。\n二面：正常HR面\n终面：10/23 腾讯会议 14：15 \nDBG硬件，问了我的项目、项目中最难的事情、为什么选择华勤、后续的方向等等。",
-      "updatedAt": 1793366130153,
+      "remark": "https://app.mokahr.com/campus-recruitment/hq/44757#/candidateHome/applications\n10/14面试 一面：问了项目，详细问了下，基础知识有BRAM、LUTRAM、DRAM等等RAM知识和使用情况；跨时钟域问题：50MHZ到25MHZ单比特如何跨时钟域，讲一下；Aurora 8B/10B编码的作用：避免连续的0和1导致数据的不确定性，难以采集，名词：直流平衡。\n二面：正常HR面\n终面：10/23 腾讯会议 14：15 \nDBG硬件，问了我的项目、项目中最难的事情、为什么选择华勤、后续的方向等等。\n10/30 补AI面",
+      "updatedAt": 1793435563250,
       "owner": "lbw"
     },
     {
