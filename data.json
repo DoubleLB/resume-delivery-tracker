@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-31T08:32:48.088Z",
+  "updatedAt": "2026-11-03T09:44:06.208Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -1196,7 +1196,7 @@
     },
     {
       "id": "8e57eaaf-c253-4107-bc21-df1183b537b6",
-      "updatedAt": 1790670284390,
+      "updatedAt": 1793699041543,
       "owner": "lbw",
       "company": "铂力特",
       "companyType": "民企",
@@ -1204,8 +1204,8 @@
       "position": "FPGA工程师",
       "sendDate": "2026-09-21",
       "salaryExpect": "15K",
-      "status": "简历筛选中",
-      "remark": "https://xablt.zhiye.com/personal/deliveryRecord"
+      "status": "面试",
+      "remark": "https://xablt.zhiye.com/personal/deliveryRecord\n111/3 17：20~17：40 一面 1、阻塞赋值、非阻塞赋值。\n2、同步复位、异步复位，异步复位同步释放。\n3、CDMA、DMA、XDMA的区别吗"
     },
     {
       "id": "7868a9f9-e371-462b-87a1-80c15c4d11d1",
