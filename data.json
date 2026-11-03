@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-03T09:57:09.301Z",
+  "updatedAt": "2026-11-03T09:58:04.650Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -163,8 +163,8 @@
       "sendDate": "2026-08-31",
       "salaryExpect": "15k",
       "status": "已投递",
-      "remark": "写有笔记记录\n11/3 简历初筛通过，预约面试\n11/4 线上面试待预约",
-      "updatedAt": 1793699818253,
+      "remark": "写有笔记记录\n11/3 简历初筛通过，预约面试\n11/4 线上面试 15：10",
+      "updatedAt": 1793699874070,
       "owner": "lbw"
     },
     {
