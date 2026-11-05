@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-04T09:13:38.123Z",
+  "updatedAt": "2026-11-05T09:59:02.472Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -343,10 +343,10 @@
       "companyLocation": "西安/无锡/南昌",
       "position": "硬件开发工程师（2027届）",
       "sendDate": "2026-09-03",
-      "salaryExpect": "15k",
+      "salaryExpect": "13K*15薪",
       "status": "终面",
       "remark": "https://app.mokahr.com/campus-recruitment/hq/44757#/candidateHome/applications\n10/14面试 一面：问了项目，详细问了下，基础知识有BRAM、LUTRAM、DRAM等等RAM知识和使用情况；跨时钟域问题：50MHZ到25MHZ单比特如何跨时钟域，讲一下；Aurora 8B/10B编码的作用：避免连续的0和1导致数据的不确定性，难以采集，名词：直流平衡。\n二面：正常HR面\n终面：10/23 腾讯会议 14：15 \nDBG硬件，问了我的项目、项目中最难的事情、为什么选择华勤、后续的方向等等。\n10/30 补AI面\n11/4 打电话联系HR，说下周给结果",
-      "updatedAt": 1793783613876,
+      "updatedAt": 1793869429659,
       "owner": "lbw"
     },
     {
@@ -827,7 +827,7 @@
       "salaryExpect": "15k",
       "status": "面试",
       "remark": "投递岗位：https://app.mokahr.com/campus-recruitment/longcheer/166561#/jobs?3511230=&page=1&anchorName=jobsList&location%5B0%5D=%E8%A5%BF%E5%AE%89%E5%B8%82\n查询状态：https://app.mokahr.com/campus-recruitment/longcheer/166561#/candidateHome/applications\n10/31 14：30 线下面试",
-      "updatedAt": 1793366084178,
+      "updatedAt": 1793869452412,
       "owner": "lbw"
     },
     {
