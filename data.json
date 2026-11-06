@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-05T09:59:02.472Z",
+  "updatedAt": "2026-11-06T08:12:23.727Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -2272,6 +2272,19 @@
       "salaryExpect": "10K",
       "status": "已投递",
       "remark": "http://bm.cpta.com.cn/yc2027/pages/personalCenter.html"
+    },
+    {
+      "id": "7f0656c4-60c4-4818-9117-acb5d359e88a",
+      "updatedAt": 1793952738524,
+      "owner": "lbw",
+      "company": "氦星光联",
+      "companyType": "民企",
+      "companyLocation": "眉山、重庆、上海",
+      "position": "FPGA工程师",
+      "sendDate": "2026-11-04",
+      "salaryExpect": "15K",
+      "status": "面试",
+      "remark": "11/6 一面 线上 15：30~15：50 问项目，ADC的分辨率、DDR的底层了解、PCIE的版本。"
     }
   ],
   "deletedRecords": {
