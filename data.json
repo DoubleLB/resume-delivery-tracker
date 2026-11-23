@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-12T03:15:07.298Z",
+  "updatedAt": "2026-11-23T06:37:52.857Z",
   "accounts": {
     "admin": {
       "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
@@ -344,9 +344,9 @@
       "position": "硬件开发工程师（2027届）",
       "sendDate": "2026-09-03",
       "salaryExpect": "13K*15薪",
-      "status": "终面",
+      "status": "offer",
       "remark": "https://app.mokahr.com/campus-recruitment/hq/44757#/candidateHome/applications\n10/14面试 一面：问了项目，详细问了下，基础知识有BRAM、LUTRAM、DRAM等等RAM知识和使用情况；跨时钟域问题：50MHZ到25MHZ单比特如何跨时钟域，讲一下；Aurora 8B/10B编码的作用：避免连续的0和1导致数据的不确定性，难以采集，名词：直流平衡。\n二面：正常HR面\n终面：10/23 腾讯会议 14：15 \nDBG硬件，问了我的项目、项目中最难的事情、为什么选择华勤、后续的方向等等。\n10/30 补AI面\n11/4 打电话联系HR，说下周给结果\n11/10 邮件offer＋学院三方协议",
-      "updatedAt": 1794453302856,
+      "updatedAt": 1795415776514,
       "owner": "lbw"
     },
     {
@@ -1963,7 +1963,7 @@
     },
     {
       "id": "0f834a19-8f25-4946-b6e1-a59fefd5a1ea",
-      "updatedAt": 1793366144509,
+      "updatedAt": 1795415760490,
       "owner": "lbw",
       "company": "杭州宇视科技",
       "companyType": "民企",
@@ -1971,8 +1971,8 @@
       "position": "FPGA工程师",
       "sendDate": "2026-10-10",
       "salaryExpect": "12~15K",
-      "status": "终面",
-      "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus\n10/26 10：15～10：40 宇视业务面（线上）\n1项目核心介绍。\n2核心介绍一下数据流。\n八股：\n3FIFO的种类、接口、具体是如何使用的，读这边怎么判断fifo有数据可以读了。\n4AXI三类的几种接口。\n5UART中如果从设备不知道主设备的波特率是多少应该如何去确认。\n6PS与PL的交互有哪些。\n7FPGA工程从写好到烧写bit流文件各个环节都经历了什么。\n8FPGA的内部资源有哪些。\n10/27 16：30～17：00 宇视素质面（线上） 单纯HR面\n10/30 15：00 宇视综合面 纯聊天，然后问了我PS和PL的相关架构设计。薪资12+1K 五险一金全额缴纳单边12%。双休，一二四加班"
+      "status": "offer",
+      "remark": "官网：https://talent.uniview.com/wt/uniview/web/index/campus\n10/26 10：15～10：40 宇视业务面（线上）\n1项目核心介绍。\n2核心介绍一下数据流。\n八股：\n3FIFO的种类、接口、具体是如何使用的，读这边怎么判断fifo有数据可以读了。\n4AXI三类的几种接口。\n5UART中如果从设备不知道主设备的波特率是多少应该如何去确认。\n6PS与PL的交互有哪些。\n7FPGA工程从写好到烧写bit流文件各个环节都经历了什么。\n8FPGA的内部资源有哪些。\n10/27 16：30～17：00 宇视素质面（线上） 单纯HR面\n10/30 15：00 宇视综合面 纯聊天，然后问了我PS和PL的相关架构设计。薪资12+1K 五险一金全额缴纳单边12%。双休，一二四加班\n11/23 录用offer12K+1K补贴。"
     },
     {
       "id": "89880ecd-4a27-4a89-ab41-e96fb8338f0e",
